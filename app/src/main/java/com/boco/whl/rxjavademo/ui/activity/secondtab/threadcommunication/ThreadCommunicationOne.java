@@ -3,6 +3,8 @@ package com.boco.whl.rxjavademo.ui.activity.secondtab.threadcommunication;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +34,14 @@ import butterknife.OnClick;
  * </pre>
  */
 public class ThreadCommunicationOne extends Activity {
+    @BindView(R.id.btn5)
+    Button btn5;
+    @BindView(R.id.btn6)
+    Button btn6;
+    @BindView(R.id.btn7)
+    Button btn7;
+    @BindView(R.id.btn8)
+    Button btn8;
     private Context context = ThreadCommunicationOne.this;
     @BindView(R.id.btn1)
     Button btn1;
@@ -41,6 +51,15 @@ public class ThreadCommunicationOne extends Activity {
     Button btn3;
     @BindView(R.id.btn4)
     Button btn4;
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what == 123) {
+                ToastUtils.showShort("我收到了子线程的handler消息");
+            }
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,11 +67,7 @@ public class ThreadCommunicationOne extends Activity {
         setContentView(R.layout.activity_threadcommunicationone);
         ButterKnife.bind(this);
         wayOne();
-        wayTwo();
-        wayThree();
-        wayFour();
-        wayFive();
-        waySex();
+
     }
 
     /**
@@ -68,6 +83,9 @@ public class ThreadCommunicationOne extends Activity {
         }).start();
     }
 
+    /**
+     * 管道通信
+     */
     private void wayTwo() {
         PipedOutputStream pos = new PipedOutputStream();
         PipedInputStream pis = new PipedInputStream();
@@ -81,11 +99,34 @@ public class ThreadCommunicationOne extends Activity {
 
     }
 
+    /**
+     * handler通信
+     */
     private void wayThree() {
-
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                handler.sendEmptyMessage(123);
+            }
+        }).start();
     }
 
+    /**
+     * runOnUIThread
+     */
     private void wayFour() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final String KEY = "oppo";
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ToastUtils.showShort("我来自子线程RunOnUIThread" + KEY);
+                    }
+                });
+            }
+        });
 
     }
 
@@ -98,7 +139,7 @@ public class ThreadCommunicationOne extends Activity {
     }
 
 
-    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4})
+    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn1:
@@ -106,11 +147,23 @@ public class ThreadCommunicationOne extends Activity {
                 ToastUtils.showShort(SharedPreferencesUtil.getPreLoginUserPhone(context));
                 break;
             case R.id.btn2:
-
+                wayTwo();
                 break;
             case R.id.btn3:
+                wayThree();
                 break;
             case R.id.btn4:
+                wayFour();
+                break;
+            case R.id.btn5:
+                wayFive();
+                break;
+            case R.id.btn6:
+                waySex();
+                break;
+            case R.id.btn7:
+                break;
+            case R.id.btn8:
                 break;
         }
     }

@@ -22,7 +22,7 @@ public class MyProducer extends Thread {
 
     @Override
     public void run() {
-        while (true) {
+        while (index < 5) {
             try {
                 for (int i = 0; i < 5; i++) {
                     outputStream.write(index++);

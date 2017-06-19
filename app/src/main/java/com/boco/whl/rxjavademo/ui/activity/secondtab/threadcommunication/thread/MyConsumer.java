@@ -23,20 +23,21 @@ public class MyConsumer extends Thread {
 
     @Override
     public void run() {
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        try {
-            int count = inputStream.available();
-            if (count > 0) {
-                LogUtil.d("rest product count: " + count);
-                LogUtil.d("get product: " + inputStream.read());
+        while (true) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            try {
+                int count = inputStream.available();
+                if (count > 0) {
+                    LogUtil.d("rest product count: " + count);
+                    LogUtil.d("get product: " + inputStream.read());
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
     }
 }
