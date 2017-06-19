@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">1213</string>
+    <string name="title_activity_show_image">ShowImageActivity</string>
+    <string name="title_activity_glide_test">GlideTestActivity</string>
+    <string name="title_activity_rxjava_test">RxjavaTestActivity</string>
+    <string name="search_hint">大家正在搜: retrofit</string>
+    <string name="title_activity_index">IndexActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_splash">SplashActivity</string>
+</resources>

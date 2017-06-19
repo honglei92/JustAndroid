@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myradio="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.boco.whl.rxjavademo.ui.activity.IndexActivity">
+
+    <FrameLayout
+        android:id="@+id/contentfragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/radiogroup"
+        android:background="#C8C8C8"/>
+
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#EEEEEE"
+        android:orientation="horizontal">
+
+        <com.boco.whl.rxjavademo.widgets.MyRadioButton
+            android:id="@+id/radio1"
+            style="@style/categoryradiobutton"
+            android:text="首页"
+            myradio:drawableSize="26dp"
+            myradio:drawableTop="@drawable/category_image_selector"/>
+
+        <com.boco.whl.rxjavademo.widgets.MyRadioButton
+            android:id="@+id/radio2"
+            style="@style/categoryradiobutton"
+            android:text="软件"
+            myradio:drawableSize="26dp"
+            myradio:drawableTop="@drawable/category_image_selector"/>
+
+        <com.boco.whl.rxjavademo.widgets.MyRadioButton
+            android:id="@+id/radio3"
+            style="@style/categoryradiobutton"
+            android:text="游戏"
+            myradio:drawableSize="26dp"
+            myradio:drawableTop="@drawable/category_image_selector"/>
+
+        <com.boco.whl.rxjavademo.widgets.MyRadioButton
+            android:id="@+id/radio4"
+            style="@style/categoryradiobutton"
+            android:text="排行"
+            myradio:drawableSize="26dp"
+            myradio:drawableTop="@drawable/category_image_selector"/>
+
+        <com.boco.whl.rxjavademo.widgets.MyRadioButton
+            android:id="@+id/radio5"
+            style="@style/categoryradiobutton"
+            android:text="我"
+            myradio:drawableSize="26dp"
+            myradio:drawableTop="@drawable/category_image_selector"/>
+    </RadioGroup>
+
+</RelativeLayout>
