@@ -17,7 +17,7 @@ import android.widget.RelativeLayout;
 import com.boco.whl.rxjavademo.R;
 import com.boco.whl.rxjavademo.sdk.eventbus.MessageEvent;
 import com.boco.whl.rxjavademo.ui.activity.firsttab.rxjava.RxImageActivity;
-import com.boco.whl.rxjavademo.ui.activity.firsttab.rxjava.RxjavaTestActivity;
+import com.boco.whl.rxjavademo.ui.activity.secondtab.eventtransmitmechanism.EventTransmitActivity;
 import com.boco.whl.rxjavademo.ui.activity.secondtab.threadcommunication.ThreadCommunicationOne;
 import com.boco.whl.rxjavademo.ui.adapter.CategoryItemAdapter;
 
@@ -77,7 +77,7 @@ public class SoftWareFragment extends Fragment {
     }
 
     private void initCatgory() {
-        String[] titles = {"线程间通信", "Software", "Software", "Software", "Software", "Software"};
+        String[] titles = {"线程间通信", "事件传递机制", "Software", "Software", "Software", "Software"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -89,7 +89,7 @@ public class SoftWareFragment extends Fragment {
                         startActivity(intent1);
                         break;
                     case 1:
-                        Intent intent2 = new Intent(getActivity(), RxjavaTestActivity.class);
+                        Intent intent2 = new Intent(getActivity(), EventTransmitActivity.class);
                         startActivity(intent2);
                         break;
                     case 2:

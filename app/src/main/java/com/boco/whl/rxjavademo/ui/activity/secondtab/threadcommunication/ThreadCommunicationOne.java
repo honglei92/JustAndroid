@@ -2,6 +2,7 @@ package com.boco.whl.rxjavademo.ui.activity.secondtab.threadcommunication;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,6 +15,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.boco.whl.rxjavademo.R;
 import com.boco.whl.rxjavademo.ui.activity.secondtab.threadcommunication.thread.MyConsumer;
 import com.boco.whl.rxjavademo.ui.activity.secondtab.threadcommunication.thread.MyProducer;
+import com.boco.whl.rxjavademo.utils.LogUtil;
 import com.boco.whl.rxjavademo.utils.SharedPreferencesUtil;
 
 import java.io.IOException;
@@ -60,6 +62,7 @@ public class ThreadCommunicationOne extends Activity {
             }
         }
     };
+    private static final String COMMUNICATION_ACTION = "action.communication";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -126,18 +129,60 @@ public class ThreadCommunicationOne extends Activity {
                     }
                 });
             }
-        });
+        }).start();
 
     }
 
+    /**
+     * postDelayed
+     */
     private void wayFive() {
-
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                LogUtil.d("post0  " + Thread.currentThread().getName());
+                new Handler(context.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        btn5.setText("postDelayed");
+                        btn5.setVisibility(View.VISIBLE);
+                        LogUtil.d("post1  " + Thread.currentThread().getName());
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                LogUtil.d("post2  " + Thread.currentThread().getName());
+                                btn5.setVisibility(View.GONE);
+                            }
+                        }, 2000);
+                    }
+                }, 1000);
+            }
+        }).start();
     }
 
     private void waySex() {
-
+        final Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                LogUtils.d("post", "Heart Beat!");
+                handler.postDelayed(this, 2000);
+            }
+        };
+        handler.postDelayed(runnable, 2000);
     }
 
+    private void waySeven() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent();
+                intent.setAction(COMMUNICATION_ACTION);
+                intent.putExtra("name", "peach form" + Thread.currentThread().getName());
+                sendBroadcast(intent);
+            }
+        }).start();
+    }
 
     @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8})
     public void onViewClicked(View view) {
@@ -162,9 +207,12 @@ public class ThreadCommunicationOne extends Activity {
                 waySex();
                 break;
             case R.id.btn7:
+                waySeven();
                 break;
             case R.id.btn8:
                 break;
         }
     }
+
+
 }

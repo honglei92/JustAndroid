@@ -200,14 +200,20 @@
         </activity>
         <activity android:name=".ui.activity.firsttab.mvpV2.CustomerActivity">
         </activity>
-        <activity android:name=".ui.activity.firsttab.kotlin.KotlinActivity">
-        </activity>
         <activity android:name=".ui.activity.firsttab.listview.ListTest">
         </activity>
         <activity android:name=".ui.activity.firsttab.imagecompress.ImageCompressActivity">
         </activity>
         <activity android:name=".ui.activity.secondtab.threadcommunication.ThreadCommunicationOne">
         </activity>
+        <activity android:name=".ui.activity.secondtab.eventtransmitmechanism.EventTransmitActivity">
+        </activity>
+
+        <receiver android:name=".ui.activity.secondtab.threadcommunication.broadcast.MyBroadCastReciever">
+            <intent-filter>
+                <action android:name="action.communication"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
