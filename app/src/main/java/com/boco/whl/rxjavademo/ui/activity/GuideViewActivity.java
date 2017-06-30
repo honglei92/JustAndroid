@@ -21,9 +21,9 @@ public class GuideViewActivity extends Activity {
 //    private int[] imageView = {R.drawable.yindaoye1, R.drawable.yindaoye2,
 //            R.drawable.yindaoye3, R.drawable.yindaoye4};
     private String[] imageView = {
-            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492342698186&di=92d3ec68658a0c01755186b5ae4b7515&imgtype=0&src=http%3A%2F%2Fd.5857.com%2Fjwn_151216%2F001.jpg",
+            "https://timgsa.baidu.com/advertising?image&quality=80&size=b9999_10000&sec=1492342698186&di=92d3ec68658a0c01755186b5ae4b7515&imgtype=0&src=http%3A%2F%2Fd.5857.com%2Fjwn_151216%2F001.jpg",
             "http://img.51ztzj.com/upload/image/20140710/sj201407101016_279x419.jpg",
-            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492343221418&di=1f3b1fdd42e479ee43fb1868311e9bfb&imgtype=0&src=http%3A%2F%2Fwww.sinaimg.cn%2Fdy%2Fslidenews%2F21_img%2F2015_46%2F41065_4617487_966410.jpg",
+            "https://timgsa.baidu.com/advertising?image&quality=80&size=b9999_10000&sec=1492343221418&di=1f3b1fdd42e479ee43fb1868311e9bfb&imgtype=0&src=http%3A%2F%2Fwww.sinaimg.cn%2Fdy%2Fslidenews%2F21_img%2F2015_46%2F41065_4617487_966410.jpg",
             "http://imgsrc.baidu.com/forum/pic/item/470eeac8a786c917096a5f54c83d70cf3ac757b2.jpg"};
     private List<View> list = new ArrayList<>();
     //立即进入按钮

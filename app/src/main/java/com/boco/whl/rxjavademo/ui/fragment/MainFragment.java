@@ -82,7 +82,7 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         unbinder = ButterKnife.bind(this, view);
-        Glide.with(getActivity()).load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492360831762&di=0ae748d3dba288e5ac3a1f046bdacc6c&imgtype=0&src=http%3A%2F%2Fnews.xinhuanet.com%2Fhouse%2Fwuxi%2F2013-12-26%2F118723855_111n.jpg").into(guideIv);
+        Glide.with(getActivity()).load("https://timgsa.baidu.com/advertising?image&quality=80&size=b9999_10000&sec=1492360831762&di=0ae748d3dba288e5ac3a1f046bdacc6c&imgtype=0&src=http%3A%2F%2Fnews.xinhuanet.com%2Fhouse%2Fwuxi%2F2013-12-26%2F118723855_111n.jpg").into(guideIv);
         initCatgory();
         return view;
     }

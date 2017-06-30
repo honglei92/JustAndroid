@@ -80,7 +80,7 @@ public class RxImageActivity extends Activity {
             Observable.create(new ObservableOnSubscribe<byte[]>() {
                 @Override
                 public void subscribe(@NonNull ObservableEmitter<byte[]> emitter) throws Exception {
-                    String uri = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490616135886&di=a6e90cd40cd274e9adde216c40a97321&imgtype=0&src=http%3A%2F%2Fimg1.gamedog.cn%2F2017%2F02%2F08%2F1418043-1F20P923180-50.jpg";
+                    String uri = "https://timgsa.baidu.com/advertising?image&quality=80&size=b9999_10000&sec=1490616135886&di=a6e90cd40cd274e9adde216c40a97321&imgtype=0&src=http%3A%2F%2Fimg1.gamedog.cn%2F2017%2F02%2F08%2F1418043-1F20P923180-50.jpg";
                     try {
                         URL url = new URL(uri);
                         HttpURLConnection conn = (HttpURLConnection) url.openConnection();

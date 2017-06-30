@@ -16,6 +16,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.boco.whl.rxjavademo.R.drawable.splash;
+
+
 public class SplashActivity extends Activity {
 
     @BindView(R.id.splash_iv)
@@ -23,14 +26,28 @@ public class SplashActivity extends Activity {
     @BindView(R.id.skip_tv)
     TextView skipTv;
     boolean isSkip = false;
+    int count = 3;
     private Handler mMainHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             if (!isSkip) {
-                IntentUT.getInstance().openActivity(SplashActivity.this, IndexActivity.class, true);
+                final Handler handler = new Handler();
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        Glide.with(SplashActivity.this).load(R.drawable.advertising).into(splashIv);
+                        skipTv.setText("跳过  " + count--);
+                        skipTv.setVisibility(View.VISIBLE);
+                        if (count > 0) {
+                            handler.postDelayed(this, 1000);
+                        }else {
+                            IntentUT.getInstance().openActivity(SplashActivity.this, IndexActivity.class, true);
+
+                        }
+                    }
+                };
+                handler.postDelayed(runnable, 1000);
             }
-            // overridePendingTransition must be called AFTER finish() or startActivity, or it won't work.
-//            overridePendingTransition(R.anim.activity_in, R.anim.splash_out);
         }
     };
 
@@ -40,12 +57,12 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         initView();
-        mMainHandler.sendEmptyMessageDelayed(0, 2000);
+        mMainHandler.sendEmptyMessageDelayed(0, 1000);
 
     }
 
     private void initView() {
-        Glide.with(this).load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492587773250&di=44a84307140e4ae5eb1cd9989b60011c&imgtype=0&src=http%3A%2F%2Fs2.sinaimg.cn%2Fmw690%2F005CHbPbgy71VAJKlYRb1%26690").into(splashIv);
+        Glide.with(this).load(splash).into(splashIv);
     }
 
     @OnClick({R.id.splash_iv, R.id.skip_tv})

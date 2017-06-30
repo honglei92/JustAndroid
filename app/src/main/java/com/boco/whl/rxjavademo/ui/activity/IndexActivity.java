@@ -9,7 +9,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 
-import com.blankj.utilcode.util.ToastUtils;
 import com.boco.whl.rxjavademo.R;
 import com.boco.whl.rxjavademo.ui.fragment.GameFragment;
 import com.boco.whl.rxjavademo.ui.fragment.MainFragment;
@@ -53,7 +52,6 @@ public class IndexActivity extends FragmentActivity implements MainFragment.OnFr
         JPushInterface.init(this);            // 初始化 JPush
         PermissionsUT.getInstance().checkPermissions(this, true);
         initView();
-        ToastUtils.showShort("我是来自android util");
     }
 
     private void initView() {

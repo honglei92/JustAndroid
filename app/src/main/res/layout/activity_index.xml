@@ -37,14 +37,14 @@
         <com.boco.whl.rxjavademo.widgets.MyRadioButton
             android:id="@+id/radio2"
             style="@style/categoryradiobutton"
-            android:text="软件"
+            android:text="原理"
             myradio:drawableSize="26dp"
             myradio:drawableTop="@drawable/category_image_selector"/>
 
         <com.boco.whl.rxjavademo.widgets.MyRadioButton
             android:id="@+id/radio3"
             style="@style/categoryradiobutton"
-            android:text="游戏"
+            android:text="组件"
             myradio:drawableSize="26dp"
             myradio:drawableTop="@drawable/category_image_selector"/>
 
