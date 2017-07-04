@@ -206,14 +206,16 @@
         </activity>
         <activity android:name=".ui.activity.secondtab.threadcommunication.ThreadCommunicationOne">
         </activity>
-        <activity android:name=".ui.activity.secondtab.eventtransmitmechanism.EventTransmitActivity">
-        </activity>
+        <activity android:name=".ui.activity.secondtab.eventtransmitmechanism.EventTransmitActivity"/>
 
         <receiver android:name=".ui.activity.secondtab.threadcommunication.broadcast.MyBroadCastReciever">
             <intent-filter>
                 <action android:name="action.communication"/>
             </intent-filter>
         </receiver>
+
+        <activity android:name=".ui.activity.component.PinnedSectionActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -15,11 +15,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.boco.whl.rxjavademo.R;
-import com.boco.whl.rxjavademo.ui.adapter.CategoryItemAdapter;
 import com.boco.whl.rxjavademo.sdk.eventbus.MessageEvent;
-import com.boco.whl.rxjavademo.ui.activity.firsttab.glide.GlideTestActivity;
-import com.boco.whl.rxjavademo.ui.activity.firsttab.rxjava.RxjavaTestActivity;
+import com.boco.whl.rxjavademo.ui.activity.component.PinnedSectionActivity;
 import com.boco.whl.rxjavademo.ui.activity.firsttab.rxjava.RxImageActivity;
+import com.boco.whl.rxjavademo.ui.activity.firsttab.rxjava.RxjavaTestActivity;
+import com.boco.whl.rxjavademo.ui.adapter.CategoryItemAdapter;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -27,7 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class GameFragment extends Fragment {
+public class ComponentFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     @BindView(R.id.queryimage)
@@ -45,11 +45,11 @@ public class GameFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public GameFragment() {
+    public ComponentFragment() {
     }
 
-    public static GameFragment newInstance(String param1, String param2) {
-        GameFragment fragment = new GameFragment();
+    public static ComponentFragment newInstance(String param1, String param2) {
+        ComponentFragment fragment = new ComponentFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -77,7 +77,7 @@ public class GameFragment extends Fragment {
     }
 
     private void initCatgory() {
-        String[] titles = {"Game", "Game", "Game", "Game", "Game", "Game"};
+        String[] titles = {"Pinned Section", "Game", "Game", "Game", "Game", "Game"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -85,7 +85,7 @@ public class GameFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
                     case 0:
-                        Intent intent1 = new Intent(getActivity(), GlideTestActivity.class);
+                        Intent intent1 = new Intent(getActivity(), PinnedSectionActivity.class);
                         startActivity(intent1);
                         break;
                     case 1:

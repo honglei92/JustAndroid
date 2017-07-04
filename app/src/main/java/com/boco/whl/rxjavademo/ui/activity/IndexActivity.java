@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 
 import com.boco.whl.rxjavademo.R;
-import com.boco.whl.rxjavademo.ui.fragment.GameFragment;
+import com.boco.whl.rxjavademo.ui.fragment.ComponentFragment;
 import com.boco.whl.rxjavademo.ui.fragment.MainFragment;
 import com.boco.whl.rxjavademo.ui.fragment.MyFragment;
 import com.boco.whl.rxjavademo.ui.fragment.RankFragment;
@@ -25,7 +25,7 @@ import cn.jpush.android.api.JPushInterface;
 public class IndexActivity extends FragmentActivity implements MainFragment.OnFragmentInteractionListener
         , MyFragment.OnFragmentInteractionListener
         , SoftWareFragment.OnFragmentInteractionListener
-        , GameFragment.OnFragmentInteractionListener
+        , ComponentFragment.OnFragmentInteractionListener
         , RankFragment.OnFragmentInteractionListener {
 
     @BindView(R.id.contentfragment)
@@ -95,7 +95,7 @@ public class IndexActivity extends FragmentActivity implements MainFragment.OnFr
                         radio4.setSelected(false);
                         radio5.setSelected(false);
                         FragmentTransaction transaction3 = manager.beginTransaction();
-                        GameFragment fragment3 = new GameFragment();
+                        ComponentFragment fragment3 = new ComponentFragment();
                         transaction3.replace(R.id.contentfragment, fragment3);
                         transaction3.commit();
                         break;
