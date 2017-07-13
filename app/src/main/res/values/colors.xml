@@ -8,4 +8,5 @@
     <color name="orange_light">#ffff4444</color>
     <color name="blue_light">#ffff4444</color>
     <color name="red_light">#ffff4444</color>
+    <color name="black">#ff000000</color>
 </resources>

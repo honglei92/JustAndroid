@@ -16,7 +16,6 @@ import com.boco.whl.rxjavademo.R;
 
 import java.util.Locale;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.halfbit.pinnedsection.PinnedSectionListView;
 

@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -17,8 +16,8 @@ import android.widget.RelativeLayout;
 import com.boco.whl.rxjavademo.R;
 import com.boco.whl.rxjavademo.sdk.eventbus.MessageEvent;
 import com.boco.whl.rxjavademo.ui.activity.component.PinnedSectionActivity;
+import com.boco.whl.rxjavademo.ui.activity.component.SlideTableActivity;
 import com.boco.whl.rxjavademo.ui.activity.firsttab.rxjava.RxImageActivity;
-import com.boco.whl.rxjavademo.ui.activity.firsttab.rxjava.RxjavaTestActivity;
 import com.boco.whl.rxjavademo.ui.adapter.CategoryItemAdapter;
 
 import org.greenrobot.eventbus.EventBus;
@@ -77,29 +76,26 @@ public class ComponentFragment extends Fragment {
     }
 
     private void initCatgory() {
-        String[] titles = {"Pinned Section", "Game", "Game", "Game", "Game", "Game"};
+        String[] titles = {"Pinned Section", "SlideTable", "Game", "Game", "Game", "Game"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
-        category.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i) {
-                    case 0:
-                        Intent intent1 = new Intent(getActivity(), PinnedSectionActivity.class);
-                        startActivity(intent1);
-                        break;
-                    case 1:
-                        Intent intent2 = new Intent(getActivity(), RxjavaTestActivity.class);
-                        startActivity(intent2);
-                        break;
-                    case 2:
-                        EventBus.getDefault().post(new MessageEvent("afs win"));
-                        break;
-                    case 3:
-                        Intent intent = new Intent(getActivity(), RxImageActivity.class);
-                        startActivity(intent);
-                        break;
-                }
+        category.setOnItemClickListener((adapterView, view, i, l) -> {
+            switch (i) {
+                case 0:
+                    Intent intent1 = new Intent(getActivity(), PinnedSectionActivity.class);
+                    startActivity(intent1);
+                    break;
+                case 1:
+                    Intent intent2 = new Intent(getActivity(), SlideTableActivity.class);
+                    startActivity(intent2);
+                    break;
+                case 2:
+                    EventBus.getDefault().post(new MessageEvent("afs win"));
+                    break;
+                case 3:
+                    Intent intent = new Intent(getActivity(), RxImageActivity.class);
+                    startActivity(intent);
+                    break;
             }
         });
     }
