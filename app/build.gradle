@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
     compile files('libs/commons-codec-1.4.jar')
-    compile files('libs/libs/android-support-v4.jar')
-    compile files('libs/libs/mid-core-sdk-3.7.2.jar')
-    compile files('libs/libs/jg_filter_sdk_1.1.jar')
-    compile files('libs/libs/Xg_sdk_v3.1_20170417_0946.jar')
-    compile files('libs/libs/wup-1.0.0.E-SNAPSHOT.jar')
     compile files('libs/jcore-android_v1.1.2.jar')
     compile files('libs/jpush-android_v3.0.5.jar')
     compile files('libs/baidumapapi_base_v4_2_0.jar')
@@ -39,19 +39,14 @@ dependencies {
     compile 'com.blankj:utilcode:1.7.1'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-    compile "de.halfbit:pinned-section-listview:1.0.0"
+    compile 'de.halfbit:pinned-section-listview:1.0.0'
+    compile files('libs/googlezxling.jar')
 }
 
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
     signingConfigs {
         release {
             try {
@@ -80,9 +75,10 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
-         jackOptions {
-            enabled true
-        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     buildTypes {
