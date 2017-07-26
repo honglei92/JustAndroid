@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 
 import com.boco.whl.rxjavademo.R;
 import com.boco.whl.rxjavademo.ui.activity.SearchActivity;
+import com.boco.whl.rxjavademo.ui.activity.firsttab.MarqueeActivity;
 import com.boco.whl.rxjavademo.ui.activity.firsttab.baidumap.LocationActivity;
 import com.boco.whl.rxjavademo.ui.activity.firsttab.eventbus.EventBusTestActivity;
 import com.boco.whl.rxjavademo.ui.activity.firsttab.fusionchart.FusionChartTestActivity;
@@ -89,7 +90,7 @@ public class MainFragment extends Fragment {
 
     private void initCatgory() {
         String[] titles = {"Glide", "RxJava", "EventBus", "RxImage", "Retrofit", "OkHttp"
-                , "Tinker", "Baidu", "Map", "FusionChart", "MVP1", "MVP2", "kotlin", "listview", "imgCompress"};
+                , "Tinker", "Baidu", "Map", "FusionChart", "MVP1", "MVP2", "kotlin", "listview", "imgCompress", "marquee"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -142,6 +143,10 @@ public class MainFragment extends Fragment {
                     case 14:
                         Intent intent14 = new Intent(getActivity(), ImageCompressActivity.class);
                         startActivity(intent14);
+                        break;
+                    case 15:
+                        Intent intent15 = new Intent(getActivity(), MarqueeActivity.class);
+                        startActivity(intent15);
                         break;
                 }
             }

@@ -19,6 +19,9 @@ import java.util.Locale;
 import butterknife.ButterKnife;
 import de.halfbit.pinnedsection.PinnedSectionListView;
 
+/**
+ * 标题折叠列表listview
+ */
 public class PinnedSectionActivity extends ListActivity implements View.OnClickListener {
 
     private boolean isFastScroll;

@@ -208,6 +208,7 @@
         </activity>
         <activity android:name=".ui.activity.secondtab.eventtransmitmechanism.EventTransmitActivity"/>
         <activity android:name=".ui.activity.component.SlideTableActivity"/>
+        <activity android:name=".ui.activity.firsttab.MarqueeActivity"/>
 
         <receiver android:name=".ui.activity.secondtab.threadcommunication.broadcast.MyBroadCastReciever">
             <intent-filter>

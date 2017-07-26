@@ -103,18 +103,8 @@ public class ListTest extends Activity {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
             viewHolder.title.setText(titles[i]);
-           /* viewHolder.ll_detail.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    ToastUtil.showToast(ListTest.this, "detail");
-                }
-            });
-            viewHolder.ll_location.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    ToastUtil.showToast(ListTest.this, "location");
-                }
-            });*/
+            viewHolder.ll_detail.setOnClickListener(v -> ToastUtil.showToast(ListTest.this, "detail"));
+            viewHolder.ll_location.setOnClickListener(v -> ToastUtil.showToast(ListTest.this, "location"));
             return convertView;
         }
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<declare-styleable name="FixedHeaderTableView">
+    <attr name="TableHeaderHeigh" format="dimension|reference" /><!--表头高度-->
+    <attr name="TablHeigh" format="dimension|reference" /><!--表高度-->
+    <attr name="TableHeaderWidth" format="dimension|reference" /><!--固定表头宽度-->
+    <attr name="TableHeaderTextSize" format="dimension|reference" /><!--表头字体大小-->
+    <attr name="TableHeaderTextColor" format="color|reference" /><!--表头字体颜色-->
+    <attr name="TableTextSize" format="dimension|reference" /><!--表字体大小-->
+    <attr name="TableTextColor" format="color|reference" /><!--表字体颜色-->
+    <attr name="TableSplitLineSize" format="dimension|reference" /><!--表分割线大小-->
+    <attr name="TableSplitLineColor" format="color|reference" /><!--表分割线颜色-->
+    <attr name="TableHeaderColor" format="color|reference" /><!--表头颜色-->
+    <attr name="TableFirstBg" format="color|reference" /><!--表第一种颜色-->
+    <attr name="TableSecondBg" format="color|reference" /><!--表第二种颜色-->
+    <attr name="TableTextLine" format="integer" /><!--字行数，超过省略号显示-->
+    <attr name="TableScroll" format="boolean" /><!--是否可滑动 默认true-->
+</declare-styleable>
+
+</resources>
