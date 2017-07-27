@@ -14,13 +14,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.boco.whl.rxjavademo.R;
-import com.boco.whl.rxjavademo.sdk.eventbus.MessageEvent;
 import com.boco.whl.rxjavademo.ui.activity.component.PinnedSectionActivity;
-import com.boco.whl.rxjavademo.ui.activity.component.SlideTableActivity;
+import com.boco.whl.rxjavademo.ui.activity.component.slidetable.SlideTableActivity;
+import com.boco.whl.rxjavademo.ui.activity.component.watermark.WaterMarkActivity;
 import com.boco.whl.rxjavademo.ui.activity.firsttab.rxjava.RxImageActivity;
 import com.boco.whl.rxjavademo.ui.adapter.CategoryItemAdapter;
-
-import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -76,7 +74,7 @@ public class ComponentFragment extends Fragment {
     }
 
     private void initCatgory() {
-        String[] titles = {"Pinned Section", "SlideTable", "Game", "Game", "Game", "Game"};
+        String[] titles = {"Pinned Section", "SlideTable", "WaterMark", "Game", "Game", "Game"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener((adapterView, view, i, l) -> {
@@ -90,7 +88,8 @@ public class ComponentFragment extends Fragment {
                     startActivity(intent2);
                     break;
                 case 2:
-                    EventBus.getDefault().post(new MessageEvent("afs win"));
+                    Intent intent3 = new Intent(getActivity(), WaterMarkActivity.class);
+                    startActivity(intent3);
                     break;
                 case 3:
                     Intent intent = new Intent(getActivity(), RxImageActivity.class);

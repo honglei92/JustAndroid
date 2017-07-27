@@ -1,4 +1,4 @@
-package com.boco.whl.rxjavademo.ui.activity.component;
+package com.boco.whl.rxjavademo.ui.activity.component.slidetable;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -56,6 +56,7 @@ public class SlideTableActivity extends Activity {
         modelList.add(new Model("jjjjj", "28", "1994-09-23", "88", "成都"));
 
         modelList.add(new Model("iiiii", "27", "1994-09-23", "90", "成都"));
+        modelList.add(new Model("jjjjj", "28", "1994-09-23", "88", "成都"));
         modelList.add(new Model("jjjjj", "28", "1994-09-23", "88", "成都"));
         modelList.add(new Model("jjjjj", "28", "1994-09-23", "88", "成都"));
         modelList.add(new Model("jjjjj", "28", "1994-09-23", "88", "成都"));

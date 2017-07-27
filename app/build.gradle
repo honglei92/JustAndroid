@@ -23,6 +23,8 @@ dependencies {
     compile files('libs/guangdong/rat.jar')
     compile files('libs/guangdong/sqlite.jar')
     compile "com.google.guava:guava:$rootProject.guavaVersion"
+    compile files('libs/googlezxling.jar')
+    compile project(path: ':android-table-lib')
     compile 'com.jakewharton:butterknife:8.4.0'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
@@ -38,11 +40,10 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
     compile 'com.blankj:utilcode:1.7.1'
     compile 'com.github.sun-sky:Marquee:1.0.0'
+    compile 'de.halfbit:pinned-section-listview:1.0.0'
+    compile 'com.android.support:design:26.0.0-alpha1'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-    compile 'de.halfbit:pinned-section-listview:1.0.0'
-    compile files('libs/googlezxling.jar')
-    compile project(path: ':android-table-lib')
 }
 
 
@@ -72,7 +73,7 @@ android {
     }
     defaultConfig {
         applicationId "com.boco.whl.rxjavademo"
-        minSdkVersion 21
+        minSdkVersion 17
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"

@@ -39,6 +39,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
@@ -207,7 +208,7 @@
         <activity android:name=".ui.activity.secondtab.threadcommunication.ThreadCommunicationOne">
         </activity>
         <activity android:name=".ui.activity.secondtab.eventtransmitmechanism.EventTransmitActivity"/>
-        <activity android:name=".ui.activity.component.SlideTableActivity"/>
+        <activity android:name=".ui.activity.component.slidetable.SlideTableActivity"/>
         <activity android:name=".ui.activity.firsttab.MarqueeActivity"/>
 
         <receiver android:name=".ui.activity.secondtab.threadcommunication.broadcast.MyBroadCastReciever">
@@ -217,6 +218,8 @@
         </receiver>
 
         <activity android:name=".ui.activity.component.PinnedSectionActivity">
+        </activity>
+        <activity android:name=".ui.activity.component.watermark.WaterMarkActivity">
         </activity>
     </application>
 

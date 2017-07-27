@@ -1,4 +1,4 @@
-package com.boco.whl.rxjavademo.ui.activity.component;
+package com.boco.whl.rxjavademo.ui.activity.component.slidetable;
 
 /**
  * Created by zhuji on 2016/10/24.
