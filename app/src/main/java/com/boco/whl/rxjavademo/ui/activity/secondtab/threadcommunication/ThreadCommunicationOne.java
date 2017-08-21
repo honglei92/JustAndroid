@@ -160,6 +160,9 @@ public class ThreadCommunicationOne extends Activity {
         }).start();
     }
 
+    /**
+     * 循环
+     */
     private void waySex() {
         final Handler handler = new Handler();
         Runnable runnable = new Runnable() {

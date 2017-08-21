@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 
 import com.boco.whl.rxjavademo.R;
 import com.boco.whl.rxjavademo.ui.activity.component.PinnedSectionActivity;
+import com.boco.whl.rxjavademo.ui.activity.component.ScrollActivity;
 import com.boco.whl.rxjavademo.ui.activity.component.slidetable.SlideTableActivity;
 import com.boco.whl.rxjavademo.ui.activity.component.watermark.WaterMarkActivity;
 import com.boco.whl.rxjavademo.ui.activity.firsttab.rxjava.RxImageActivity;
@@ -24,6 +25,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+/**
+ * 基本组件的使用
+ */
 public class ComponentFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -74,7 +78,7 @@ public class ComponentFragment extends Fragment {
     }
 
     private void initCatgory() {
-        String[] titles = {"Pinned Section", "SlideTable", "WaterMark", "Game", "Game", "Game"};
+        String[] titles = {"Pinned Section", "SlideTable", "WaterMark", "ScrollBy", "Game", "Game"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener((adapterView, view, i, l) -> {
@@ -92,8 +96,8 @@ public class ComponentFragment extends Fragment {
                     startActivity(intent3);
                     break;
                 case 3:
-                    Intent intent = new Intent(getActivity(), RxImageActivity.class);
-                    startActivity(intent);
+                    Intent intent4 = new Intent(getActivity(), ScrollActivity.class);
+                    startActivity(intent4);
                     break;
             }
         });
