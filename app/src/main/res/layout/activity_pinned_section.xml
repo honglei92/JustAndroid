@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.boco.whl.rxjavademo.ui.activity.component.PinnedSectionActivity">
+    tools:context="com.boco.whl.rxjavademo.module.activity.component.PinnedSectionActivity">
 
     <de.halfbit.pinnedsection.PinnedSectionListView
         android:id="@android:id/list"

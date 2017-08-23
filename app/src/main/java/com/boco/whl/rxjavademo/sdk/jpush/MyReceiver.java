@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.boco.whl.rxjavademo.ui.activity.IndexActivity;
+import com.boco.whl.rxjavademo.module.activity.IndexActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;

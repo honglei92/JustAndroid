@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="10dp"
     android:orientation="vertical"
-    tools:context=".ui.activity.firsttab.baidumap.LocationActivity">
+    tools:context=".module.activity.firsttab.baidumap.LocationActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
