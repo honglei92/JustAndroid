@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.boco.whl.rxjavademo">
+          package="com.boco.whl.funddemo">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -9,7 +9,7 @@
 
     <!-- Required -->
     <permission
-        android:name="com.boco.whl.rxjavademo.permission.JPUSH_MESSAGE"
+        android:name="com.boco.whl.funddemo.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature"/>
 
     <!-- Required  一些系统要求的权限，如访问网络等 -->
@@ -33,7 +33,7 @@
     <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
-        android:name=".base.BaseApplication"
+        android:name="com.boco.whl.funddemo.base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -46,29 +46,29 @@
             android:value="S572kK8ip4mYQlvOW7hfnl0NfC7V11Cf"/>
 
         <activity
-            android:name=".ui.activity.firsttab.rxjava.RxImageActivity"
+            android:name="com.boco.whl.funddemo.module.activity.firsttab.rxjava.RxImageActivity"
             android:label="@string/title_activity_show_image">
         </activity>
-        <activity android:name=".ui.activity.firsttab.eventbus.EventBusTestActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.eventbus.EventBusTestActivity">
         </activity>
         <activity
-            android:name=".ui.activity.firsttab.glide.GlideTestActivity"
+            android:name="com.boco.whl.funddemo.module.activity.firsttab.glide.GlideTestActivity"
             android:label="@string/title_activity_glide_test">
         </activity>
         <activity
-            android:name=".ui.activity.firsttab.rxjava.RxjavaTestActivity"
+            android:name="com.boco.whl.funddemo.module.activity.firsttab.rxjava.RxjavaTestActivity"
             android:label="@string/title_activity_rxjava_test">
         </activity>
-        <activity android:name=".ui.activity.GuideViewActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.GuideViewActivity">
         </activity>
-        <activity android:name=".ui.activity.SearchActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.SearchActivity">
         </activity>
-        <activity android:name=".ui.activity.AdvertizeActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.AdvertizeActivity">
         </activity>
-        <activity android:name=".ui.activity.firsttab.fusionchart.FusionChartTestActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.fusionchart.FusionChartTestActivity">
         </activity>
         <activity
-            android:name=".ui.activity.IndexActivity"
+            android:name="com.boco.whl.funddemo.module.activity.IndexActivity"
             android:launchMode="singleTask">
         </activity>
 
@@ -85,7 +85,7 @@
             android:exported="false"
             android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
-                <action android:name="cn.jpush.android.ui.PushActivity"/>
+                <action android:name="cn.jpush.android.module.PushActivity"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="com.boco.whl.rxjavademo"/>
@@ -152,7 +152,7 @@
 
         <!-- User defined.  For test only  用户自定义的广播接收器 -->
         <receiver
-            android:name=".sdk.jpush.MyReceiver"
+            android:name="com.boco.whl.funddemo.sdk.jpush.MyReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -173,7 +173,7 @@
             android:name="JPUSH_APPKEY"
             android:value="4bfe2a909d77c0f707eb1e2d"/> <!-- </>值来自开发者平台取得的AppKey -->
         <activity
-            android:name=".ui.activity.SplashActivity"
+            android:name="com.boco.whl.funddemo.module.activity.SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -181,7 +181,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.firsttab.baidumap.LocationActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.baidumap.LocationActivity">
         </activity>
 
         <service
@@ -195,32 +195,32 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".ui.activity.firsttab.rxjava.RxGDActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.rxjava.RxGDActivity">
         </activity>
-        <activity android:name=".ui.activity.firsttab.mvp.view.UserActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.mvp.view.UserActivity">
         </activity>
-        <activity android:name=".ui.activity.firsttab.mvpV2.CustomerActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.mvpV2.CustomerActivity">
         </activity>
-        <activity android:name=".ui.activity.firsttab.listview.ListTest">
+        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.listview.ListTest">
         </activity>
-        <activity android:name=".ui.activity.firsttab.imagecompress.ImageCompressActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.imagecompress.ImageCompressActivity">
         </activity>
-        <activity android:name=".ui.activity.secondtab.threadcommunication.ThreadCommunicationOne">
+        <activity android:name="com.boco.whl.funddemo.module.activity.secondtab.threadcommunication.ThreadCommunicationOne">
         </activity>
-        <activity android:name=".ui.activity.secondtab.eventtransmitmechanism.EventTransmitActivity"/>
-        <activity android:name=".ui.activity.component.slidetable.SlideTableActivity"/>
-        <activity android:name=".ui.activity.firsttab.MarqueeActivity"/>
-        <activity android:name=".ui.activity.component.ScrollActivity"/>
+        <activity android:name="com.boco.whl.funddemo.module.activity.secondtab.eventtransmitmechanism.EventTransmitActivity"/>
+        <activity android:name="com.boco.whl.funddemo.module.activity.component.slidetable.SlideTableActivity"/>
+        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.MarqueeActivity"/>
+        <activity android:name="com.boco.whl.funddemo.module.activity.component.ScrollActivity"/>
 
-        <receiver android:name=".ui.activity.secondtab.threadcommunication.broadcast.MyBroadCastReciever">
+        <receiver android:name="com.boco.whl.funddemo.module.activity.secondtab.threadcommunication.broadcast.MyBroadCastReciever">
             <intent-filter>
                 <action android:name="action.communication"/>
             </intent-filter>
         </receiver>
 
-        <activity android:name=".ui.activity.component.PinnedSectionActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.component.PinnedSectionActivity">
         </activity>
-        <activity android:name=".ui.activity.component.watermark.WaterMarkActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.component.watermark.WaterMarkActivity">
         </activity>
     </application>
 

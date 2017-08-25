@@ -16,7 +16,6 @@ dependencies {
     compile files('libs/baidumapapi_radar_v4_2_0.jar')
     compile files('libs/baidumapapi_search_v4_2_0.jar')
     compile files('libs/baidumapapi_util_v4_2_0.jar')
-    compile files('libs/fastjson-1.1.31.jar')
     compile files('libs/guangdong/bmdp-guangdong-towerwalkmanage-service.jar')
     compile files('libs/guangdong/bmdp-interface-core.jar')
     compile files('libs/guangdong/encrypt.jar')
@@ -42,6 +41,7 @@ dependencies {
     compile 'com.github.sun-sky:Marquee:1.0.0'
     compile 'de.halfbit:pinned-section-listview:1.0.0'
     compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'com.alibaba:fastjson:1.2.37'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }
@@ -86,7 +86,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

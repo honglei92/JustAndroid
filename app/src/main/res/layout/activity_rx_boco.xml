@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="20dp"
     android:orientation="vertical"
-    tools:context="com.boco.whl.rxjavademo.module.activity.rxjava.RxBocoActivity">
+    tools:context="com.boco.whl.funddemo.module.activity.rxjava.RxBocoActivity">
 
     <TextView
         android:layout_width="wrap_content"

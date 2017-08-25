@@ -5,6 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.boco.whl.rxjavademo.module.activity.firsttab.rxjava.RxGDActivity">
+    tools:context="com.boco.whl.funddemo.module.activity.firsttab.rxjava.RxGDActivity">
 
 </android.support.constraint.ConstraintLayout>
