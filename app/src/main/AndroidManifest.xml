@@ -46,17 +46,17 @@
             android:value="S572kK8ip4mYQlvOW7hfnl0NfC7V11Cf"/>
 
         <activity
-            android:name="com.boco.whl.funddemo.module.activity.firsttab.rxjava.RxImageActivity"
+            android:name="com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxImageActivity"
             android:label="@string/title_activity_show_image">
         </activity>
-        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.eventbus.EventBusTestActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.annndroid.eventbus.EventBusTestActivity">
         </activity>
         <activity
-            android:name="com.boco.whl.funddemo.module.activity.firsttab.glide.GlideTestActivity"
+            android:name="com.boco.whl.funddemo.module.activity.annndroid.glide.GlideTestActivity"
             android:label="@string/title_activity_glide_test">
         </activity>
         <activity
-            android:name="com.boco.whl.funddemo.module.activity.firsttab.rxjava.RxjavaTestActivity"
+            android:name="com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxjavaTestActivity"
             android:label="@string/title_activity_rxjava_test">
         </activity>
         <activity android:name="com.boco.whl.funddemo.module.activity.GuideViewActivity">
@@ -65,7 +65,7 @@
         </activity>
         <activity android:name="com.boco.whl.funddemo.module.activity.AdvertizeActivity">
         </activity>
-        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.fusionchart.FusionChartTestActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.annndroid.fusionchart.FusionChartTestActivity">
         </activity>
         <activity
             android:name="com.boco.whl.funddemo.module.activity.IndexActivity"
@@ -181,7 +181,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.baidumap.LocationActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.annndroid.baidumap.LocationActivity">
         </activity>
 
         <service
@@ -195,24 +195,24 @@
             </intent-filter>
         </service>
 
-        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.rxjava.RxGDActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxGDActivity">
         </activity>
-        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.mvp.view.UserActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.annndroid.mvp.view.UserActivity">
         </activity>
-        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.mvpV2.CustomerActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.annndroid.mvpV2.CustomerActivity">
         </activity>
-        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.listview.ListTest">
+        <activity android:name="com.boco.whl.funddemo.module.activity.annndroid.listview.ListTest">
         </activity>
-        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.imagecompress.ImageCompressActivity">
+        <activity android:name="com.boco.whl.funddemo.module.activity.annndroid.imagecompress.ImageCompressActivity">
         </activity>
-        <activity android:name="com.boco.whl.funddemo.module.activity.secondtab.threadcommunication.ThreadCommunicationOne">
+        <activity android:name="com.boco.whl.funddemo.module.activity.jaaava.threadcommunication.ThreadCommunicationOne">
         </activity>
-        <activity android:name="com.boco.whl.funddemo.module.activity.secondtab.eventtransmitmechanism.EventTransmitActivity"/>
+        <activity android:name="com.boco.whl.funddemo.module.activity.jaaava.eventtransmitmechanism.EventTransmitActivity"/>
         <activity android:name="com.boco.whl.funddemo.module.activity.component.slidetable.SlideTableActivity"/>
-        <activity android:name="com.boco.whl.funddemo.module.activity.firsttab.MarqueeActivity"/>
+        <activity android:name="com.boco.whl.funddemo.module.activity.annndroid.MarqueeActivity"/>
         <activity android:name="com.boco.whl.funddemo.module.activity.component.ScrollActivity"/>
 
-        <receiver android:name="com.boco.whl.funddemo.module.activity.secondtab.threadcommunication.broadcast.MyBroadCastReciever">
+        <receiver android:name="com.boco.whl.funddemo.module.activity.jaaava.threadcommunication.broadcast.MyBroadCastReciever">
             <intent-filter>
                 <action android:name="action.communication"/>
             </intent-filter>

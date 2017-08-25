@@ -95,6 +95,20 @@ android {
             minifyEnabled false
             signingConfig signingConfigs.debug
         }
+        android.applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                    def fileName = ""
+                    if (variant.buildType.name == 'debug') {
+                        fileName = "FUND_DEMO_V${defaultConfig.versionName}_DEBUG.apk"
+                    } else if (variant.buildType.name == 'release') {
+                        fileName = "FUND_DEMO_V${defaultConfig.versionName}_${releaseTime()}_RELEASE.apk"
+                    }
+                    output.outputFile = new File(outputFile.parent, fileName)
+                }
+            }
+        }
     }
     sourceSets {
         main {
@@ -103,6 +117,15 @@ android {
             assets.srcDirs = ['src/main/assets']
         }
     }
+}
+// 获取当前系统时间
+static def releaseTime() {
+    String data = new Date().format("yyyy-MM-dd HH:mm", TimeZone.getTimeZone("GMT+08:00"));
+    data = data.replace(":", "");
+    data = data.replace("-", "");
+    data = data.replace(" ", "");
+    data = data.substring(2);
+    return data
 }
 
 

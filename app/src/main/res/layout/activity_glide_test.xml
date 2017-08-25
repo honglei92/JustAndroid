@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".module.activity.firsttab.glide.GlideTestActivity">
+    tools:context=".module.activity.annndroid.glide.GlideTestActivity">
 
     <Button
         android:id="@+id/button"

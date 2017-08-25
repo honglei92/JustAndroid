@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.boco.whl.funddemo.module.activity.firsttab.kotlin.KotlinActivity">
+    tools:context="com.boco.whl.funddemo.module.activity.annndroid.kotlin.KotlinActivity">
 
     <TextView
         android:id="@+id/tv_kotlin"

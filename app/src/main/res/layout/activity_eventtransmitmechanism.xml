@@ -6,16 +6,16 @@
     android:orientation="vertical"
     >
 
-    <com.boco.whl.funddemo.module.activity.secondtab.eventtransmitmechanism.TouchEventViewGroup
+    <com.boco.whl.funddemo.module.activity.jaaava.eventtransmitmechanism.TouchEventViewGroup
         android:id="@+id/event_viewgroup"
         android:layout_width="match_parent"
         android:layout_height="100dp">
 
-        <com.boco.whl.funddemo.module.activity.secondtab.eventtransmitmechanism.TouchEventView
+        <com.boco.whl.funddemo.module.activity.jaaava.eventtransmitmechanism.TouchEventView
             android:id="@+id/tv_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="view"/>
-    </com.boco.whl.funddemo.module.activity.secondtab.eventtransmitmechanism.TouchEventViewGroup>
+    </com.boco.whl.funddemo.module.activity.jaaava.eventtransmitmechanism.TouchEventViewGroup>
 </LinearLayout>

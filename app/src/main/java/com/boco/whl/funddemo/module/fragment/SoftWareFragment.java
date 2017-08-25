@@ -16,9 +16,9 @@ import android.widget.RelativeLayout;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.sdk.eventbus.MessageEvent;
-import com.boco.whl.funddemo.module.activity.firsttab.rxjava.RxImageActivity;
-import com.boco.whl.funddemo.module.activity.secondtab.eventtransmitmechanism.EventTransmitActivity;
-import com.boco.whl.funddemo.module.activity.secondtab.threadcommunication.ThreadCommunicationOne;
+import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxImageActivity;
+import com.boco.whl.funddemo.module.activity.jaaava.eventtransmitmechanism.EventTransmitActivity;
+import com.boco.whl.funddemo.module.activity.jaaava.threadcommunication.ThreadCommunicationOne;
 import com.boco.whl.funddemo.module.adapter.CategoryItemAdapter;
 
 import org.greenrobot.eventbus.EventBus;

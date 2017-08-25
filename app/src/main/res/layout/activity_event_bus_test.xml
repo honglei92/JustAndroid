@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="10dp"
     android:orientation="vertical"
-    tools:context=".module.activity.firsttab.eventbus.EventBusTestActivity">
+    tools:context=".module.activity.annndroid.eventbus.EventBusTestActivity">
 
     <TextView
         android:id="@+id/titletext"
