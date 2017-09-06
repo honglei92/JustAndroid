@@ -3,13 +3,13 @@ package com.boco.whl.funddemo.module.activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 
 import com.boco.whl.funddemo.R;
+import com.boco.whl.funddemo.base.BaseActivity;
 import com.boco.whl.funddemo.module.fragment.ComponentFragment;
 import com.boco.whl.funddemo.module.fragment.MainFragment;
 import com.boco.whl.funddemo.module.fragment.MyFragment;
@@ -22,7 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.jpush.android.api.JPushInterface;
 
-public class IndexActivity extends FragmentActivity implements MainFragment.OnFragmentInteractionListener
+public class IndexActivity extends BaseActivity implements MainFragment.OnFragmentInteractionListener
         , MyFragment.OnFragmentInteractionListener
         , SoftWareFragment.OnFragmentInteractionListener
         , ComponentFragment.OnFragmentInteractionListener
@@ -61,69 +61,66 @@ public class IndexActivity extends FragmentActivity implements MainFragment.OnFr
         MainFragment fragment1 = new MainFragment();
         transaction.add(R.id.contentfragment, fragment1);
         transaction.commit();
-        radiogroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
-                FragmentManager manager = getSupportFragmentManager();
-                switch (i) {
-                    case R.id.radio1:
-                        radio1.setSelected(true);
-                        radio2.setSelected(false);
-                        radio3.setSelected(false);
-                        radio4.setSelected(false);
-                        radio5.setSelected(false);
-                        FragmentTransaction transaction = manager.beginTransaction();
-                        MainFragment fragment1 = new MainFragment();
-                        transaction.replace(R.id.contentfragment, fragment1);
-                        transaction.commit();
-                        break;
-                    case R.id.radio2:
-                        radio1.setSelected(false);
-                        radio2.setSelected(true);
-                        radio3.setSelected(false);
-                        radio4.setSelected(false);
-                        radio5.setSelected(false);
-                        FragmentTransaction transaction2 = manager.beginTransaction();
-                        SoftWareFragment fragment2 = new SoftWareFragment();
-                        transaction2.replace(R.id.contentfragment, fragment2);
-                        transaction2.commit();
-                        break;
-                    case R.id.radio3:
-                        radio1.setSelected(false);
-                        radio2.setSelected(false);
-                        radio3.setSelected(true);
-                        radio4.setSelected(false);
-                        radio5.setSelected(false);
-                        FragmentTransaction transaction3 = manager.beginTransaction();
-                        ComponentFragment fragment3 = new ComponentFragment();
-                        transaction3.replace(R.id.contentfragment, fragment3);
-                        transaction3.commit();
-                        break;
-                    case R.id.radio4:
-                        radio1.setSelected(false);
-                        radio2.setSelected(false);
-                        radio3.setSelected(false);
-                        radio4.setSelected(true);
-                        radio5.setSelected(false);
-                        FragmentTransaction transaction4 = manager.beginTransaction();
-                        RankFragment fragment4 = new RankFragment();
-                        transaction4.replace(R.id.contentfragment, fragment4);
-                        transaction4.commit();
-                        break;
-                    case R.id.radio5:
-                        radio1.setSelected(false);
-                        radio2.setSelected(false);
-                        radio3.setSelected(false);
-                        radio4.setSelected(false);
-                        radio5.setSelected(true);
-                        FragmentTransaction transaction5 = manager.beginTransaction();
-                        MyFragment fragment5 = new MyFragment();
-                        transaction5.replace(R.id.contentfragment, fragment5);
-                        transaction5.commit();
-                        break;
-                    default:
-                        break;
-                }
+        radiogroup.setOnCheckedChangeListener((RadioGroup radioGroup, @IdRes int i) -> {
+            FragmentManager manager0 = getSupportFragmentManager();
+            switch (i) {
+                case R.id.radio1:
+                    radio1.setSelected(true);
+                    radio2.setSelected(false);
+                    radio3.setSelected(false);
+                    radio4.setSelected(false);
+                    radio5.setSelected(false);
+                    FragmentTransaction transaction0 = manager0.beginTransaction();
+                    MainFragment fragment0 = new MainFragment();
+                    transaction0.replace(R.id.contentfragment, fragment0);
+                    transaction0.commit();
+                    break;
+                case R.id.radio2:
+                    radio1.setSelected(false);
+                    radio2.setSelected(true);
+                    radio3.setSelected(false);
+                    radio4.setSelected(false);
+                    radio5.setSelected(false);
+                    FragmentTransaction transaction2 = manager.beginTransaction();
+                    SoftWareFragment fragment2 = new SoftWareFragment();
+                    transaction2.replace(R.id.contentfragment, fragment2);
+                    transaction2.commit();
+                    break;
+                case R.id.radio3:
+                    radio1.setSelected(false);
+                    radio2.setSelected(false);
+                    radio3.setSelected(true);
+                    radio4.setSelected(false);
+                    radio5.setSelected(false);
+                    FragmentTransaction transaction3 = manager.beginTransaction();
+                    ComponentFragment fragment3 = new ComponentFragment();
+                    transaction3.replace(R.id.contentfragment, fragment3);
+                    transaction3.commit();
+                    break;
+                case R.id.radio4:
+                    radio1.setSelected(false);
+                    radio2.setSelected(false);
+                    radio3.setSelected(false);
+                    radio4.setSelected(true);
+                    radio5.setSelected(false);
+                    FragmentTransaction transaction4 = manager.beginTransaction();
+                    RankFragment fragment4 = new RankFragment();
+                    transaction4.replace(R.id.contentfragment, fragment4);
+                    transaction4.commit();
+                    break;
+                case R.id.radio5:
+                    radio1.setSelected(false);
+                    radio2.setSelected(false);
+                    radio3.setSelected(false);
+                    radio4.setSelected(false);
+                    radio5.setSelected(true);
+                    FragmentTransaction transaction5 = manager.beginTransaction();
+                    MyFragment fragment5 = new MyFragment();
+                    transaction5.replace(R.id.contentfragment, fragment5);
+                    transaction5.commit();
+                    break;
+                default:
+                    break;
             }
         });
     }

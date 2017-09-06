@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.boco.whl.funddemo.R;
+import com.boco.whl.funddemo.module.activity.annndroid.LoadImageActivity;
 import com.boco.whl.funddemo.module.activity.SearchActivity;
 import com.boco.whl.funddemo.module.activity.annndroid.MarqueeActivity;
 import com.boco.whl.funddemo.module.activity.annndroid.baidumap.LocationActivity;
@@ -36,6 +37,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
+/**
+ * 首页
+ */
 public class MainFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -90,7 +94,8 @@ public class MainFragment extends Fragment {
 
     private void initCatgory() {
         String[] titles = {"Glide", "RxJava", "EventBus", "RxImage", "Retrofit", "OkHttp"
-                , "Tinker", "Baidu", "Map", "FusionChart", "MVP1", "MVP2", "kotlin", "listview", "imgCompress", "marquee"};
+                , "Tinker", "Baidu", "Map", "FusionChart", "MVP1", "MVP2", "kotlin", "listview", "imgCompress", "marquee"
+                , "loadImage"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -147,6 +152,10 @@ public class MainFragment extends Fragment {
                     case 15:
                         Intent intent15 = new Intent(getActivity(), MarqueeActivity.class);
                         startActivity(intent15);
+                        break;
+                    case 16:
+                        Intent intent16 = new Intent(getActivity(), LoadImageActivity.class);
+                        startActivity(intent16);
                         break;
                 }
             }
