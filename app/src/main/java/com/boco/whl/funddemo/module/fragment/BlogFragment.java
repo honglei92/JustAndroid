@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxImageActivity;
+import com.boco.whl.funddemo.module.activity.bolg.HenCode1;
 import com.boco.whl.funddemo.module.adapter.CategoryItemAdapter;
 import com.boco.whl.funddemo.sdk.eventbus.MessageEvent;
 import com.boco.whl.funddemo.module.activity.annndroid.glide.GlideTestActivity;
@@ -27,7 +28,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class RankFragment extends Fragment {
+public class BlogFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     @BindView(R.id.queryimage)
@@ -45,11 +46,11 @@ public class RankFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public RankFragment() {
+    public BlogFragment() {
     }
 
-    public static RankFragment newInstance(String param1, String param2) {
-        RankFragment fragment = new RankFragment();
+    public static BlogFragment newInstance(String param1, String param2) {
+        BlogFragment fragment = new BlogFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -77,29 +78,26 @@ public class RankFragment extends Fragment {
     }
 
     private void initCatgory() {
-        String[] titles = {"Rank", "Rank", "Rank", "Rank", "Rank", "Rank"};
+        String[] titles = {"Hencode1", "Rank", "Rank", "Rank", "Rank", "Rank"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
-        category.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i) {
-                    case 0:
-                        Intent intent1 = new Intent(getActivity(), GlideTestActivity.class);
-                        startActivity(intent1);
-                        break;
-                    case 1:
-                        Intent intent2 = new Intent(getActivity(), RxjavaTestActivity.class);
-                        startActivity(intent2);
-                        break;
-                    case 2:
-                        EventBus.getDefault().post(new MessageEvent("afs win"));
-                        break;
-                    case 3:
-                        Intent intent = new Intent(getActivity(), RxImageActivity.class);
-                        startActivity(intent);
-                        break;
-                }
+        category.setOnItemClickListener((AdapterView<?> adapterView, View view, int i, long l) -> {
+            switch (i) {
+                case 0:
+                    Intent intent1 = new Intent(getActivity(), HenCode1.class);
+                    startActivity(intent1);
+                    break;
+                case 1:
+                    Intent intent2 = new Intent(getActivity(), RxjavaTestActivity.class);
+                    startActivity(intent2);
+                    break;
+                case 2:
+                    EventBus.getDefault().post(new MessageEvent("afs win"));
+                    break;
+                case 3:
+                    Intent intent = new Intent(getActivity(), RxImageActivity.class);
+                    startActivity(intent);
+                    break;
             }
         });
     }

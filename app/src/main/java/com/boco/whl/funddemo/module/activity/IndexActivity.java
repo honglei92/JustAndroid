@@ -10,10 +10,10 @@ import android.widget.RadioGroup;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.base.BaseActivity;
+import com.boco.whl.funddemo.module.fragment.BlogFragment;
 import com.boco.whl.funddemo.module.fragment.ComponentFragment;
 import com.boco.whl.funddemo.module.fragment.MainFragment;
 import com.boco.whl.funddemo.module.fragment.MyFragment;
-import com.boco.whl.funddemo.module.fragment.RankFragment;
 import com.boco.whl.funddemo.module.fragment.SoftWareFragment;
 import com.boco.whl.funddemo.utils.PermissionsUT;
 import com.boco.whl.funddemo.widgets.MyRadioButton;
@@ -22,11 +22,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.jpush.android.api.JPushInterface;
 
+/**
+ * 首页activity
+ */
 public class IndexActivity extends BaseActivity implements MainFragment.OnFragmentInteractionListener
         , MyFragment.OnFragmentInteractionListener
         , SoftWareFragment.OnFragmentInteractionListener
         , ComponentFragment.OnFragmentInteractionListener
-        , RankFragment.OnFragmentInteractionListener {
+        , BlogFragment.OnFragmentInteractionListener {
 
     @BindView(R.id.contentfragment)
     FrameLayout contentfragment;
@@ -104,7 +107,7 @@ public class IndexActivity extends BaseActivity implements MainFragment.OnFragme
                     radio4.setSelected(true);
                     radio5.setSelected(false);
                     FragmentTransaction transaction4 = manager.beginTransaction();
-                    RankFragment fragment4 = new RankFragment();
+                    BlogFragment fragment4 = new BlogFragment();
                     transaction4.replace(R.id.contentfragment, fragment4);
                     transaction4.commit();
                     break;

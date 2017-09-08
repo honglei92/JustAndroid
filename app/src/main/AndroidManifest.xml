@@ -184,6 +184,7 @@
         <activity android:name="com.boco.whl.funddemo.module.activity.SearchActivity" />
         <activity android:name="com.boco.whl.funddemo.module.activity.AdvertizeActivity" />
         <activity android:name="com.boco.whl.funddemo.module.activity.annndroid.fusionchart.FusionChartTestActivity" />
+        <activity android:name="com.boco.whl.funddemo.module.activity.bolg.HenCode1" />
         <activity
             android:name="com.boco.whl.funddemo.module.activity.IndexActivity"
             android:launchMode="singleTask" />
