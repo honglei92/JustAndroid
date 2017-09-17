@@ -134,7 +134,7 @@ public class SlideTableActivity extends Activity {
             }
         });
 
-        fixedTable.setAdapter(new MultipleHeaderTableAdapter<Model>(this,headerList,viceHeaders, modelList) {
+        fixedTable.setAdapter(new MultipleHeaderTableAdapter<Model>(this, headerList, viceHeaders, modelList) {
             @Override
             public void onItemClickListener(int row) {
                 Toast.makeText(SlideTableActivity.this, modelList.get(row).getName(), Toast.LENGTH_SHORT).show();
@@ -142,40 +142,40 @@ public class SlideTableActivity extends Activity {
 
             @Override
             public void onCellClickListener(int row, int column) {
-                Toast.makeText(SlideTableActivity.this, "row="+row+"\n column="+column, Toast.LENGTH_SHORT).show();
+                Toast.makeText(SlideTableActivity.this, "row=" + row + "\n column=" + column, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public Map<Integer, Comparator<Model>> addComparator() {
-                Map<Integer, Comparator<Model>> map=new HashMap<Integer, Comparator<Model>>();
-                Comparator comparator0=new Comparator() {
+                Map<Integer, Comparator<Model>> map = new HashMap<Integer, Comparator<Model>>();
+                Comparator comparator0 = new Comparator() {
                     @Override
                     public int compare(Object o, Object t1) {
-                        Model m1= (Model) o;
-                        Model m2= (Model) t1;
+                        Model m1 = (Model) o;
+                        Model m2 = (Model) t1;
                         return m1.getName().compareTo(m2.getName());
                     }
                 };
-                Comparator comparator1=new Comparator() {
+                Comparator comparator1 = new Comparator() {
                     @Override
                     public int compare(Object o, Object t1) {
-                        Model m1= (Model) o;
-                        Model m2= (Model) t1;
+                        Model m1 = (Model) o;
+                        Model m2 = (Model) t1;
                         return m1.getAge().compareTo(m2.getAge());
                     }
                 };
-                Comparator comparator2=new Comparator() {
+                Comparator comparator2 = new Comparator() {
                     @Override
                     public int compare(Object o, Object t1) {
-                        Model m1= (Model) o;
-                        Model m2= (Model) t1;
+                        Model m1 = (Model) o;
+                        Model m2 = (Model) t1;
                         return m1.getGrade().compareTo(m2.getGrade());
                     }
                 };
-                map.put(0,comparator0);
-                map.put(1,comparator1);
-                map.put(3,comparator2);
-                return map ;
+                map.put(0, comparator0);
+                map.put(1, comparator1);
+                map.put(3, comparator2);
+                return map;
             }
 
 
@@ -183,10 +183,10 @@ public class SlideTableActivity extends Activity {
             public View addCellView(int row, int column) {
                 ImageView childImageView = new ImageView(SlideTableActivity.this);
 
-                if (row%2==0){
+                if (row % 2 == 0) {
                     childImageView
                             .setImageResource(R.mipmap.boco_ic_ind_down);
-                }else {
+                } else {
                     childImageView
                             .setImageResource(R.mipmap.boco_ic_ind_up);
                 }
@@ -194,7 +194,7 @@ public class SlideTableActivity extends Activity {
                 childParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
                 childParams.addRule(RelativeLayout.CENTER_VERTICAL);
                 childImageView.setLayoutParams(childParams);
-                Log.e("addCellView=========","row===="+row+"------column======"+column);
+                Log.e("addCellView=========", "row====" + row + "------column======" + column);
                 return childImageView;
             }
 
@@ -215,6 +215,7 @@ public class SlideTableActivity extends Activity {
         fixedTable.setTransverseScroll(true);
         fixedTable.setSort(true);
 //        test.setTransverseScroll(true,140);
+        fixedTable.setMinimumHeight(30);
         // 刷新表格，展现数据
         fixedTable.refreshTable();
 

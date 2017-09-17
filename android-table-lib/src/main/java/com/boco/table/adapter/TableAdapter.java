@@ -75,7 +75,7 @@ public class TableAdapter extends BaseAdapter {
         TableTextColor = typearray.getColor(R.styleable.FixedHeaderTableView_TableTextColor, context.getResources().getColor(R.color.text_data_color));  //表字体颜色
         TableSplitLineSize = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableSplitLineSize, DisplayUtil.dip2px(context, context.getResources().getDimension(R.dimen.split_line))); //表分割线大小
         TableSplitLineColor = typearray.getColor(R.styleable.FixedHeaderTableView_TableSplitLineColor, context.getResources().getColor(R.color.split_line_bg));  //表分割线颜色
-        TableTextLine = typearray.getInteger(R.styleable.FixedHeaderTableView_TableTextLine, 1);
+        TableTextLine = typearray.getInteger(R.styleable.FixedHeaderTableView_TableTextLine, 2);
     }
 
     public void setCustomTextColor(boolean isCustomClolor, String delimiter) {
@@ -231,6 +231,18 @@ public class TableAdapter extends BaseAdapter {
             }
         } else {
             hold.regionNameTv.setText(pageData.getRowData().get(position).getRowData().get(TableDataAdapter.FIXED_COLUMN).size() > 0 ? pageData.getRowData().get(position).getRowData().get(TableDataAdapter.FIXED_COLUMN).get(0) : "");
+        }
+        if (hold.regionNameTv.getText() != null) {
+            /*if (!hold.regionNameTv.getText().toString().equals("全省") && hold.regionNameTv.getText().toString().contains("市") && hold.regionNameTv.getText().toString().length() < 5 && hold.regionNameTv.getText().toString().indexOf(" ") < 0) {
+                hold.regionNameTv.setTextColor(Color.parseColor("#181DEC"));
+            } else {
+                hold.regionNameTv.setTextColor(TableTextColor);
+            }*/
+            if (hold.regionNameTv.getText().toString().equals("全省") || hold.regionNameTv.getText().toString().indexOf(" ") > 0) {
+                hold.regionNameTv.setTextColor(TableTextColor);
+            } else {
+                hold.regionNameTv.setTextColor(Color.parseColor("#181DEC"));
+            }
         }
 
         for (int i = 0; i < size; i++) {

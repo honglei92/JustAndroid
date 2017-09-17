@@ -5,5 +5,6 @@
     <dimen name="table_fixed_min_width">80dp</dimen>
     <dimen name="table_scroll_min_width">140dp</dimen>
     <dimen name="table_min_height">40dp</dimen>
+    <dimen name="table_header_min_height">30dp</dimen>
     <dimen name="table_padding">5dp</dimen>
 </resources>

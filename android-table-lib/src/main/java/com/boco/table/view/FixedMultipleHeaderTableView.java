@@ -233,7 +233,7 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
 
     private void initattrs(Context context, AttributeSet attrs) {
         typearray = context.obtainStyledAttributes(attrs, R.styleable.FixedHeaderTableView);
-        TableHeaderHeigh = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableHeaderHeigh, getResources().getDimension(R.dimen.table_min_height)); //表头高度
+        TableHeaderHeigh = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableHeaderHeigh, getResources().getDimension(R.dimen.table_header_min_height)); //表头高度
         TablHeigh = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TablHeigh, getResources().getDimension(R.dimen.table_min_height)); //表高度
         TableHeaderWidth = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableHeaderWidth, getResources().getDimension(R.dimen.table_fixed_min_width)); //固定表头宽度
         TableHeaderTextSize = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableHeaderTextSize, getResources().getDimension(R.dimen.text_header_size)); //表头字体大小
@@ -243,7 +243,7 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
         TableSplitLineSize = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableSplitLineSize, DisplayUtil.dip2px(context, getResources().getDimension(R.dimen.split_line))); //表分割线大小
         TableSplitLineColor = typearray.getColor(R.styleable.FixedHeaderTableView_TableSplitLineColor, getResources().getColor(R.color.split_line_bg));  //表分割线颜色
         TableHeaderColor = typearray.getColor(R.styleable.FixedHeaderTableView_TableHeaderColor, getResources().getColor(R.color.text_header_bg));  //表头颜色
-        TableTextLine = typearray.getInteger(R.styleable.FixedHeaderTableView_TableTextLine, 1);
+        TableTextLine = typearray.getInteger(R.styleable.FixedHeaderTableView_TableTextLine, 2);
         TableScroll = typearray.getBoolean(R.styleable.FixedHeaderTableView_TableScroll, true);
     }
 
@@ -574,7 +574,7 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
                 if (cellWidth == -1) {
                     if (cellWidths != null && i < cellWidths.length) {
                         params = TableUtil.getLayoutParams(context, titles.length + 1, TableHeaderWidth, TableSplitLineSize, isTransverseScroll, cellWidths[selectIndex-1]);
-                        mainwidth=mainwidth+cellWidths[i];
+                        mainwidth=mainwidth+cellWidths[selectIndex-1];
                     } else {
                         params = TableUtil.getLayoutParams(context, titles.length + 1, TableHeaderWidth, TableSplitLineSize, isTransverseScroll, 0);
                         mainwidth=mainwidth+0;

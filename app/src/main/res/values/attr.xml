@@ -17,5 +17,8 @@
         <attr name="border_width" format="dimension" />
         <attr name="border_color" format="color" />
     </declare-styleable>
+    <declare-styleable name="CustomView1">
+        <attr name="Radius" format="dimension" />
+    </declare-styleable>
 
 </resources>

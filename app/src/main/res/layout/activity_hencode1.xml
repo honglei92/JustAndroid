@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,10 +11,11 @@
         android:layout_gravity="center_horizontal"
         android:text="hencode1" />
 
-    <com.boco.whl.funddemo.module.activity.bolg.HongleiView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp" />
+    <com.boco.whl.funddemo.module.activity.bolg.CustomView1
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        app:Radius="40dp" />
 
 </LinearLayout>
