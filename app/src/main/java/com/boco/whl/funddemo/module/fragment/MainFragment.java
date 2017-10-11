@@ -15,8 +15,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.module.activity.annndroid.LoadImageActivity;
 import com.boco.whl.funddemo.module.activity.SearchActivity;
+import com.boco.whl.funddemo.module.activity.annndroid.LoadImageActivity;
 import com.boco.whl.funddemo.module.activity.annndroid.MarqueeActivity;
 import com.boco.whl.funddemo.module.activity.annndroid.baidumap.LocationActivity;
 import com.boco.whl.funddemo.module.activity.annndroid.eventbus.EventBusTestActivity;
@@ -31,6 +31,7 @@ import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxImageActivity;
 import com.boco.whl.funddemo.module.adapter.CategoryItemAdapter;
 import com.boco.whl.funddemo.utils.IntentUT;
 import com.bumptech.glide.Glide;
+import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -96,6 +97,7 @@ public class MainFragment extends Fragment {
         String[] titles = {"Glide", "RxJava", "EventBus", "RxImage", "Retrofit", "OkHttp"
                 , "Tinker", "Baidu", "Map", "FusionChart", "MVP1", "MVP2", "kotlin", "listview", "imgCompress", "marquee"
                 , "loadImage"};
+        Logger.d(titles);
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener(new AdapterView.OnItemClickListener() {

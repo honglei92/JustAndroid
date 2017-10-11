@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.bolg;
+package com.boco.whl.funddemo.module.activity.blog;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -134,6 +134,7 @@ dependencies {
     compile 'de.halfbit:pinned-section-listview:1.0.0'
     compile 'com.android.support:design:25.3.1'
     compile 'com.alibaba:fastjson:1.2.37'
+    compile 'com.orhanobut:logger:2.1.1'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }

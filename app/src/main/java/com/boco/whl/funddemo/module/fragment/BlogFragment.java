@@ -16,10 +16,9 @@ import android.widget.RelativeLayout;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxImageActivity;
-import com.boco.whl.funddemo.module.activity.bolg.HenCode1;
+import com.boco.whl.funddemo.module.activity.blog.HenCode1;
 import com.boco.whl.funddemo.module.adapter.CategoryItemAdapter;
 import com.boco.whl.funddemo.sdk.eventbus.MessageEvent;
-import com.boco.whl.funddemo.module.activity.annndroid.glide.GlideTestActivity;
 import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxjavaTestActivity;
 
 import org.greenrobot.eventbus.EventBus;

@@ -5,18 +5,22 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.base.BaseActivity;
+import com.boco.whl.funddemo.base.BaseApplication;
 import com.boco.whl.funddemo.module.fragment.BlogFragment;
 import com.boco.whl.funddemo.module.fragment.ComponentFragment;
 import com.boco.whl.funddemo.module.fragment.MainFragment;
 import com.boco.whl.funddemo.module.fragment.MyFragment;
 import com.boco.whl.funddemo.module.fragment.SoftWareFragment;
 import com.boco.whl.funddemo.utils.PermissionsUT;
+import com.boco.whl.funddemo.utils.StringUtil;
 import com.boco.whl.funddemo.widgets.MyRadioButton;
+import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,6 +59,8 @@ public class IndexActivity extends BaseActivity implements MainFragment.OnFragme
         JPushInterface.init(this);            // 初始化 JPush
         PermissionsUT.getInstance().checkPermissions(this, true);
         initView();
+        Logger.i("onCreate: " + StringUtil.getNull(BaseApplication.VALUE));
+        Logger.e("onCreate: " + StringUtil.getNull(BaseApplication.VALUE));
     }
 
     private void initView() {
