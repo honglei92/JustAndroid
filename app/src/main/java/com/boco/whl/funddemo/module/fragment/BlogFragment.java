@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxImageActivity;
 import com.boco.whl.funddemo.module.activity.blog.HenCode1;
+import com.boco.whl.funddemo.module.activity.blog.sunxibei.RotateRectActivity;
 import com.boco.whl.funddemo.module.adapter.CategoryItemAdapter;
 import com.boco.whl.funddemo.sdk.eventbus.MessageEvent;
 import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxjavaTestActivity;
@@ -77,7 +78,7 @@ public class BlogFragment extends Fragment {
     }
 
     private void initCatgory() {
-        String[] titles = {"Hencode1", "Rank", "Rank", "Rank", "Rank", "Rank"};
+        String[] titles = {"Hencode1", "rotateRect", "Rank", "Rank", "Rank", "Rank"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener((AdapterView<?> adapterView, View view, int i, long l) -> {
@@ -87,7 +88,7 @@ public class BlogFragment extends Fragment {
                     startActivity(intent1);
                     break;
                 case 1:
-                    Intent intent2 = new Intent(getActivity(), RxjavaTestActivity.class);
+                    Intent intent2 = new Intent(getActivity(), RotateRectActivity.class);
                     startActivity(intent2);
                     break;
                 case 2:

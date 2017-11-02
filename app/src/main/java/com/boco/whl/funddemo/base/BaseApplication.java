@@ -15,6 +15,7 @@ import com.boco.whl.funddemo.utils.net.NetBroadcastReceiver;
 import com.boco.whl.funddemo.utils.net.NetUtil;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.tencent.bugly.crashreport.CrashReport;
 
 /**
  * 基类baseApplication  代表应用程序
@@ -35,6 +36,7 @@ public class BaseApplication extends Application implements NetBroadcastReceiver
         super.onCreate();
         Logger.addLogAdapter(new AndroidLogAdapter());
         Utils.init(context);
+        CrashReport.initCrashReport(context, "29ca5eaac5", false);
         event = this;
         inspectNet();
         VALUE = "wanghonglei";

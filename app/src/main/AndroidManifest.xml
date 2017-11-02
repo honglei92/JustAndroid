@@ -28,6 +28,7 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
 
     <!-- 通知栏 -->
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -43,7 +44,12 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="S572kK8ip4mYQlvOW7hfnl0NfC7V11Cf" />
-
+        <meta-data
+            android:name="BUGLY_APPID"
+            android:value="29ca5eaac5" />
+        <meta-data
+            android:name="BUGLY_APP_VERSION"
+            android:value="1.0" />
 
         <!-- Rich push 核心功能 since 2.0.6 -->
         <activity
@@ -185,6 +191,7 @@
         <activity android:name="com.boco.whl.funddemo.module.activity.AdvertizeActivity" />
         <activity android:name="com.boco.whl.funddemo.module.activity.annndroid.fusionchart.FusionChartTestActivity" />
         <activity android:name="com.boco.whl.funddemo.module.activity.blog.HenCode1" />
+        <activity android:name="com.boco.whl.funddemo.module.activity.blog.sunxibei.RotateRectActivity" />
         <activity
             android:name="com.boco.whl.funddemo.module.activity.IndexActivity"
             android:launchMode="singleTask" />

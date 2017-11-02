@@ -37,6 +37,7 @@ public class CustomView2 extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawColor(0x88880000);
+        animate().translationX(100);
     }
 
     @Override
