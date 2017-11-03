@@ -6,8 +6,8 @@
 
     <com.boco.whl.funddemo.module.activity.blog.sunxibei.MapView
         android:id="@+id/my_animation_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_centerInParent="true"
-        app:mv_background="@drawable/flip_board" />
+        app:mv_background="@drawable/head_150" />
 </RelativeLayout>

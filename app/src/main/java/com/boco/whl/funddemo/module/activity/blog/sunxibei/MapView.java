@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Camera;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
@@ -74,9 +75,10 @@ public class MapView extends View {
         if (drawable != null) {
             bitmap = drawable.getBitmap();
         } else {
-            bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.flip_board);
+            bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.head_150);
         }
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setAntiAlias(true);
         camera = new Camera();
 
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
@@ -93,6 +95,7 @@ public class MapView extends View {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void initAnimation(Canvas canvas) {
+        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
         int bitmapWidth = bitmap.getWidth();
         int bitmapHeight = bitmap.getHeight();
         int centerX = getWidth() / 2;

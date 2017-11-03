@@ -1,7 +1,11 @@
 package com.boco.whl.funddemo.module.activity.blog.sunxibei;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 
 import com.boco.whl.funddemo.R;
@@ -20,6 +24,7 @@ import butterknife.ButterKnife;
 public class RotateRectActivity extends BaseActivity {
     @BindView(R.id.my_animation_view)
     MapView myAnimationView;
+    private Handler handler = new Handler();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,9 +38,36 @@ public class RotateRectActivity extends BaseActivity {
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(myAnimationView, "degreeY", 0, -45);
         objectAnimator.setDuration(1000);
         objectAnimator.setStartDelay(500);
-        myAnimationView.reset();
 
-        objectAnimator.start();
+        ObjectAnimator animator1 = objectAnimator.ofFloat(myAnimationView, "degreeZ", 0, 270);
+        animator1.setDuration(800);
+        animator1.setStartDelay(500);
+
+        ObjectAnimator animator2 = objectAnimator.ofFloat(myAnimationView, "fixDegreeY", 0, 30);
+        animator2.setDuration(500);
+        animator2.setStartDelay(500);
+
+        final AnimatorSet set = new AnimatorSet();
+        set.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                myAnimationView.reset();
+                                set.start();
+                            }
+                        });
+                    }
+                }, 500);
+            }
+        });
+        set.playSequentially(objectAnimator, animator1, animator2);
+        set.start();
     }
 
 
