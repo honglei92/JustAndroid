@@ -17,12 +17,10 @@ import android.widget.RelativeLayout;
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxImageActivity;
 import com.boco.whl.funddemo.module.activity.blog.HenCode1;
+import com.boco.whl.funddemo.module.activity.blog.mi.MiSportActivity;
 import com.boco.whl.funddemo.module.activity.blog.sunxibei.RotateRectActivity;
+import com.boco.whl.funddemo.module.activity.blog.thumbup.ThumbUpActivity;
 import com.boco.whl.funddemo.module.adapter.CategoryItemAdapter;
-import com.boco.whl.funddemo.sdk.eventbus.MessageEvent;
-import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxjavaTestActivity;
-
-import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -78,7 +76,7 @@ public class BlogFragment extends Fragment {
     }
 
     private void initCatgory() {
-        String[] titles = {"Hencode1", "rotateRect", "Rank", "Rank", "Rank", "Rank"};
+        String[] titles = {"Hencode1", "rotateRect", "misport", "thumbup", "Rank", "Rank"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener((AdapterView<?> adapterView, View view, int i, long l) -> {
@@ -92,11 +90,12 @@ public class BlogFragment extends Fragment {
                     startActivity(intent2);
                     break;
                 case 2:
-                    EventBus.getDefault().post(new MessageEvent("afs win"));
+                    Intent intent3 = new Intent(getActivity(), MiSportActivity.class);
+                    startActivity(intent3);
                     break;
                 case 3:
-                    Intent intent = new Intent(getActivity(), RxImageActivity.class);
-                    startActivity(intent);
+                    Intent intent4 = new Intent(getActivity(), ThumbUpActivity.class);
+                    startActivity(intent4);
                     break;
             }
         });

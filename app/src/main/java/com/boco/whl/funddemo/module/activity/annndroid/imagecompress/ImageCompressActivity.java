@@ -2,8 +2,10 @@ package com.boco.whl.funddemo.module.activity.annndroid.imagecompress;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.Button;
 
@@ -49,10 +51,11 @@ public class ImageCompressActivity extends Activity {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void initCompress(int i) {
         FileUtils.deleteFile(Constant.FILE);
         File file = new File(Constant.FILE);
-        Bitmap bitmap = ImageUtils.drawable2Bitmap(getDrawable(R.drawable.img20170604183600));
+        Bitmap bitmap = ImageUtils.drawable2Bitmap(getDrawable(R.drawable.advertising));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         // 把压缩后的数据存放到baos中
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);

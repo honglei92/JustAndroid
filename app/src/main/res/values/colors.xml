@@ -10,4 +10,8 @@
     <color name="red_light">#ffff4444</color>
     <color name="black">#ff000000</color>
     <color name="red">#ffff0000</color>
+
+    <color name="whiteTransparent">#88ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
 </resources>

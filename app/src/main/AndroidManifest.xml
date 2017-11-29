@@ -150,7 +150,7 @@
             android:name="JPUSH_APPKEY"
             android:value="4bfe2a909d77c0f707eb1e2d" /> <!-- </>值来自开发者平台取得的AppKey -->
         <activity
-            android:name="com.boco.whl.funddemo.module.activity.SplashActivity"
+            android:name="com.boco.whl.funddemo.module.activity.IndexActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -192,8 +192,10 @@
         <activity android:name="com.boco.whl.funddemo.module.activity.annndroid.fusionchart.FusionChartTestActivity" />
         <activity android:name="com.boco.whl.funddemo.module.activity.blog.HenCode1" />
         <activity android:name="com.boco.whl.funddemo.module.activity.blog.sunxibei.RotateRectActivity" />
+        <activity android:name="com.boco.whl.funddemo.module.activity.blog.mi.MiSportActivity" />
+        <activity android:name="com.boco.whl.funddemo.module.activity.blog.thumbup.ThumbUpActivity" />
         <activity
-            android:name="com.boco.whl.funddemo.module.activity.IndexActivity"
+            android:name="com.boco.whl.funddemo.module.activity.SplashActivity"
             android:launchMode="singleTask" />
 
         <receiver android:name="com.boco.whl.funddemo.module.activity.jaaava.threadcommunication.broadcast.MyBroadCastReciever">
