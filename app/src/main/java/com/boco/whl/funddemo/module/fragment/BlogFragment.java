@@ -76,7 +76,7 @@ public class BlogFragment extends Fragment {
     }
 
     private void initCatgory() {
-        String[] titles = {"Hencode1", "rotateRect", "misport", "thumbup", "Rank", "Rank"};
+        String[] titles = {"Hencode1", "rotateRect", "misport", "thumbup", "bohe", "Rank"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener((AdapterView<?> adapterView, View view, int i, long l) -> {
@@ -96,6 +96,10 @@ public class BlogFragment extends Fragment {
                 case 3:
                     Intent intent4 = new Intent(getActivity(), ThumbUpActivity.class);
                     startActivity(intent4);
+                    break;
+                case 4:
+                    Intent intent5 = new Intent(getActivity(), ThumbUpActivity.class);
+                    startActivity(intent5);
                     break;
             }
         });

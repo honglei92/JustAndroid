@@ -14,4 +14,8 @@
     <color name="whiteTransparent">#88ffffff</color>
     <color name="white">#ffffff</color>
     <color name="transparent">#00000000</color>
+    <color name="colorLightBlack">#2B2E2B</color>
+    <color name="colorGray">#e2e5e2</color>
+    <color name="colorDirtyWhite">#f6f9f6</color>
+    <color name="colorForgiven">#4bbb74</color>
 </resources>

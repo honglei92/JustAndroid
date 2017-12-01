@@ -41,5 +41,33 @@
     <declare-styleable name="ThumbView">
         <attr name="tv_isThumbUp" format="boolean" />
     </declare-styleable>
+    <!--boohee-->
+    <declare-styleable name="BooheeRuler">
+        <attr name="minScale" format="integer" />
+        <attr name="maxScale" format="integer" />
+        <attr name="smallScaleLength" format="dimension" />
+        <attr name="smallScaleWidth" format="dimension" />
+        <attr name="bigScaleLength" format="dimension" />
+        <attr name="bigScaleWidth" format="dimension" />
+        <attr name="cursorHeight" format="dimension" />
+        <attr name="cursorWidth" format="dimension" />
+        <attr name="textMarginHead" format="dimension" />
+        <attr name="numberTextSize" format="dimension" />
+        <attr name="scaleInterval" format="dimension" />
+        <attr name="numberTextColor" format="color" />
+        <attr name="scaleColor" format="color" />
+        <attr name="cursorDrawable" format="dimension" />
+        <attr name="currentScale" format="float" />
+        <attr name="paddingStartAndEnd" format="dimension" />
+        <attr name="count" format="integer" />
+        <attr name="rulerStyle" format="enum">
+            <enum name="TOP_HEAD" value="1" />
+            <enum name="BOTTOM_HEAD" value="2" />
+            <enum name="LEFT_HEAD" value="3" />
+            <enum name="RIGHT_HEAD" value="4" />
+        </attr>
+        
+
+    </declare-styleable>
 
 </resources>
