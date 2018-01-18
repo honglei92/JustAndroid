@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'
 android {
     compileSdkVersion 25
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
     /**
      * 一、默认产品偏好配置
      */
@@ -48,20 +47,20 @@ android {
             minifyEnabled false
             signingConfig signingConfigs.debug
         }
-        android.applicationVariants.all { variant ->
-            variant.outputs.each { output ->
-                def outputFile = output.outputFile
-                if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                    def fileName = ""
-                    if (variant.buildType.name == 'debug') {
-                        fileName = "FUND_DEMO_V${defaultConfig.versionName}_DEBUG.apk"
-                    } else if (variant.buildType.name == 'release') {
-                        fileName = "FUND_DEMO_V${defaultConfig.versionName}_${releaseTime()}_RELEASE.apk"
-                    }
-                    output.outputFile = new File(outputFile.parent, fileName)
-                }
-            }
-        }
+//        android.applicationVariants.all { variant ->
+//            variant.outputs.each { output ->
+//                def outputFile = output.outputFile
+//                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                    def fileName = ""
+//                    if (variant.buildType.name == 'debug') {
+//                        fileName = "FUND_DEMO_V${defaultConfig.versionName}_DEBUG.apk"
+//                    } else if (variant.buildType.name == 'release') {
+//                        fileName = "FUND_DEMO_V${defaultConfig.versionName}_${releaseTime()}_RELEASE.apk"
+//                    }
+//                    output.outputFile = new File(outputFile.parent, fileName)
+//                }
+//            }
+//        }
     }
     /**
      * 四、自定义产品偏好配置，可以定义多个偏好产品
@@ -95,50 +94,50 @@ android {
  七、引入依赖包的秘密
  */
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile files('libs/commons-codec-1.4.jar')
-    compile files('libs/jcore-android_v1.1.2.jar')
-    compile files('libs/jpush-android_v3.0.5.jar')
-    compile files('libs/baidumapapi_base_v4_2_0.jar')
-    compile files('libs/baidumapapi_cloud_v4_2_0.jar')
-    compile files('libs/baidumapapi_map_v4_2_0.jar')
-    compile files('libs/baidumapapi_radar_v4_2_0.jar')
-    compile files('libs/baidumapapi_search_v4_2_0.jar')
-    compile files('libs/baidumapapi_util_v4_2_0.jar')
-    compile files('libs/guangdong/bmdp-guangdong-towerwalkmanage-service.jar')
-    compile files('libs/guangdong/bmdp-interface-core.jar')
-    compile files('libs/guangdong/encrypt.jar')
-    compile files('libs/guangdong/rat.jar')
-    compile files('libs/guangdong/sqlite.jar')
-    compile files('libs/googlezxling.jar')
-    compile project(path: ':android-table-lib')
-    compile "com.google.guava:guava:$rootProject.guavaVersion"
-    compile 'com.jakewharton:butterknife:8.4.0'
-    compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.squareup.retrofit2:retrofit:2.2.0'
-    compile 'com.squareup.retrofit2:retrofit-converters:2.2.0'
-    compile 'com.squareup.retrofit2:retrofit-adapters:2.2.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'com.google.code.gson:gson:2.8.0'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.contrarywind:Android-PickerView:3.2.4'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:recyclerview-v7:25.3.1'
-    compile 'com.blankj:utilcode:1.7.1'
-    compile 'com.github.sun-sky:Marquee:1.0.0'
-    compile 'de.halfbit:pinned-section-listview:1.0.0'
-    compile 'com.android.support:design:25.3.1'
-    compile 'com.alibaba:fastjson:1.2.37'
-    compile 'com.orhanobut:logger:2.1.1'
-    testCompile 'junit:junit:4.12'
+    implementation files('libs/commons-codec-1.4.jar')
+    implementation files('libs/jcore-android_v1.1.2.jar')
+    implementation files('libs/jpush-android_v3.0.5.jar')
+    implementation files('libs/baidumapapi_base_v4_2_0.jar')
+    implementation files('libs/baidumapapi_cloud_v4_2_0.jar')
+    implementation files('libs/baidumapapi_map_v4_2_0.jar')
+    implementation files('libs/baidumapapi_radar_v4_2_0.jar')
+    implementation files('libs/baidumapapi_search_v4_2_0.jar')
+    implementation files('libs/baidumapapi_util_v4_2_0.jar')
+    implementation files('libs/guangdong/bmdp-guangdong-towerwalkmanage-service.jar')
+    implementation files('libs/guangdong/bmdp-interface-core.jar')
+    implementation files('libs/guangdong/encrypt.jar')
+    implementation files('libs/guangdong/rat.jar')
+    implementation files('libs/guangdong/sqlite.jar')
+    implementation files('libs/googlezxling.jar')
+    implementation project(path: ':android-table-lib')
+    implementation "com.google.guava:guava:$rootProject.guavaVersion"
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.2.0'
+    implementation 'com.squareup.retrofit2:retrofit-converters:2.2.0'
+    implementation 'com.squareup.retrofit2:retrofit-adapters:2.2.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'com.google.code.gson:gson:2.8.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.contrarywind:Android-PickerView:3.2.4'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.android.support:recyclerview-v7:25.3.1'
+    implementation 'com.blankj:utilcode:1.7.1'
+    implementation 'com.github.sun-sky:Marquee:1.0.0'
+    implementation 'de.halfbit:pinned-section-listview:1.0.0'
+    implementation 'com.android.support:design:25.3.1'
+    implementation 'com.alibaba:fastjson:1.2.37'
+    implementation 'com.orhanobut:logger:2.1.1'
+    testImplementation 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-    compile files('libs/bugly_crash_release.jar')
+    implementation files('libs/bugly_crash_release.jar')
 }
 // 获取当前系统时间
 static def releaseTime() {

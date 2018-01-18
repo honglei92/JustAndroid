@@ -19,6 +19,9 @@ import butterknife.OnClick;
 import static com.boco.whl.funddemo.R.drawable.splash;
 
 
+/**
+ * 引导页
+ */
 public class SplashActivity extends Activity {
 
     @BindView(R.id.splash_iv)
@@ -40,7 +43,7 @@ public class SplashActivity extends Activity {
                         skipTv.setVisibility(View.VISIBLE);
                         if (count > 0) {
                             handler.postDelayed(this, 1000);
-                        }else {
+                        } else {
                             IntentUT.getInstance().openActivity(SplashActivity.this, IndexActivity.class, true);
 
                         }

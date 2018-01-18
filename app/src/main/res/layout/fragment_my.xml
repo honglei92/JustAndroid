@@ -63,8 +63,8 @@
             android:text="应用更新"/>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/next_dimen"
+            android:layout_height="@dimen/next_dimen"
             android:src="@drawable/icon_goto"/>
     </LinearLayout>
 
@@ -101,8 +101,8 @@
             android:textSize="14sp"/>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/next_dimen"
+            android:layout_height="@dimen/next_dimen"
             android:src="@drawable/icon_goto"/>
     </LinearLayout>
 
@@ -138,8 +138,8 @@
             android:text="应用卸载"/>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/next_dimen"
+            android:layout_height="@dimen/next_dimen"
             android:src="@drawable/icon_goto"/>
     </LinearLayout>
 
@@ -176,8 +176,8 @@
             android:text="帮助与反馈"/>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/next_dimen"
+            android:layout_height="@dimen/next_dimen"
             android:src="@drawable/icon_goto"/>
     </LinearLayout>
 
@@ -213,8 +213,8 @@
             android:text="设置"/>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/next_dimen"
+            android:layout_height="@dimen/next_dimen"
             android:src="@drawable/icon_goto"/>
     </LinearLayout>
 

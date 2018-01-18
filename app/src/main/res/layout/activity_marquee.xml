@@ -14,7 +14,7 @@
         android:layout_centerVertical="true"
         android:padding="10dp"
         app:animDuration="1000"
-        app:interval="5000"
+        app:interval="3000"
         app:isSetAlphaAnim="true"/>
 
 </LinearLayout>
