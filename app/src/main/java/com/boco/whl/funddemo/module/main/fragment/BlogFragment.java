@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.fragment;
+package com.boco.whl.funddemo.module.main.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,8 +15,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxImageActivity;
 import com.boco.whl.funddemo.module.activity.blog.HenCode1;
+import com.boco.whl.funddemo.module.activity.blog.fallingstar.FallingStarActivity;
 import com.boco.whl.funddemo.module.activity.blog.mi.MiSportActivity;
 import com.boco.whl.funddemo.module.activity.blog.sunxibei.RotateRectActivity;
 import com.boco.whl.funddemo.module.activity.blog.thumbup.ThumbUpActivity;
@@ -26,6 +26,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+/**
+ * 博客实验  hencoder自定义view
+ */
 public class BlogFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -76,7 +79,8 @@ public class BlogFragment extends Fragment {
     }
 
     private void initCatgory() {
-        String[] titles = {"Hencode1", "rotateRect", "misport", "thumbup", "bohe", "Rank"};
+        String[] titles = {"HenCode1", "rotateRect", "miSport", "thumbUp", "mint"
+                , "fallingStar"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener((AdapterView<?> adapterView, View view, int i, long l) -> {
@@ -100,6 +104,9 @@ public class BlogFragment extends Fragment {
                 case 4:
                     Intent intent5 = new Intent(getActivity(), ThumbUpActivity.class);
                     startActivity(intent5);
+                    break;
+                case 5:
+                    FallingStarActivity.doIntent(getActivity(), false);
                     break;
             }
         });

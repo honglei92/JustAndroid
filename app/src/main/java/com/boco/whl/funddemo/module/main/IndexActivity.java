@@ -1,22 +1,21 @@
-package com.boco.whl.funddemo.module.activity;
+package com.boco.whl.funddemo.module.main;
 
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.base.BaseActivity;
 import com.boco.whl.funddemo.base.BaseApplication;
-import com.boco.whl.funddemo.module.fragment.BlogFragment;
-import com.boco.whl.funddemo.module.fragment.ComponentFragment;
-import com.boco.whl.funddemo.module.fragment.MainFragment;
-import com.boco.whl.funddemo.module.fragment.MyFragment;
-import com.boco.whl.funddemo.module.fragment.SoftWareFragment;
+import com.boco.whl.funddemo.module.main.fragment.BlogFragment;
+import com.boco.whl.funddemo.module.main.fragment.ComponentFragment;
+import com.boco.whl.funddemo.module.main.fragment.MainFragment;
+import com.boco.whl.funddemo.module.main.fragment.MyFragment;
+import com.boco.whl.funddemo.module.main.fragment.SoftWareFragment;
 import com.boco.whl.funddemo.utils.PermissionsUT;
 import com.boco.whl.funddemo.utils.StringUtil;
 import com.boco.whl.funddemo.widgets.MyRadioButton;

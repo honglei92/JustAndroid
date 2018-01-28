@@ -10,13 +10,14 @@ import android.support.annotation.Nullable;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.base.BaseActivity;
+import com.boco.whl.funddemo.module.activity.blog.sunxibei.view.MapView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
  * author:     wanghonglei@boco.com.cn
- * desc:       描述-
+ * desc:       描述-图片翻转示例
  * createTime: 2017/10/24 0024
  * updateTime: 2017/10/24 0024
  */
@@ -35,6 +36,7 @@ public class RotateRectActivity extends BaseActivity {
     }
 
     private void initAnimation() {
+        //属性动画配置
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(myAnimationView, "degreeY", 0, -45);
         objectAnimator.setDuration(1000);
         objectAnimator.setStartDelay(500);

@@ -194,8 +194,9 @@
         <activity android:name="com.boco.whl.funddemo.module.activity.blog.sunxibei.RotateRectActivity" />
         <activity android:name="com.boco.whl.funddemo.module.activity.blog.mi.MiSportActivity" />
         <activity android:name="com.boco.whl.funddemo.module.activity.blog.thumbup.ThumbUpActivity" />
+        <activity android:name="com.boco.whl.funddemo.module.activity.blog.fallingstar.FallingStarActivity" />
         <activity
-            android:name="com.boco.whl.funddemo.module.activity.IndexActivity"
+            android:name="com.boco.whl.funddemo.module.main.IndexActivity"
             android:launchMode="singleTask" />
 
         <receiver android:name="com.boco.whl.funddemo.module.activity.jaaava.threadcommunication.broadcast.MyBroadCastReciever">

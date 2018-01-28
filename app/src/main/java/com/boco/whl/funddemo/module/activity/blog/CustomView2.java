@@ -10,7 +10,7 @@ import android.view.View;
 
 /**
  * author:     wanghonglei@boco.com.cn
- * desc:       描述-
+ * desc:       描述-初识动画
  * createTime: 2017/10/10 0010
  * updateTime: 2017/10/10 0010
  */

@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.blog.sunxibei;
+package com.boco.whl.funddemo.module.activity.blog.sunxibei.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -22,7 +22,7 @@ import com.boco.whl.funddemo.R;
 
 /**
  * author:     wanghonglei@boco.com.cn
- * desc:       描述-
+ * desc:       描述-图片翻转自定义View
  * createTime: 2017/10/24 0024
  * updateTime: 2017/10/24 0024
  */
@@ -58,12 +58,10 @@ public class MapView extends View {
     private Camera camera;
 
     public MapView(Context context) {
-//        super(context);
         this(context, null);
     }
 
     public MapView(Context context, @Nullable AttributeSet attrs) {
-//        super(context, attrs);
         this(context, attrs, 0);
     }
 

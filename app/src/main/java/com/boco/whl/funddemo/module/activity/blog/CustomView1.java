@@ -19,7 +19,7 @@ import com.boco.whl.funddemo.R;
 
 /**
  * author: wanghonglei@boco.com.cn
- * desc:自定义view1
+ * desc:  draw方法的使用
  * createTime: 2017/9/8 0008
  * updateTime: 2017/9/8 0008
  */
@@ -67,21 +67,28 @@ public class CustomView1 extends View {
 //        onText(canvas);
 //        onClipRect(canvas);
 //        onClipPath(canvas);
-//        onCanvas(canvas);
-        onCamera(canvas);
+        onCanvas(canvas);
+//        onCamera(canvas);
     }
 
     /**
-     * @param canvas canmera变换
+     * @param canvas camera变换
      */
     private void onCamera(Canvas canvas) {
+        //canvas保存
         canvas.save();
+        //camera变换
         Camera camera = new Camera();
         camera.rotateX(50);
+        //canvas变换
         canvas.translate(300, 200);
+        //camera绑定
         camera.applyToCanvas(canvas);
+        //canvas变换
         canvas.translate(-300, -200);
+        //初始化位图
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.head_150);
+        //绘制位图
         canvas.drawBitmap(bitmap, 200, 100, mPaint);
         canvas.restore();
     }

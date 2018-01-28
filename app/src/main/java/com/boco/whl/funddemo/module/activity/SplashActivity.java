@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.boco.whl.funddemo.R;
+import com.boco.whl.funddemo.module.main.IndexActivity;
 import com.boco.whl.funddemo.utils.IntentUT;
 import com.bumptech.glide.Glide;
 
