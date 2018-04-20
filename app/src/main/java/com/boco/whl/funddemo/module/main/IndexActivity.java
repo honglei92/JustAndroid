@@ -54,8 +54,10 @@ public class IndexActivity extends BaseActivity implements MainFragment.OnFragme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index);
         ButterKnife.bind(this);
-        JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
-        JPushInterface.init(this);            // 初始化 JPush
+        // 设置开启日志,发布时请关闭日志
+        JPushInterface.setDebugMode(true);
+        // 初始化 JPush
+        JPushInterface.init(this);
         PermissionsUT.getInstance().checkPermissions(this, true);
         initView();
         Logger.i("onCreate: " + StringUtil.getNull(BaseApplication.VALUE));

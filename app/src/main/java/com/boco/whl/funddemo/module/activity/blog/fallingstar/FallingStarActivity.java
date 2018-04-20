@@ -15,10 +15,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * author:     wanghonglei@boco.com.cn
- * desc:       描述-流星雨示例
- * createTime: 2018/1/26 0026
- * updateTime: 2018/1/26 0026
+ * @author wanghonglei@boco.com.cn
+ * @desc 描述-流星雨示例
+ * @createTime 2018/1/26 0026
+ * @updateTime 2018/1/26 0026
  */
 
 public class FallingStarActivity extends BaseActivity {

@@ -26,7 +26,10 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-
+/**
+ * @author honglei92
+ * @desc rxjava test
+ */
 public class RxGDActivity extends Activity {
     ProgressDialog dialog2;
     private CommMsgResponse response;

@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
-    buildToolsVersion "26.0.2"
+    buildToolsVersion "27.0.3"
     /**
      * 一、默认产品偏好配置
      */
@@ -148,5 +148,3 @@ static def releaseTime() {
     data = data.substring(2);
     return data
 }
-
-

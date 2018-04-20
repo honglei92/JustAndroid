@@ -40,6 +40,10 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * @author honglei92
+ * @desc 图片测试
+ */
 public class RxImageActivity extends Activity {
 
     @BindView(R.id.show_image)
@@ -69,6 +73,9 @@ public class RxImageActivity extends Activity {
         EventBus.getDefault().post(new MessageEvent("afs win"));
     }
 
+    /**
+     * 显示图片
+     */
     private void showImage() {
         boolean flag = NetworkUT.getInstance().isConnected(RxImageActivity.this) &&
                 NetworkUT.getInstance().isAvailable(RxImageActivity.this);
@@ -80,7 +87,7 @@ public class RxImageActivity extends Activity {
             Observable.create(new ObservableOnSubscribe<byte[]>() {
                 @Override
                 public void subscribe(@NonNull ObservableEmitter<byte[]> emitter) throws Exception {
-                    String uri = "https://timgsa.baidu.com/advertising?image&quality=80&size=b9999_10000&sec=1490616135886&di=a6e90cd40cd274e9adde216c40a97321&imgtype=0&src=http%3A%2F%2Fimg1.gamedog.cn%2F2017%2F02%2F08%2F1418043-1F20P923180-50.jpg";
+                    String uri = "https://wx3.sinaimg.cn/mw690/6b6562f4gy1fq9nvmiq40j20gu08g0u9.jpg";
                     try {
                         URL url = new URL(uri);
                         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -104,14 +111,13 @@ public class RxImageActivity extends Activity {
                     emitter.onNext(picByte);
                     emitter.onComplete();
                 }
-            })
-                    .subscribeOn(Schedulers.io())
+            }).subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<byte[]>() {
 
                         @Override
                         public void onError(Throwable e) {
-                            Toast.makeText(RxImageActivity.this, "ERROR!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RxImageActivity.this, "LOAD ERROR!", Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
@@ -153,6 +159,8 @@ public class RxImageActivity extends Activity {
             case R.id.setnet_btn:
                 Intent intent = new Intent(Settings.ACTION_SETTINGS);
                 startActivity(intent);
+                break;
+            default:
                 break;
         }
     }

@@ -109,6 +109,7 @@ public class MainFragment extends Fragment {
                         startActivity(intent1);
                         break;
                     case 1:
+                        //rxjava 广东接口
                         Intent intent2 = new Intent(getActivity(), RxGDActivity.class);
                         startActivity(intent2);
                         break;
@@ -118,6 +119,7 @@ public class MainFragment extends Fragment {
 
                         break;
                     case 3:
+                        //rxjava 图片测试
                         Intent intent = new Intent(getActivity(), RxImageActivity.class);
                         startActivity(intent);
                         break;
@@ -158,6 +160,8 @@ public class MainFragment extends Fragment {
                     case 16:
                         Intent intent16 = new Intent(getActivity(), LoadImageActivity.class);
                         startActivity(intent16);
+                        break;
+                    default:
                         break;
                 }
             }

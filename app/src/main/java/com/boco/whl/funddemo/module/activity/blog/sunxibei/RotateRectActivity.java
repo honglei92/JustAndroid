@@ -41,11 +41,11 @@ public class RotateRectActivity extends BaseActivity {
         objectAnimator.setDuration(1000);
         objectAnimator.setStartDelay(500);
 
-        ObjectAnimator animator1 = objectAnimator.ofFloat(myAnimationView, "degreeZ", 0, 270);
+        ObjectAnimator animator1 = ObjectAnimator.ofFloat(myAnimationView, "degreeZ", 0, 270);
         animator1.setDuration(800);
         animator1.setStartDelay(500);
 
-        ObjectAnimator animator2 = objectAnimator.ofFloat(myAnimationView, "fixDegreeY", 0, 30);
+        ObjectAnimator animator2 = ObjectAnimator.ofFloat(myAnimationView, "fixDegreeY", 0, 30);
         animator2.setDuration(500);
         animator2.setStartDelay(500);
 

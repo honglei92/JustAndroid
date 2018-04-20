@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.module.activity.blog.HenCode1;
+import com.boco.whl.funddemo.module.activity.blog.didi.DiDiActivity;
 import com.boco.whl.funddemo.module.activity.blog.fallingstar.FallingStarActivity;
 import com.boco.whl.funddemo.module.activity.blog.mi.MiSportActivity;
 import com.boco.whl.funddemo.module.activity.blog.sunxibei.RotateRectActivity;
@@ -79,8 +80,8 @@ public class BlogFragment extends Fragment {
     }
 
     private void initCatgory() {
-        String[] titles = {"HenCode1", "rotateRect", "miSport", "thumbUp", "mint"
-                , "fallingStar"};
+        String[] titles = {"HenCode1", "rotateRect", "miSport", "thumbUp"
+                , "fallingStar", "didi"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener((AdapterView<?> adapterView, View view, int i, long l) -> {
@@ -102,11 +103,12 @@ public class BlogFragment extends Fragment {
                     startActivity(intent4);
                     break;
                 case 4:
-                    Intent intent5 = new Intent(getActivity(), ThumbUpActivity.class);
-                    startActivity(intent5);
+                    FallingStarActivity.doIntent(getActivity(), false);
                     break;
                 case 5:
-                    FallingStarActivity.doIntent(getActivity(), false);
+                    DiDiActivity.doIntent(getActivity(), false);
+                    break;
+                default:
                     break;
             }
         });

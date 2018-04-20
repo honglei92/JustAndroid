@@ -20,6 +20,9 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 
+/**
+ * @author honglei92
+ */
 public class RxjavaTestActivity extends Activity {
 
     @BindView(R.id.showtext)

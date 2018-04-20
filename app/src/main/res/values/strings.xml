@@ -12,4 +12,5 @@
     <string name="title_activity_water_mark">WaterMarkActivity</string>
     <string name="sub_title_separetor">|</string>
     <string name="sub_title_format" formatted="false">%.1f km | %d kcal</string>
+    <string name="title_activity_di_di">DiDiActivity</string>
 </resources>
