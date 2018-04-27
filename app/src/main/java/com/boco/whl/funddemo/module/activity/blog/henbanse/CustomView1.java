@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.blog;
+package com.boco.whl.funddemo.module.activity.blog.henbanse;
 
 import android.content.Context;
 import android.content.res.TypedArray;

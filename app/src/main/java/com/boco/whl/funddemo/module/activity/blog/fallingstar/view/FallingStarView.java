@@ -13,28 +13,24 @@ import android.view.View;
  * desc:       描述-流星雨自定义View
  * createTime: 2018/1/27 0027
  * updateTime: 2018/1/27 0027
+ *
+ * @author Administrator
  */
 
 public class FallingStarView extends View {
 
     private Paint paint;
-    private float positionX;
-    private float positionY;
+    private float positionX = 200;
+    private float positionY = 30;
+
+
+    private float radius = 3;
     private double finalX = 5;
     private double finalY = 5;
     private final int starNum = 5;
     private int mAlpha = 255;
     private double mAddDistance = 2;
 
-    public void setPositionX(float positionX) {
-        this.positionX = positionX;
-        invalidate();
-    }
-
-    public void setPositionY(float positionY) {
-        this.positionY = positionY;
-        invalidate();
-    }
 
     public FallingStarView(Context context) {
         this(context, null);
@@ -57,32 +53,7 @@ public class FallingStarView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawColor(0xff000000);
-        for (int i = 0; i < starNum; i++) {
-            float offsetX = i * 80;
-            canvas.drawLine(positionX + offsetX, positionY, (float) finalX + offsetX, (float) finalY, paint);
-            canvas.drawCircle((float) finalX + offsetX, (float) finalY, 4, paint);
-        }
-        initAnimation();
-    }
-
-    /**
-     * 动画
-     */
-    public void initAnimation() {
-
-        positionX += 1;
-        positionY += 1;
-        mAddDistance += 0.05;
-        finalX += 1.5;
-        finalY += 1.5;
-        if (finalY > 250) {
-            mAlpha = (int) (mAlpha * 0.95);
-            paint.setAlpha(mAlpha);
-        }
-        if (finalY >= 300) {
-            reset();
-        }
-        invalidate();
+        canvas.drawCircle(positionX, positionY, radius, paint);
     }
 
     @Override
@@ -106,5 +77,24 @@ public class FallingStarView extends View {
         mAlpha = 255;
         paint.setAlpha(mAlpha);
         mAddDistance = 2;
+    }
+
+    public void setPositionX(float positionX) {
+        this.positionX = positionX;
+        invalidate();
+    }
+
+    public void setPositionY(float positionY) {
+        this.positionY = positionY;
+        invalidate();
+    }
+
+    public float getRadius() {
+        return radius;
+    }
+
+    public void setRadius(float radius) {
+        this.radius = radius;
+        invalidate();
     }
 }

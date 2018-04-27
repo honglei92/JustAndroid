@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.module.activity.blog.HenCode1;
+import com.boco.whl.funddemo.module.activity.blog.henbanse.HenCode1;
 import com.boco.whl.funddemo.module.activity.blog.didi.DiDiActivity;
 import com.boco.whl.funddemo.module.activity.blog.fallingstar.FallingStarActivity;
 import com.boco.whl.funddemo.module.activity.blog.mi.MiSportActivity;

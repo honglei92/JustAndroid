@@ -190,7 +190,7 @@
         <activity android:name=".module.activity.SearchActivity" />
         <activity android:name=".module.activity.AdvertizeActivity" />
         <activity android:name=".module.activity.annndroid.fusionchart.FusionChartTestActivity" />
-        <activity android:name=".module.activity.blog.HenCode1" />
+        <activity android:name=".module.activity.blog.henbanse.HenCode1" />
         <activity android:name=".module.activity.blog.sunxibei.RotateRectActivity" />
         <activity android:name=".module.activity.blog.mi.MiSportActivity" />
         <activity android:name=".module.activity.blog.thumbup.ThumbUpActivity" />

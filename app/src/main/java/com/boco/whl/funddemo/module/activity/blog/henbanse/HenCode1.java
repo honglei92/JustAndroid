@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.blog;
+package com.boco.whl.funddemo.module.activity.blog.henbanse;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +11,8 @@ import com.boco.whl.funddemo.base.BaseActivity;
  * desc:
  * createTime: 2017/9/8 0008
  * updateTime: 2017/9/8 0008
+ *
+ * @author Administrator
  */
 
 public class HenCode1 extends BaseActivity {

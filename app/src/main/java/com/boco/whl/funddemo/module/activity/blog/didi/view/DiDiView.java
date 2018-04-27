@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.blog.didi;
+package com.boco.whl.funddemo.module.activity.blog.didi.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
