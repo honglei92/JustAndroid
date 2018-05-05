@@ -36,7 +36,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by JY on 2016/11/9.
+ *
+ * @author JY
+ * @date 2016/11/9
  */
 
 public class FixedHeaderTableView extends LinearLayout {

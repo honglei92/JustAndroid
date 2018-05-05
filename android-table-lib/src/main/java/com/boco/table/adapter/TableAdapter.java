@@ -30,6 +30,9 @@ import java.util.List;
 import static com.boco.table.R.id.viewPortraitSplitline1;
 
 
+/**
+ * @author Administrator
+ */
 public class TableAdapter extends BaseAdapter {
 
     protected List<CHScrollView> mHScrollViews;
@@ -233,11 +236,6 @@ public class TableAdapter extends BaseAdapter {
             hold.regionNameTv.setText(pageData.getRowData().get(position).getRowData().get(TableDataAdapter.FIXED_COLUMN).size() > 0 ? pageData.getRowData().get(position).getRowData().get(TableDataAdapter.FIXED_COLUMN).get(0) : "");
         }
         if (hold.regionNameTv.getText() != null) {
-            /*if (!hold.regionNameTv.getText().toString().equals("全省") && hold.regionNameTv.getText().toString().contains("市") && hold.regionNameTv.getText().toString().length() < 5 && hold.regionNameTv.getText().toString().indexOf(" ") < 0) {
-                hold.regionNameTv.setTextColor(Color.parseColor("#181DEC"));
-            } else {
-                hold.regionNameTv.setTextColor(TableTextColor);
-            }*/
             if (hold.regionNameTv.getText().toString().equals("全省") || hold.regionNameTv.getText().toString().indexOf(" ") > 0) {
                 hold.regionNameTv.setTextColor(TableTextColor);
             } else {
@@ -304,24 +302,6 @@ public class TableAdapter extends BaseAdapter {
             }
         }
 
-//        int bgResource = position % 2 == 0 ?
-//                R.drawable.selector_list_item_gay
-//                : R.drawable.selector_list_item_white;
-
-        view.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
-
-//        if (position < pageData.getRowData().size()) {
-//            hold.regionNameTv.setBackgroundResource(bgResource);
-//			hold.regionNameTv.setEnabled(false);
-//            for (int i = 0; i < hold.valueTvs.length; i++) {
-//                hold.valueTvs[i].setBackgroundResource(bgResource);
-//                hold.valueTvs[i].setEnabled(false);
-//            }
-//
-//        }
-
-//        view.setBackgroundColor(Color.TRANSPARENT);
-//        view.setBackgroundResource(bgResource);
         view.setOnClickListener(pageData.getRowOnClick().get(position));
 
         return view;

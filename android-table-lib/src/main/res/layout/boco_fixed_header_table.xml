@@ -22,34 +22,31 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
 
             <RelativeLayout
                 android:id="@+id/tv_header_layout"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/tv_header_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
-                    android:gravity="center"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:ellipsize="end"/>
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:text="" />
 
 
                 <ImageView
                     android:id="@+id/sequence_img"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
-                    />
+                    android:layout_alignParentRight="true" />
 
             </RelativeLayout>
 
@@ -78,27 +75,6 @@
                 </LinearLayout>
             </com.boco.table.view.CHScrollView>
 
-            <!--<ImageView-->
-            <!--android:id="@+id/iv_nav_left"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:paddingBottom="1dip"-->
-            <!--android:src="@drawable/iv_navagation_scroll_left"-->
-            <!--android:layout_toRightOf="@id/jk_indicator_view" -->
-            <!--android:visibility="gone">-->
-            <!--</ImageView>-->
-            <!---->
-            <!--<ImageView-->
-            <!--android:id="@+id/iv_nav_right"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:paddingBottom="1dip"-->
-            <!--android:src="@drawable/iv_navagation_scroll_right"-->
-            <!--android:visibility="gone">-->
-            <!--</ImageView>-->
         </RelativeLayout>
     </LinearLayout>
 
@@ -113,10 +89,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:cacheColorHint="#00000000"
-        android:scrollbars="none"
         android:divider="@color/split_line_bg"
         android:dividerHeight="@dimen/split_line"
         android:overScrollMode="never"
-        android:scrollingCache="false"></ListView>
+        android:scrollbars="none"
+        android:scrollingCache="false" />
 
 </LinearLayout>

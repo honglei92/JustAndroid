@@ -36,7 +36,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by JY on 2017/6/30.
+ * @author JY
+ * @date 2017/6/30
  */
 
 public class FixedMultipleHeaderTableView extends LinearLayout {
@@ -200,6 +201,28 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
     }
 
     /**
+     * 初始化属性
+     *
+     * @param context
+     * @param attrs
+     */
+    private void initattrs(Context context, AttributeSet attrs) {
+        typearray = context.obtainStyledAttributes(attrs, R.styleable.FixedHeaderTableView);
+        TableHeaderHeigh = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableHeaderHeigh, getResources().getDimension(R.dimen.table_header_min_height)); //表头高度
+        TablHeigh = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TablHeigh, getResources().getDimension(R.dimen.table_min_height)); //表高度
+        TableHeaderWidth = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableHeaderWidth, getResources().getDimension(R.dimen.table_fixed_min_width)); //固定表头宽度
+        TableHeaderTextSize = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableHeaderTextSize, getResources().getDimension(R.dimen.text_header_size)); //表头字体大小
+        TableHeaderTextColor = typearray.getColor(R.styleable.FixedHeaderTableView_TableHeaderTextColor, getResources().getColor(R.color.text_header_color));  //表头字体颜色
+        TableTextSize = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableTextSize, getResources().getDimension(R.dimen.text_data_size)); //表字体大小
+        TableTextColor = typearray.getColor(R.styleable.FixedHeaderTableView_TableTextColor, getResources().getColor(R.color.text_data_color));  //表字体颜色
+        TableSplitLineSize = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableSplitLineSize, DisplayUtil.dip2px(context, getResources().getDimension(R.dimen.split_line))); //表分割线大小
+        TableSplitLineColor = typearray.getColor(R.styleable.FixedHeaderTableView_TableSplitLineColor, getResources().getColor(R.color.split_line_bg));  //表分割线颜色
+        TableHeaderColor = typearray.getColor(R.styleable.FixedHeaderTableView_TableHeaderColor, getResources().getColor(R.color.text_header_bg));  //表头颜色
+        TableTextLine = typearray.getInteger(R.styleable.FixedHeaderTableView_TableTextLine, 2);
+        TableScroll = typearray.getBoolean(R.styleable.FixedHeaderTableView_TableScroll, true);
+    }
+
+    /**
      * 初始化排序状态
      * //0 默认排序　1升序   2降序
      */
@@ -231,29 +254,27 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
         }
     }
 
-    private void initattrs(Context context, AttributeSet attrs) {
-        typearray = context.obtainStyledAttributes(attrs, R.styleable.FixedHeaderTableView);
-        TableHeaderHeigh = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableHeaderHeigh, getResources().getDimension(R.dimen.table_header_min_height)); //表头高度
-        TablHeigh = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TablHeigh, getResources().getDimension(R.dimen.table_min_height)); //表高度
-        TableHeaderWidth = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableHeaderWidth, getResources().getDimension(R.dimen.table_fixed_min_width)); //固定表头宽度
-        TableHeaderTextSize = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableHeaderTextSize, getResources().getDimension(R.dimen.text_header_size)); //表头字体大小
-        TableHeaderTextColor = typearray.getColor(R.styleable.FixedHeaderTableView_TableHeaderTextColor, getResources().getColor(R.color.text_header_color));  //表头字体颜色
-        TableTextSize = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableTextSize, getResources().getDimension(R.dimen.text_data_size)); //表字体大小
-        TableTextColor = typearray.getColor(R.styleable.FixedHeaderTableView_TableTextColor, getResources().getColor(R.color.text_data_color));  //表字体颜色
-        TableSplitLineSize = (int) typearray.getDimension(R.styleable.FixedHeaderTableView_TableSplitLineSize, DisplayUtil.dip2px(context, getResources().getDimension(R.dimen.split_line))); //表分割线大小
-        TableSplitLineColor = typearray.getColor(R.styleable.FixedHeaderTableView_TableSplitLineColor, getResources().getColor(R.color.split_line_bg));  //表分割线颜色
-        TableHeaderColor = typearray.getColor(R.styleable.FixedHeaderTableView_TableHeaderColor, getResources().getColor(R.color.text_header_bg));  //表头颜色
-        TableTextLine = typearray.getInteger(R.styleable.FixedHeaderTableView_TableTextLine, 2);
-        TableScroll = typearray.getBoolean(R.styleable.FixedHeaderTableView_TableScroll, true);
-    }
-
+    /**
+     * 设置数据
+     *
+     * @param context
+     * @param title
+     * @param mainTitles
+     * @param viceTitles
+     */
     private void setDatas(Activity context, final String title, final String[] mainTitles, final Map<String, List<String>> viceTitles) {
         initHead(context, title, mainTitles, viceTitles);
         setmContext(context);
     }
 
+
     /**
      * 初始化表头
+     *
+     * @param context
+     * @param title
+     * @param mainTitles
+     * @param viceTitles
      */
     private void initHead(Activity context, final String title, final String[] mainTitles, final Map<String, List<String>> viceTitles) {
         headTabContainer.removeAllViews();
@@ -297,7 +318,8 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
                     public void onClick(View view) {
 
                         int selectIndex = 0;
-                        if (sortState[selectIndex] == 0) {//升序
+                        if (sortState[selectIndex] == 0) {
+                            //升序
                             if (adapter.addComparator() != null && adapter.addComparator().size() > 0) {
                                 Comparator comparator = (Comparator) adapter.addComparator().get(0);
                                 if (comparator != null) {
@@ -314,8 +336,8 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
                                 }
                             }
 
-                        } else if (sortState[selectIndex] == 1) {//降序
-
+                            //降序
+                        } else if (sortState[selectIndex] == 1) {
                             if (adapter.addComparator() != null && adapter.addComparator().size() > 0) {
                                 Comparator comparator = (Comparator) adapter.addComparator().get(0);
                                 if (comparator != null) {
@@ -333,7 +355,8 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
                                 }
                             }
 
-                        } else if (sortState[selectIndex] == 2) {//还原默认
+                            //还原默认
+                        } else if (sortState[selectIndex] == 2) {
                             for (int j = 0; j < sortState.length; j++) {
                                 sortState[j] = 0;
                             }
@@ -343,7 +366,6 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
                             }
                             refreshTable();
                         }
-//                        refreshTable();
                     }
                 });
             }
@@ -360,7 +382,7 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
 
         }
 
-        String[] titlesAll=new String[headerList.size()];
+        String[] titlesAll = new String[headerList.size()];
         for (int i = 0; i < titlesAll.length; i++) {
             titlesAll[i] = headerList.get(i);
         }
@@ -396,10 +418,10 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
             }
 
         }
-        int index=0;
+        int index = 0;
         for (int m = 0; m < mainTitles.length; m++) {
 
-            int mainwidth=0;
+            int mainwidth = 0;
 
             String[] titles = null;
             if (viceTitles.get(mainTitles[m]) == null) {
@@ -458,7 +480,7 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
             for (int i = 0; i < titles.length; i++) {
 
                 index++;
-                final int selectIndex=index;
+                final int selectIndex = index;
 
                 RelativeLayout layout = new RelativeLayout(context);
 
@@ -509,7 +531,7 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
                     childParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
                     layout.addView(childImageView, childParams);
 
-                    final int j = selectIndex-1;
+                    final int j = selectIndex - 1;
                     layout.setOnClickListener(new OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -561,8 +583,6 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
                                 }
                                 refreshTable();
                             }
-//                        refreshTable();
-
                         }
                     });
                 } else {
@@ -573,20 +593,19 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
                 LayoutParams params = null;
                 if (cellWidth == -1) {
                     if (cellWidths != null && i < cellWidths.length) {
-                        params = TableUtil.getLayoutParams(context, titles.length + 1, TableHeaderWidth, TableSplitLineSize, isTransverseScroll, cellWidths[selectIndex-1]);
-                        mainwidth=mainwidth+cellWidths[selectIndex-1];
+                        params = TableUtil.getLayoutParams(context, titles.length + 1, TableHeaderWidth, TableSplitLineSize, isTransverseScroll, cellWidths[selectIndex - 1]);
+                        mainwidth = mainwidth + cellWidths[selectIndex - 1];
                     } else {
                         params = TableUtil.getLayoutParams(context, titles.length + 1, TableHeaderWidth, TableSplitLineSize, isTransverseScroll, 0);
-                        mainwidth=mainwidth+0;
+                        mainwidth = mainwidth + 0;
                     }
-//                    layout.setPadding((int) getResources().getDimension(R.dimen.table_padding), 0, (int) getResources().getDimension(R.dimen.table_padding), 0);
                 } else {
                     params = TableUtil.getLayoutParams(context, titlesAll.length + 1, TableHeaderWidth, TableSplitLineSize, isTransverseScroll, cellWidth);
-                    mainwidth=mainwidth+cellWidth;
+                    mainwidth = mainwidth + cellWidth;
                 }
                 viceLayout.addView(layout, params);
 
-                if (titles.length >= 2 &&i < titles.length - 1) {
+                if (titles.length >= 2 && i < titles.length - 1) {
                     View divider = new View(context);
                     divider.setBackgroundColor(TableSplitLineColor);
                     LayoutParams divierParams = new LayoutParams(TableSplitLineSize,
@@ -596,8 +615,8 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
             }
 
 
-            if (titles.length>1){
-                LinearLayout.LayoutParams mainParams = TableUtil.getMultipleLayoutParams(context, titlesAll.length + 1, TableHeaderWidth,TableHeaderHeigh, TableSplitLineSize, isTransverseScroll, mainwidth,titles.length);
+            if (titles.length > 1) {
+                LinearLayout.LayoutParams mainParams = TableUtil.getMultipleLayoutParams(context, titlesAll.length + 1, TableHeaderWidth, TableHeaderHeigh, TableSplitLineSize, isTransverseScroll, mainwidth, titles.length);
                 mainLayout.setLayoutParams(mainParams);
 
                 parentLayout.addView(mainLayout);
@@ -616,7 +635,7 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
 
             headTabContainer.addView(parentLayout);
 
-            if ( m < mainTitles.length - 1) {
+            if (m < mainTitles.length - 1) {
                 View divider = new View(context);
                 divider.setBackgroundColor(TableSplitLineColor);
                 LayoutParams divierParams = new LayoutParams(TableSplitLineSize,
@@ -642,6 +661,31 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
         new InitTableStruct().execute();
     }
 
+    /**
+     * 设置表格数据
+     *
+     * @param pageData
+     */
+    private void setTableData(PageData pageData) {
+        if (tableAdapter == null) {
+            tableAdapter = new TableAdapter(mContext, pageData, listView, mHScrollViews, typearray, isTransverseScroll, cellWidth, cellWidths);
+            tableAdapter.setTableDataAdapter(adapter);
+            listView.setAdapter(tableAdapter);
+        } else {
+            tableAdapter.setTableDataAdapter(adapter);
+            tableAdapter.notifyDataSetChanged();
+        }
+        if (isCustomClolor) {
+            tableAdapter.setCustomTextColor(isCustomClolor, delimiter);
+        }
+
+        listView.setDivider(new ColorDrawable(TableSplitLineColor));
+        listView.setDividerHeight(TableSplitLineSize);
+    }
+
+    /**
+     * 初始化表格结构
+     */
     private class InitTableStruct extends AsyncTask<Void, Void, PageData> {
 
         @Override
@@ -679,30 +723,10 @@ public class FixedMultipleHeaderTableView extends LinearLayout {
 
         @Override
         protected void onPostExecute(PageData pageData) {
-
-            setDatas(adapter.getMContext(), pageData.getHeadData().get(TableDataAdapter.FIXED_COLUMN).length > 0 ? pageData.getHeadData().get(TableDataAdapter.FIXED_COLUMN)[0] : "", pageData.getHeadData().get(TableDataAdapter.MULTIPLEHEADER_MAIN), pageData.getViceHeaderData());
-
+            setDatas(adapter.getMContext(), pageData.getHeadData().get(TableDataAdapter.FIXED_COLUMN).length > 0 ?
+                    pageData.getHeadData().get(TableDataAdapter.FIXED_COLUMN)[0] : "", pageData.getHeadData()
+                    .get(TableDataAdapter.MULTIPLEHEADER_MAIN), pageData.getViceHeaderData());
             setTableData(pageData);
-
         }
-
     }
-
-    private void setTableData(PageData pageData) {
-        if (tableAdapter == null) {
-            tableAdapter = new TableAdapter(mContext, pageData, listView, mHScrollViews, typearray, isTransverseScroll, cellWidth, cellWidths);
-            tableAdapter.setTableDataAdapter(adapter);
-            listView.setAdapter(tableAdapter);
-        } else {
-            tableAdapter.setTableDataAdapter(adapter);
-            tableAdapter.notifyDataSetChanged();
-        }
-        if (isCustomClolor) {
-            tableAdapter.setCustomTextColor(isCustomClolor, delimiter);
-        }
-
-        listView.setDivider(new ColorDrawable(TableSplitLineColor));
-        listView.setDividerHeight(TableSplitLineSize);
-    }
-
 }

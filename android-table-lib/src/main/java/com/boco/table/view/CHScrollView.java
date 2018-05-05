@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * @author Administrator
+ */
 public class CHScrollView extends HorizontalScrollView {
 
     public HorizontalScrollView mTouchView;
@@ -44,13 +47,10 @@ public class CHScrollView extends HorizontalScrollView {
 
         for (CHScrollView scrollView : mHScrollViews) {
             // 防止重复滑动
-            if (mTouchView != scrollView)
+            if (mTouchView != scrollView) {
                 scrollView.smoothScrollTo(l, t);
+            }
         }
-
-//		if (scroller != null) {
-//			scroller.onScrollXY(l, t);
-//		}
 
         //显示左右箭头
         if (mContext != null && !mContext.isFinishing() && view != null && rightImage != null
@@ -79,46 +79,24 @@ public class CHScrollView extends HorizontalScrollView {
         this.view = view;
         this.leftImage = leftImage;
         this.rightImage = rightImage;
-        /**获取屏幕大小**/
+        //获取屏幕大小
         DisplayMetrics dm = new DisplayMetrics();
         this.mContext.getWindowManager().getDefaultDisplay().getMetrics(dm);
         windowWitdh = dm.widthPixels;
         this.headView = headView;
     }
 
-//	@Override
-//	public boolean dispatchTouchEvent(MotionEvent ev) {
-//		getParent().requestDisallowInterceptTouchEvent(true);
-//		return super.dispatchTouchEvent(ev);
-//	}
-//
-//    @SuppressLint("ClickableViewAccessibility")
-//    @Override
-//    public boolean onTouchEvent(MotionEvent ev) {
-////		Log.i("pdwy","MyHScrollView onTouchEvent");
-//        try {
-//            return super.onTouchEvent(ev);
-//        } catch (IllegalArgumentException ex) {
-//            ex.printStackTrace();
-//            return false;
-//        }
-//    }
-
     public void setIScroller(CHScrollViewListener scroller) {
         this.scroller = scroller;
     }
-
-//	@Override
-//	public void onScrollXY(int offsetX, int offsetY) {
-//		scrollTo(offsetX, offsetY);
-//	}
 
     public void addView(final CHScrollView sView, ListView listView, List<CHScrollView> mHScrollViews) {
         this.mHScrollViews = mHScrollViews;
         if (!mHScrollViews.isEmpty()) {
             int size = mHScrollViews.size();
             CHScrollView scrollView = mHScrollViews.get(size - 1);
-            final int scrollX = scrollView.getScrollX(); // 获取滚动位置
+            // 获取滚动位置
+            final int scrollX = scrollView.getScrollX();
             // 第一次满屏后，向下滑动，有一条数据在开始时未加入
             if (scrollX != 0) {
                 listView.post(new Runnable() {

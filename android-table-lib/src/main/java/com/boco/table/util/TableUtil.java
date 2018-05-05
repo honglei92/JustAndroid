@@ -16,14 +16,6 @@ public class TableUtil {
         int screenWidth = dm.widthPixels; // 获取屏幕宽度
 
         if (isTransverseScroll) {
-//            if (cellWidth==0){
-//                params = new LayoutParams(DisplayUtil.dip2px(context,cellWidth),
-//                        LayoutParams.MATCH_PARENT);
-//            }else {
-//                params = new LayoutParams(DisplayUtil.dip2px(context,cellWidth+context.getResources().getDimension(R.dimen.table_padding)*2),
-//                        LayoutParams.MATCH_PARENT);
-//            }
-
             if (cellWidth==0){
                 params = new LayoutParams(cellWidth,
                         LayoutParams.MATCH_PARENT);

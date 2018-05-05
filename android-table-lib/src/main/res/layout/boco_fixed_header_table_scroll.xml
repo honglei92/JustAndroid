@@ -77,28 +77,6 @@
 
                 </LinearLayout>
             </com.boco.table.view.CHScrollView>
-
-            <!--<ImageView-->
-            <!--android:id="@+id/iv_nav_left"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:paddingBottom="1dip"-->
-            <!--android:src="@drawable/iv_navagation_scroll_left"-->
-            <!--android:layout_toRightOf="@id/jk_indicator_view" -->
-            <!--android:visibility="gone">-->
-            <!--</ImageView>-->
-            <!---->
-            <!--<ImageView-->
-            <!--android:id="@+id/iv_nav_right"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:paddingBottom="1dip"-->
-            <!--android:src="@drawable/iv_navagation_scroll_right"-->
-            <!--android:visibility="gone">-->
-            <!--</ImageView>-->
         </RelativeLayout>
     </LinearLayout>
 
@@ -117,6 +95,6 @@
         android:divider="@color/split_line_bg"
         android:dividerHeight="@dimen/split_line"
         android:overScrollMode="never"
-        android:scrollingCache="false"></com.boco.table.view.ScrollListView>
+        android:scrollingCache="false" />
 
 </LinearLayout>
