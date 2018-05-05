@@ -18,6 +18,7 @@ import com.boco.whl.funddemo.module.activity.blog.didi.view.DiDiView;
 import com.boco.whl.funddemo.module.activity.blog.didi.view.InfoWindowView;
 import com.boco.whl.funddemo.module.activity.blog.didi.view.MayiView;
 import com.boco.whl.funddemo.module.activity.blog.didi.view.ProgressView;
+import com.boco.whl.funddemo.module.activity.blog.didi.view.ValueView;
 import com.boco.whl.funddemo.utils.IntentUT;
 
 import butterknife.BindView;
@@ -39,13 +40,16 @@ public class DiDiActivity extends AppCompatActivity {
     ProgressView progressView;
     @BindView(R.id.infoWindowView)
     InfoWindowView infoWindowView;
+    @BindView(R.id.valueView)
+    ValueView valueView;
     private Handler handler = new Handler();
     private int num = 1;
     private ObjectAnimator animator;
     private ObjectAnimator animatorDistination;
     private ObjectAnimator animatorMayi;
     private ObjectAnimator animatorProgress;
-    private static final int REPEAT_TIME = 20;
+    private ValueAnimator animatorValue;
+    private static final int REPEAT_TIME = 200;
 
     public static void doIntent(Activity activity, boolean isFinish) {
         IntentUT.getInstance().openActivity(activity, DiDiActivity.class, isFinish);
@@ -61,6 +65,28 @@ public class DiDiActivity extends AppCompatActivity {
         initMayiAnimation();
         initProgressAnimation();
         initInfoAnimation();
+        initValueAnimation();
+    }
+
+    /**
+     * value 动画
+     */
+    private void initValueAnimation() {
+        if (animatorValue == null) {
+            animatorValue = ValueAnimator.ofInt(1, 100);
+            animatorValue.setDuration(2000).setRepeatMode(ValueAnimator.RESTART);
+            animatorValue.setRepeatCount(100);
+            animatorValue.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    int animationValue = (int) animation.getAnimatedValue();
+                    valueView.setNum(animationValue);
+                }
+            });
+        }
+        animatorValue.setTarget(valueView);
+        animatorValue.start();
+
     }
 
     /**
@@ -144,10 +170,10 @@ public class DiDiActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ObjectAnimator gotAnimator = ObjectAnimator.ofFloat(mayiView, "gotTextY", 0, -50);
-                gotAnimator.setDuration(2000);
+                gotAnimator.setDuration(1500);
                 ObjectAnimator alphaAnimator = ObjectAnimator.ofInt(mayiView, "gotAlpha", 255, 0);
                 alphaAnimator.setInterpolator(new LinearInterpolator());
-                alphaAnimator.setDuration(2000);
+                alphaAnimator.setDuration(1500);
                 final AnimatorSet set = new AnimatorSet();
                 set.playTogether(gotAnimator, alphaAnimator);
                 set.start();

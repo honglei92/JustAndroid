@@ -17,22 +17,29 @@ import java.util.List;
 
 /**
  * 帮助介绍页
+ *
+ * @author Administrator
  */
 public class GuideViewActivity extends Activity {
     private ViewPager viewPage;
-    // 图片
-//    private int[] imageView = {R.drawable.yindaoye1, R.drawable.yindaoye2,
-//            R.drawable.yindaoye3, R.drawable.yindaoye4};
-    private String[] imageView = {
-            "https://wx2.sinaimg.cn/mw690/727190c6ly1fnkxdneuhzj21hc1z4qv9.jpg",
-            "https://wx1.sinaimg.cn/mw690/727190c6ly1fnkxdqa7m0j21z41hchdx.jpg",
-            "https://wx2.sinaimg.cn/mw690/727190c6ly1fnkxdu5sagj21hc1z44qv.jpg",
-            "https://wx1.sinaimg.cn/mw690/b527203dgy1fnkfka64bnj23402c0npd.jpg"};
-    private List<View> list = new ArrayList<>();
-    //立即进入按钮
-    private TextView textView;
-    private boolean isLastPage = false;
 
+    /**
+     * 图片
+     */
+    private int[] imageView = {R.drawable.yindaoye1, R.drawable.yindaoye2,
+            R.drawable.yindaoye3, R.drawable.yindaoye4};
+    /*  private String[] imageView = {
+              "https://wx2.sinaimg.cn/mw690/727190c6ly1fnkxdneuhzj21hc1z4qv9.jpg",
+              "https://wx1.sinaimg.cn/mw690/727190c6ly1fnkxdqa7m0j21z41hchdx.jpg",
+              "https://wx2.sinaimg.cn/mw690/727190c6ly1fnkxdu5sagj21hc1z44qv.jpg",
+              "https://wx1.sinaimg.cn/mw690/b527203dgy1fnkfka64bnj23402c0npd.jpg"};*/
+    private List<View> list = new ArrayList<>();
+
+    private boolean isLastPage = false;
+    /**
+     * 立即进入按钮
+     */
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +78,6 @@ public class GuideViewActivity extends Activity {
             ImageView iv = new ImageView(this);
             iv.setLayoutParams(params);
             iv.setScaleType(ImageView.ScaleType.FIT_XY);
-//            iv.setImageResource(imageView[i]);
             Glide.with(GuideViewActivity.this).load(imageView[i]).into(iv);
             list.add(iv);
         }
@@ -80,7 +86,8 @@ public class GuideViewActivity extends Activity {
         viewPage.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if (isLastPage) {   //当前页是最后一页，并且是拖动状态，并且像素偏移量为0
+                if (isLastPage) {
+                    //当前页是最后一页，并且是拖动状态，并且像素偏移量为0
                     textView.setVisibility(View.VISIBLE);
                 } else {
                     textView.setVisibility(View.GONE);

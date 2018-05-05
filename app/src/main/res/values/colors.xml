@@ -18,4 +18,5 @@
     <color name="colorGray">#e2e5e2</color>
     <color name="colorDirtyWhite">#f6f9f6</color>
     <color name="colorForgiven">#4bbb74</color>
+    <color name="under_line">#EBEBEB</color>
 </resources>

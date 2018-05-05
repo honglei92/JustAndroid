@@ -20,6 +20,8 @@ import butterknife.Unbinder;
 
 /**
  * 我的
+ *
+ * @author Administrator
  */
 public class MyFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
@@ -109,6 +111,8 @@ public class MyFragment extends Fragment {
                 break;
             case R.id.help_ll:
                 IntentUT.getInstance().openActivity(getActivity(), GuideViewActivity.class, false);
+                break;
+            default:
                 break;
         }
     }

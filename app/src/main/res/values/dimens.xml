@@ -2,5 +2,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="table_height">30dp</dimen>
     <dimen name="circle_radius">50dp</dimen>
-    <dimen name="next_dimen">25dp</dimen>
+    <dimen name="next_dimen">20dp</dimen>
 </resources>

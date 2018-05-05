@@ -42,4 +42,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp" />
 
+    <com.boco.whl.funddemo.module.activity.blog.didi.view.ValueView
+        android:id="@+id/valueView"
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/mayiView" />
+
 </RelativeLayout>

@@ -25,6 +25,8 @@ import butterknife.ButterKnife;
 
 /**
  * 固定表头可滑动表格
+ *
+ * @author Administrator
  */
 public class SlideTableActivity extends Activity {
     @BindView(R.id.fixed_table)
@@ -214,7 +216,6 @@ public class SlideTableActivity extends Activity {
         //是否横向滑动
         fixedTable.setTransverseScroll(true);
         fixedTable.setSort(true);
-//        test.setTransverseScroll(true,140);
         fixedTable.setMinimumHeight(30);
         // 刷新表格，展现数据
         fixedTable.refreshTable();

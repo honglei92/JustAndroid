@@ -50,14 +50,14 @@
         <com.boco.whl.funddemo.widgets.MyRadioButton
             android:id="@+id/radio4"
             style="@style/categoryradiobutton"
-            android:text="博客"
+            android:text="View"
             myradio:drawableSize="26dp"
             myradio:drawableTop="@drawable/category_image_selector" />
 
         <com.boco.whl.funddemo.widgets.MyRadioButton
             android:id="@+id/radio5"
             style="@style/categoryradiobutton"
-            android:text="我"
+            android:text="我的"
             myradio:drawableSize="26dp"
             myradio:drawableTop="@drawable/category_image_selector" />
     </RadioGroup>

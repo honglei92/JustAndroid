@@ -3,8 +3,6 @@ package com.boco.whl.funddemo.module.activity.blog.didi.view;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.RectF;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
@@ -13,27 +11,26 @@ import android.view.View;
 
 /**
  * @author honglei92
- * @createTime 2018/4/25 0025
+ * @createTime 2018/4/28 0028
  */
-public class ProgressView extends View {
+public class ValueView extends View {
 
+    private int num;
 
-    private int progress = -90;
-
-    public ProgressView(Context context) {
+    public ValueView(Context context) {
         super(context);
     }
 
-    public ProgressView(Context context, @Nullable AttributeSet attrs) {
+    public ValueView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ProgressView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public ValueView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public ProgressView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public ValueView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
@@ -42,16 +39,10 @@ public class ProgressView extends View {
         super.onDraw(canvas);
         Paint paint = new Paint();
         paint.setAntiAlias(true);
-        paint.setColor(0x77B9F0FB);
-        paint.setStrokeWidth(2);
-        paint.setStyle(Paint.Style.STROKE);
-        canvas.drawCircle(35, 35, 30, paint);
-        paint.setColor(0xffB9F0FB);
-        Path mPath = new Path();
-        // 连接路径到点
-        RectF oval = new RectF(5, 5, 65, 65);
-        mPath.addArc(oval, progress, 40);
-        canvas.drawPath(mPath, paint);
+        paint.setTextSize(25);
+        paint.setColor(0xff329E89);
+        canvas.drawColor(0x11666666);
+        canvas.drawText(num + "", 15, 30, paint);
 
     }
 
@@ -65,12 +56,8 @@ public class ProgressView extends View {
         super.onLayout(changed, left, top, right, bottom);
     }
 
-    public int getProgress() {
-        return progress;
-    }
-
-    public void setProgress(int progress) {
-        this.progress = progress;
+    public void setNum(int num) {
+        this.num = num;
         invalidate();
     }
 }

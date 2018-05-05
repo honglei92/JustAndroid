@@ -1,7 +1,9 @@
 package com.boco.whl.funddemo.module.activity.component.slidetable;
 
 /**
- * Created by zhuji on 2016/10/24.
+ *
+ * @author zhuji
+ * @date 2016/10/24
  */
 
 public class Model {

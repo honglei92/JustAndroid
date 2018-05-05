@@ -4,7 +4,9 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.os.Build;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -38,13 +40,14 @@ public class InfoWindowView extends View {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setColor(0xffffffff);
+        paint.setColor(0x2200ff00);
         Path path = new Path();
         path.addRect(radius, 0, width + radius, radius * 2, Path.Direction.CW);
         path1.addCircle(radius, radius, radius, Path.Direction.CW);

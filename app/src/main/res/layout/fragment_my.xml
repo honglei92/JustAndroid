@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/search_component"/>
+    <include layout="@layout/search_component" />
 
     <com.boco.whl.funddemo.widgets.CircleImg
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:src="@drawable/head_150"/>
+        android:src="@drawable/head_150" />
 
     <TextView
         android:id="@+id/account_text"
@@ -20,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
-        android:text="账号:13982268713"/>
+        android:text="账号:13982268713" />
 
     <TextView
         android:id="@+id/point_text"
@@ -29,13 +28,13 @@
         android:layout_marginTop="5dp"
         android:gravity="center_horizontal"
         android:text="15分"
-        android:textSize="12sp"/>
+        android:textSize="12sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="12dp"
         android:layout_marginTop="10dp"
-        android:background="#70C8C8C8"/>
+        android:background="#70C8C8C8" />
 
     <LinearLayout
         android:id="@+id/update_ll"
@@ -52,20 +51,21 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="0dp"
-            android:src="@drawable/ic_category"/>
+            android:src="@drawable/app" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:text="应用更新"/>
+            android:text="应用更新"
+            android:textColor="@color/page_my_item" />
 
         <ImageView
             android:layout_width="@dimen/next_dimen"
             android:layout_height="@dimen/next_dimen"
-            android:src="@drawable/icon_goto"/>
+            android:src="@drawable/icon_goto" />
     </LinearLayout>
 
     <View
@@ -73,7 +73,7 @@
         android:layout_height="0.5dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="#C8C8C8"/>
+        android:background="@color/under_line" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -89,21 +89,22 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="0dp"
-            android:src="@drawable/ic_category"/>
+            android:src="@drawable/app" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="下载管理"
-            android:textSize="14sp"/>
+            android:textColor="@color/page_my_item"
+            android:textSize="14sp" />
 
         <ImageView
             android:layout_width="@dimen/next_dimen"
             android:layout_height="@dimen/next_dimen"
-            android:src="@drawable/icon_goto"/>
+            android:src="@drawable/icon_goto" />
     </LinearLayout>
 
     <View
@@ -111,7 +112,7 @@
         android:layout_height="0.5dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="#C8C8C8"/>
+        android:background="@color/under_line" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -127,20 +128,21 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="0dp"
-            android:src="@drawable/ic_category"/>
+            android:src="@drawable/app" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:text="应用卸载"/>
+            android:text="应用卸载"
+            android:textColor="@color/page_my_item" />
 
         <ImageView
             android:layout_width="@dimen/next_dimen"
             android:layout_height="@dimen/next_dimen"
-            android:src="@drawable/icon_goto"/>
+            android:src="@drawable/icon_goto" />
     </LinearLayout>
 
     <View
@@ -148,7 +150,7 @@
         android:layout_height="0.5dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="#C8C8C8"/>
+        android:background="@color/under_line" />
 
     <LinearLayout
         android:id="@+id/help_ll"
@@ -165,20 +167,21 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="0dp"
-            android:src="@drawable/ic_category"/>
+            android:src="@drawable/app" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:text="帮助与反馈"/>
+            android:text="帮助与反馈"
+            android:textColor="@color/page_my_item" />
 
         <ImageView
             android:layout_width="@dimen/next_dimen"
             android:layout_height="@dimen/next_dimen"
-            android:src="@drawable/icon_goto"/>
+            android:src="@drawable/icon_goto" />
     </LinearLayout>
 
     <View
@@ -186,7 +189,7 @@
         android:layout_height="0.5dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="#C8C8C8"/>
+        android:background="@color/under_line" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -202,20 +205,21 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="0dp"
-            android:src="@drawable/ic_category"/>
+            android:src="@drawable/app" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:text="设置"/>
+            android:text="设置"
+            android:textColor="@color/page_my_item" />
 
         <ImageView
             android:layout_width="@dimen/next_dimen"
             android:layout_height="@dimen/next_dimen"
-            android:src="@drawable/icon_goto"/>
+            android:src="@drawable/icon_goto" />
     </LinearLayout>
 
     <View
@@ -223,7 +227,6 @@
         android:layout_height="0.5dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="#C8C8C8"/>
-
+        android:background="@color/under_line" />
 
 </LinearLayout>
