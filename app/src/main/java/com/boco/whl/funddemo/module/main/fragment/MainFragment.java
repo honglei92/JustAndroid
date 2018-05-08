@@ -28,6 +28,7 @@ import com.boco.whl.funddemo.module.activity.annndroid.mvp.view.UserActivity;
 import com.boco.whl.funddemo.module.activity.annndroid.mvpV2.CustomerActivity;
 import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxGDActivity;
 import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxImageActivity;
+import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxjavaTestActivity;
 import com.boco.whl.funddemo.module.adapter.CategoryItemAdapter;
 import com.boco.whl.funddemo.utils.IntentUT;
 import com.bumptech.glide.Glide;
@@ -62,6 +63,7 @@ public class MainFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private Intent intent;
 
     public MainFragment() {
     }
@@ -96,9 +98,9 @@ public class MainFragment extends Fragment {
     }
 
     private void initCatgory() {
-        String[] titles = {"Glide", "RxJava", "EventBus", "RxImage", "Retrofit", "OkHttp"
-                , "Tinker", "Baidu", "Map", "FusionChart", "MVP1", "MVP2", "kotlin", "listview", "imgCompress", "marquee"
-                , "loadImage"};
+        String[] titles = {"Glide", "RxJava", "EventBus", "RxImage", "RxOperator", "Retrofit", "OkHttp"
+                , "Tinker", "Baidu", "Map", "FusionChart", "MVP1", "MVP2", "kotlin", "listview", "" +
+                "imgCompress", "marquee", "loadImage"};
         Logger.d(titles);
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
@@ -107,65 +109,58 @@ public class MainFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
                     case 0:
-                        Intent intent1 = new Intent(getActivity(), GlideTestActivity.class);
-                        startActivity(intent1);
+                        intent = new Intent(getActivity(), GlideTestActivity.class);
                         break;
                     case 1:
                         //rxjava 广东接口
-                        Intent intent2 = new Intent(getActivity(), RxGDActivity.class);
-                        startActivity(intent2);
+                        intent = new Intent(getActivity(), RxGDActivity.class);
                         break;
                     case 2:
-                        Intent intent3 = new Intent(getActivity(), EventBusTestActivity.class);
-                        startActivity(intent3);
-
+                        intent = new Intent(getActivity(), EventBusTestActivity.class);
                         break;
                     case 3:
                         //rxjava 图片测试
-                        Intent intent = new Intent(getActivity(), RxImageActivity.class);
-                        startActivity(intent);
+                        intent = new Intent(getActivity(), RxImageActivity.class);
+                        break;
+                    case 4:
+                        intent = new Intent(getActivity(), RxjavaTestActivity.class);
+                        break;
+                    case 5:
+                        intent = new Intent(getActivity(), RxImageActivity.class);
                         break;
                     case 7:
-                        Intent intent7 = new Intent(getActivity(), SearchActivity.class);
-                        startActivity(intent7);
+                        intent = new Intent(getActivity(), SearchActivity.class);
                         break;
                     case 8:
-                        Intent intent8 = new Intent(getActivity(), LocationActivity.class);
-                        startActivity(intent8);
+                        intent = new Intent(getActivity(), LocationActivity.class);
                         break;
                     case 9:
-                        Intent intent9 = new Intent(getActivity(), FusionChartTestActivity.class);
-                        startActivity(intent9);
+                        intent = new Intent(getActivity(), FusionChartTestActivity.class);
                         break;
                     case 10:
-                        Intent intent10 = new Intent(getActivity(), UserActivity.class);
-                        startActivity(intent10);
+                        intent = new Intent(getActivity(), UserActivity.class);
                         break;
                     case 11:
-                        Intent intent11 = new Intent(getActivity(), CustomerActivity.class);
-                        startActivity(intent11);
+                        intent = new Intent(getActivity(), CustomerActivity.class);
                         break;
                     case 12:
                         break;
                     case 13:
-                        Intent intent13 = new Intent(getActivity(), ListTest.class);
-                        startActivity(intent13);
+                        intent = new Intent(getActivity(), ListTest.class);
                         break;
                     case 14:
-                        Intent intent14 = new Intent(getActivity(), ImageCompressActivity.class);
-                        startActivity(intent14);
+                        intent = new Intent(getActivity(), ImageCompressActivity.class);
                         break;
                     case 15:
-                        Intent intent15 = new Intent(getActivity(), MarqueeActivity.class);
-                        startActivity(intent15);
+                        intent = new Intent(getActivity(), MarqueeActivity.class);
                         break;
                     case 16:
-                        Intent intent16 = new Intent(getActivity(), LoadImageActivity.class);
-                        startActivity(intent16);
+                        intent = new Intent(getActivity(), LoadImageActivity.class);
                         break;
                     default:
                         break;
                 }
+                startActivity(intent);
             }
         });
     }

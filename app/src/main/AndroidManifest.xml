@@ -183,9 +183,9 @@
         <activity android:name=".module.activity.component.ScrollActivity" />
         <activity android:name=".module.activity.annndroid.LoadImageActivity" />
         <activity android:name=".module.activity.annndroid.rxjava.RxImageActivity" />
+        <activity android:name=".module.activity.annndroid.rxjava.RxjavaTestActivity" />
         <activity android:name=".module.activity.annndroid.eventbus.EventBusTestActivity" />
         <activity android:name=".module.activity.annndroid.glide.GlideTestActivity" />
-        <activity android:name=".module.activity.annndroid.rxjava.RxjavaTestActivity" />
         <activity android:name=".module.activity.GuideViewActivity" />
         <activity android:name=".module.activity.SearchActivity" />
         <activity android:name=".module.activity.AdvertizeActivity" />

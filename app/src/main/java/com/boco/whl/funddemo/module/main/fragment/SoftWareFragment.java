@@ -99,6 +99,8 @@ public class SoftWareFragment extends Fragment {
                         Intent intent = new Intent(getActivity(), RxImageActivity.class);
                         startActivity(intent);
                         break;
+                    default:
+                        break;
                 }
             }
         });
