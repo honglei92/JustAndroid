@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.widget.FrameLayout;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.base.BaseActivity;
@@ -27,6 +29,8 @@ import cn.jpush.android.api.JPushInterface;
 
 /**
  * 首页activity
+ *
+ * @author Administrator
  */
 public class IndexActivity extends BaseActivity implements MainFragment.OnFragmentInteractionListener
         , MyFragment.OnFragmentInteractionListener
@@ -48,6 +52,9 @@ public class IndexActivity extends BaseActivity implements MainFragment.OnFragme
     MyRadioButton radio5;
     @BindView(R.id.radiogroup)
     RadioGroup radiogroup;
+    private long mExitTime;
+    private static final long PRESS_BACK_INTERVAL = 2000;
+    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +68,6 @@ public class IndexActivity extends BaseActivity implements MainFragment.OnFragme
         PermissionsUT.getInstance().checkPermissions(this, true);
         initView();
         Logger.i("onCreate: " + StringUtil.getNull(BaseApplication.VALUE));
-        Logger.e("onCreate: " + StringUtil.getNull(BaseApplication.VALUE));
     }
 
     private void initView() {
@@ -138,5 +144,21 @@ public class IndexActivity extends BaseActivity implements MainFragment.OnFragme
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (System.currentTimeMillis() - mExitTime > PRESS_BACK_INTERVAL) {
+                showToast(toast, "再按一次退出程序");
+                mExitTime = System.currentTimeMillis();
+            } else {
+                //小于2000则退出程序
+                toast.cancel();
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

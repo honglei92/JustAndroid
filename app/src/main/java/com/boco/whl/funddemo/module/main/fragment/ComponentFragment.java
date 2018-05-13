@@ -34,8 +34,8 @@ public class ComponentFragment extends Fragment {
     ImageView queryimage;
     @BindView(R.id.search_text)
     EditText searchText;
-    @BindView(R.id.fault_diagnosis_query_rl)
-    RelativeLayout faultDiagnosisQueryRl;
+    @BindView(R.id.tipRL)
+    RelativeLayout tipRL;
     @BindView(R.id.category)
     GridView category;
     Unbinder unbinder;
@@ -70,7 +70,7 @@ public class ComponentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_common, container, false);
         unbinder = ButterKnife.bind(this, view);
         initCatgory();
         return view;

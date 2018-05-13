@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.boco.whl.funddemo.R;
+import com.boco.whl.funddemo.base.BaseActivity;
 import com.boco.whl.funddemo.module.adapter.GuideViewAdapter;
 import com.bumptech.glide.Glide;
 
@@ -20,7 +21,7 @@ import java.util.List;
  *
  * @author Administrator
  */
-public class GuideViewActivity extends Activity {
+public class GuideViewActivity extends BaseActivity {
     private ViewPager viewPage;
 
     /**

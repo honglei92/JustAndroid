@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 
 import com.boco.whl.funddemo.R;
+import com.boco.whl.funddemo.base.BaseActivity;
 import com.boco.whl.funddemo.module.activity.blog.didi.view.DestinationView;
 import com.boco.whl.funddemo.module.activity.blog.didi.view.DiDiView;
 import com.boco.whl.funddemo.module.activity.blog.didi.view.InfoWindowView;
@@ -29,7 +30,7 @@ import butterknife.ButterKnife;
  *
  * @author Administrator
  */
-public class DiDiActivity extends AppCompatActivity {
+public class DiDiActivity extends BaseActivity {
     @BindView(R.id.didiView)
     DiDiView didiView;
     @BindView(R.id.destinationView)

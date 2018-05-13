@@ -79,6 +79,8 @@ public class SplashActivity extends Activity {
             case R.id.skip_tv:
                 IntentUT.getInstance().openActivity(SplashActivity.this, IndexActivity.class, true);
                 break;
+            default:
+                break;
         }
     }
 }

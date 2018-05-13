@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -13,6 +15,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.module.activity.SearchActivity;
@@ -51,19 +54,27 @@ public class MainFragment extends Fragment {
     ImageView queryimage;
     @BindView(R.id.search_text)
     EditText searchText;
-    @BindView(R.id.fault_diagnosis_query_rl)
-    RelativeLayout faultDiagnosisQueryRl;
     @BindView(R.id.category)
     GridView category;
     Unbinder unbinder;
     @BindView(R.id.guide_iv)
     ImageView guideIv;
+    @BindView(R.id.tipRL)
+    RelativeLayout tipRL;
+    @BindView(R.id.mainScrollView)
+    ScrollView mainScrollView;
 
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
     private Intent intent;
+    /**
+     *
+     */
+    private float initTouchY = 0;
+    private DisplayMetrics metrics;
+    private boolean mScaling = false;
 
     public MainFragment() {
     }
@@ -90,17 +101,68 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_first, container, false);
         unbinder = ButterKnife.bind(this, view);
-        Glide.with(getActivity()).load("https://timgsa.baidu.com/advertising?image&quality=80&size=b9999_10000&sec=1492360831762&di=0ae748d3dba288e5ac3a1f046bdacc6c&imgtype=0&src=http%3A%2F%2Fnews.xinhuanet.com%2Fhouse%2Fwuxi%2F2013-12-26%2F118723855_111n.jpg").into(guideIv);
-        initCatgory();
+        initCategory();
+        //
+        initScrollScale();
+
         return view;
     }
 
-    private void initCatgory() {
+    private void initScrollScale() {
+        metrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        mainScrollView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                ViewGroup.LayoutParams lp = (ViewGroup.LayoutParams) guideIv.getLayoutParams();
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_UP:
+                        mScaling = false;
+                        lp.width = metrics.widthPixels;
+                        lp.height = metrics.widthPixels * 237 / 421;
+                        guideIv.setLayoutParams(lp);
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        int upY = v.getScrollY();
+                        float touchY = event.getY();
+                        if (!mScaling) {
+                            if (upY == 0) {
+                                initTouchY = event.getY();
+                            } else {
+                                break;
+                            }
+                        }
+                        float deltaY = touchY - initTouchY;
+                        if (deltaY < 0) {
+                            break;
+                        }
+                        mScaling = true;
+                        lp.width = (int) (metrics.widthPixels + deltaY * 0.45);
+                        lp.height = (int) ((metrics.widthPixels + deltaY * 0.45) * 237 / 421);
+                        guideIv.setLayoutParams(lp);
+
+                        return true;
+                    default:
+                        break;
+                }
+                return false;
+            }
+        });
+        mainScrollView.scrollTo(0, 0);
+
+    }
+
+    private void initCategory() {
         String[] titles = {"Glide", "RxJava", "EventBus", "RxImage", "RxOperator", "Retrofit", "OkHttp"
-                , "Tinker", "Baidu", "Map", "FusionChart", "MVP1", "MVP2", "kotlin", "listview", "" +
-                "imgCompress", "marquee", "loadImage"};
+                , "Baidu", "Map", "FusionChart", "MVP1", "MVP2", "kotlin", "listview",
+                "imgCompress", "marquee", "loadImage"
+                , "updating", "updating", "updating", "updating", "updating", "updating", "updating"
+                , "updating", "updating", "updating", "updating", "updating", "updating", "updating"
+                , "updating", "updating", "updating", "updating", "updating", "updating", "updating"
+                , "updating", "updating", "updating", "updating", "updating", "updating", "updating"
+        };
         Logger.d(titles);
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
