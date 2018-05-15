@@ -1,15 +1,9 @@
-package com.boco.whl.funddemo.module.activity.jaaava.eventtransmitmechanism;
+package com.boco.whl.funddemo.module.activity.regulation.eventdiapatchregulation;
 
 import android.view.MotionEvent;
 
 /**
- * <pre>
- *  author : honglei92
- *  desc :
- *  blog :
- *  createtime : 2017/6/21 0021 9:13
- *  updatetime : 2017/6/21 0021 9:13
- * </pre>
+ * @author Administrator
  */
 public class TouchEventUtil {
     public static String getTouchAction(int actionId) {
@@ -29,6 +23,8 @@ public class TouchEventUtil {
                 break;
             case MotionEvent.ACTION_OUTSIDE:
                 actionName = "ACTION_OUTSIDE";
+                break;
+            default:
                 break;
         }
         return actionName;

@@ -1,28 +1,26 @@
-package com.boco.whl.funddemo.module.activity.jaaava.eventtransmitmechanism;
+package com.boco.whl.funddemo.module.activity.regulation.eventdiapatchregulation;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.boco.whl.funddemo.R;
+import com.boco.whl.funddemo.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * <pre>
- *  author : honglei92
- *  desc :
- *  blog :
- *  createtime : 2017/6/20 0020 17:47
- *  updatetime : 2017/6/20 0020 17:47
- * </pre>
+ * 事件分发机制
+ *
+ * @author Administrator
  */
-public class EventTransmitActivity extends Activity {
+public class EventTransmitActivity extends BaseActivity {
     @BindView(R.id.tv_view)
     TouchEventView tvView;
     @BindView(R.id.event_viewgroup)
@@ -42,18 +40,20 @@ public class EventTransmitActivity extends Activity {
                 break;
             case R.id.event_viewgroup:
                 break;
+            default:
+                break;
         }
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        LogUtils.d("eventTest", "Activity | dispatchTouchEvent -->" + TouchEventUtil.getTouchAction(ev.getAction()));
+        Log.d("eventTest", "Activity | dispatchTouchEvent -->" + TouchEventUtil.getTouchAction(ev.getAction()));
         return super.dispatchTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        LogUtils.d("eventTest", "Activity | onTouchEvent -->" + TouchEventUtil.getTouchAction(event.getAction()));
+        Log.d("eventTest", "Activity | onTouchEvent -->" + TouchEventUtil.getTouchAction(event.getAction()));
         return super.onTouchEvent(event);
     }
 }

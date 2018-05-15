@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.jaaava.threadcommunication.broadcast;
+package com.boco.whl.funddemo.module.activity.regulation.threadcommunication.broadcast;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.jaaava.threadcommunication;
+package com.boco.whl.funddemo.module.activity.regulation.threadcommunication;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
@@ -13,27 +14,30 @@ import android.widget.Button;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.module.activity.jaaava.threadcommunication.thread.MyConsumer;
-import com.boco.whl.funddemo.module.activity.jaaava.threadcommunication.thread.MyProducer;
+import com.boco.whl.funddemo.module.activity.regulation.threadcommunication.thread.MyConsumer;
+import com.boco.whl.funddemo.module.activity.regulation.threadcommunication.thread.MyProducer;
 import com.boco.whl.funddemo.utils.LogUtil;
 import com.boco.whl.funddemo.utils.SharedPreferencesUtil;
+import com.boco.whl.funddemo.utils.ToastUtil;
 
 import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * <pre>
- *  author : honglei92
- *  desc :
- *  blog :
- *  createtime : 2017/6/19 0019 17:20
- *  updatetime : 2017/6/19 0019 17:20
- * </pre>
+ * 线程间通信
+ *
+ * @author Administrator
  */
 public class ThreadCommunicationOne extends Activity {
     @BindView(R.id.btn5)
@@ -44,7 +48,6 @@ public class ThreadCommunicationOne extends Activity {
     Button btn7;
     @BindView(R.id.btn8)
     Button btn8;
-    private Context context = ThreadCommunicationOne.this;
     @BindView(R.id.btn1)
     Button btn1;
     @BindView(R.id.btn2)
@@ -53,7 +56,27 @@ public class ThreadCommunicationOne extends Activity {
     Button btn3;
     @BindView(R.id.btn4)
     Button btn4;
-    private Handler handler = new Handler() {
+    private Context context = ThreadCommunicationOne.this;
+    private static BlockingQueue<Runnable> mPoolWorkQueue = new LinkedBlockingDeque<>(128);
+    private static ThreadFactory mThreadFactory = new ThreadFactory() {
+        public final AtomicInteger mCount = new AtomicInteger(1);
+
+        @Override
+        public Thread newThread(@NonNull Runnable r) {
+            return new Thread(r, "workTask  #" + mCount.getAndIncrement());
+        }
+    };
+    private static ThreadPoolExecutor THREAD_POOL_EXECUTOR;
+
+    static {
+        ThreadPoolExecutor mExecutor = new ThreadPoolExecutor(
+                5, 10, 30, TimeUnit.SECONDS, mPoolWorkQueue, mThreadFactory);
+        THREAD_POOL_EXECUTOR = mExecutor;
+    }
+
+    private Handler handler = new MyHandler();
+
+    static class MyHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -61,7 +84,8 @@ public class ThreadCommunicationOne extends Activity {
                 ToastUtils.showShort("我收到了子线程的handler消息");
             }
         }
-    };
+    }
+
     private static final String COMMUNICATION_ACTION = "action.communication";
 
     @Override
@@ -70,20 +94,17 @@ public class ThreadCommunicationOne extends Activity {
         setContentView(R.layout.activity_threadcommunicationone);
         ButterKnife.bind(this);
         wayOne();
-
     }
 
     /**
      * way1  SharedPreference
      */
     private void wayOne() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                LogUtils.d("Thread", Thread.currentThread().getName());
-                SharedPreferencesUtil.setLoginUserPhone(context, "13982268713");
-            }
-        }).start();
+        THREAD_POOL_EXECUTOR.execute(
+                () -> {
+                    LogUtils.d("Thread", Thread.currentThread().getName());
+                    SharedPreferencesUtil.setLoginUserPhone(context, "13982268713");
+                });
     }
 
     /**
@@ -106,58 +127,52 @@ public class ThreadCommunicationOne extends Activity {
      * handler通信
      */
     private void wayThree() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                handler.sendEmptyMessage(123);
-            }
-        }).start();
+        THREAD_POOL_EXECUTOR.execute(
+                () -> {
+                    handler.sendEmptyMessage(123);
+                });
     }
 
     /**
      * runOnUIThread
      */
     private void wayFour() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final String KEY = "oppo";
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        ToastUtils.showShort("我来自子线程RunOnUIThread" + KEY);
-                    }
+        THREAD_POOL_EXECUTOR.execute(
+                () -> {
+                    final String KEY = "oppo";
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            ToastUtils.showShort("我来自子线程RunOnUIThread" + KEY);
+                        }
+                    });
                 });
-            }
-        }).start();
-
     }
 
     /**
      * postDelayed
      */
     private void wayFive() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                LogUtil.d("post0  " + Thread.currentThread().getName());
-                new Handler(context.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        btn5.setText("postDelayed");
-                        btn5.setVisibility(View.VISIBLE);
-                        LogUtil.d("post1  " + Thread.currentThread().getName());
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                LogUtil.d("post2  " + Thread.currentThread().getName());
-                                btn5.setVisibility(View.GONE);
-                            }
-                        }, 2000);
-                    }
-                }, 1000);
-            }
-        }).start();
+        THREAD_POOL_EXECUTOR.execute(
+                () -> {
+                    LogUtil.d("post0  " + Thread.currentThread().getName());
+
+                    new Handler(context.getMainLooper()).postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            btn5.setText("postDelayed");
+                            btn5.setVisibility(View.VISIBLE);
+                            LogUtil.d("post1  " + Thread.currentThread().getName());
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    LogUtil.d("post2  " + Thread.currentThread().getName());
+                                    ToastUtil.showToast(context, "3秒后我出现了");
+                                }
+                            }, 2000);
+                        }
+                    }, 1000);
+                });
     }
 
     /**
@@ -175,16 +190,17 @@ public class ThreadCommunicationOne extends Activity {
         handler.postDelayed(runnable, 2000);
     }
 
+    /**
+     * 广播
+     */
     private void waySeven() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent();
-                intent.setAction(COMMUNICATION_ACTION);
-                intent.putExtra("name", "peach form" + Thread.currentThread().getName());
-                sendBroadcast(intent);
-            }
-        }).start();
+        THREAD_POOL_EXECUTOR.execute(
+                () -> {
+                    Intent intent = new Intent();
+                    intent.setAction(COMMUNICATION_ACTION);
+                    intent.putExtra("name", "peach form" + Thread.currentThread().getName());
+                    sendBroadcast(intent);
+                });
     }
 
     @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8})
@@ -213,6 +229,8 @@ public class ThreadCommunicationOne extends Activity {
                 waySeven();
                 break;
             case R.id.btn8:
+                break;
+            default:
                 break;
         }
     }

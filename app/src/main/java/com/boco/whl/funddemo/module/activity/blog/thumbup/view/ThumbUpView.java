@@ -3,18 +3,15 @@ package com.boco.whl.funddemo.module.activity.blog.thumbup.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.media.tv.TvTrackInfo;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
-import android.support.annotation.Px;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.view.View;
 
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.module.activity.jaaava.threadcommunication.thread.MyConsumer;
 import com.boco.whl.funddemo.utils.DisplayUtil;
 
 /**

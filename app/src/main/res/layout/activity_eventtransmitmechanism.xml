@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:background="#ff0000"
+    android:orientation="vertical">
 
-    <com.boco.whl.funddemo.module.activity.jaaava.eventtransmitmechanism.TouchEventViewGroup
+    <com.boco.whl.funddemo.module.activity.regulation.eventdiapatchregulation.TouchEventViewGroup
         android:id="@+id/event_viewgroup"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:background="#00ff00">
 
-        <com.boco.whl.funddemo.module.activity.jaaava.eventtransmitmechanism.TouchEventView
+        <com.boco.whl.funddemo.module.activity.regulation.eventdiapatchregulation.TouchEventView
             android:id="@+id/tv_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="30dp"
+            android:background="#0000ff"
             android:gravity="center"
-            android:text="view"/>
-    </com.boco.whl.funddemo.module.activity.jaaava.eventtransmitmechanism.TouchEventViewGroup>
+            android:text="view" />
+    </com.boco.whl.funddemo.module.activity.regulation.eventdiapatchregulation.TouchEventViewGroup>
 </LinearLayout>

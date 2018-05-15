@@ -136,13 +136,17 @@ dependencies {
     implementation 'com.android.support:design:25.3.1'
     implementation 'com.alibaba:fastjson:1.2.37'
     implementation 'com.orhanobut:logger:2.1.1'
+    implementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+
     testImplementation 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     implementation files('libs/bugly_crash_release.jar')
 }
 // 获取当前系统时间
 static def releaseTime() {
-    String data = new Date().format("yyyy-MM-dd HH:mm", TimeZone.getTimeZone("GMT+08:00"));
+    String data = new Date().format("yyyy-MM-dd HH:mm", TimeZone.getTimeZone("GMT+08:00"))
     data = data.replace(":", "");
     data = data.replace("-", "");
     data = data.replace(" ", "");

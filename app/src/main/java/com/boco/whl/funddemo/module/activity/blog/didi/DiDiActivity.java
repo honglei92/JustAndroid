@@ -6,14 +6,20 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.content.Context;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.base.BaseActivity;
+import com.boco.whl.funddemo.base.BaseApplication;
+import com.boco.whl.funddemo.entity.TestManager;
 import com.boco.whl.funddemo.module.activity.blog.didi.view.DestinationView;
 import com.boco.whl.funddemo.module.activity.blog.didi.view.DiDiView;
 import com.boco.whl.funddemo.module.activity.blog.didi.view.InfoWindowView;
@@ -21,6 +27,7 @@ import com.boco.whl.funddemo.module.activity.blog.didi.view.MayiView;
 import com.boco.whl.funddemo.module.activity.blog.didi.view.ProgressView;
 import com.boco.whl.funddemo.module.activity.blog.didi.view.ValueView;
 import com.boco.whl.funddemo.utils.IntentUT;
+import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,7 +37,7 @@ import butterknife.ButterKnife;
  *
  * @author Administrator
  */
-public class DiDiActivity extends BaseActivity {
+public class DiDiActivity extends BaseActivity implements TestManager.OnDataArrivedListener {
     @BindView(R.id.didiView)
     DiDiView didiView;
     @BindView(R.id.destinationView)
@@ -43,6 +50,7 @@ public class DiDiActivity extends BaseActivity {
     InfoWindowView infoWindowView;
     @BindView(R.id.valueView)
     ValueView valueView;
+    private static final String TAG = "DidiActivity";
     private Handler handler = new Handler();
     private int num = 1;
     private ObjectAnimator animator;
@@ -51,6 +59,8 @@ public class DiDiActivity extends BaseActivity {
     private ObjectAnimator animatorProgress;
     private ValueAnimator animatorValue;
     private static final int REPEAT_TIME = 200;
+    private static Context mContext;
+    private static View mView;
 
     public static void doIntent(Activity activity, boolean isFinish) {
         IntentUT.getInstance().openActivity(activity, DiDiActivity.class, isFinish);
@@ -61,6 +71,12 @@ public class DiDiActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_di_di);
         ButterKnife.bind(this);
+        //leakcanary
+        mContext = this;
+        mView = new View(this);
+        TestManager.getInstance().registerListener(this);
+        //anr
+//        SystemClock.sleep(30 * 1000);
         initAnimation();
         initDestAnimation();
         initMayiAnimation();
@@ -76,7 +92,7 @@ public class DiDiActivity extends BaseActivity {
         if (animatorValue == null) {
             animatorValue = ValueAnimator.ofInt(1, 100);
             animatorValue.setDuration(2000).setRepeatMode(ValueAnimator.RESTART);
-            animatorValue.setRepeatCount(100);
+            animatorValue.setRepeatCount(ValueAnimator.INFINITE);
             animatorValue.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
@@ -87,6 +103,9 @@ public class DiDiActivity extends BaseActivity {
         }
         animatorValue.setTarget(valueView);
         animatorValue.start();
+        valueView.setOnClickListener(v -> {
+            finish();
+        });
 
     }
 
@@ -263,5 +282,18 @@ public class DiDiActivity extends BaseActivity {
         } else {
             animator.start();
         }
+    }
+
+    @Override
+    public void onDataArrived(Object data) {
+
+        Log.d(TAG, "收到数据");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        RefWatcher refWatcher = BaseApplication.getRefWatcher(this);
+        refWatcher.watch(this);
     }
 }

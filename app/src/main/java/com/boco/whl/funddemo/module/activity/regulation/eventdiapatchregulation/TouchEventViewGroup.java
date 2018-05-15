@@ -1,7 +1,8 @@
-package com.boco.whl.funddemo.module.activity.jaaava.eventtransmitmechanism;
+package com.boco.whl.funddemo.module.activity.regulation.eventdiapatchregulation;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
@@ -15,6 +16,7 @@ import com.blankj.utilcode.util.LogUtils;
  *  createtime : 2017/6/21 0021 9:28
  *  updatetime : 2017/6/21 0021 9:28
  * </pre>
+ * @author Administrator
  */
 public class TouchEventViewGroup extends LinearLayout {
     public TouchEventViewGroup(Context context) {
@@ -27,19 +29,19 @@ public class TouchEventViewGroup extends LinearLayout {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        LogUtils.d("eventTest", "ViewGroup | dispatchTouchEvent -->" + TouchEventUtil.getTouchAction(ev.getAction()));
+        Log.d("eventTest", "ViewGroup | dispatchTouchEvent -->" + TouchEventUtil.getTouchAction(ev.getAction()));
         return super.dispatchTouchEvent(ev);
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        LogUtils.d("eventTest", "ViewGroup | onInterceptTouchEvent -->" + TouchEventUtil.getTouchAction(ev.getAction()));
+        Log.d("eventTest", "ViewGroup | onInterceptTouchEvent -->" + TouchEventUtil.getTouchAction(ev.getAction()));
         return super.onInterceptTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        LogUtils.d("eventTest", "ViewGroup | onTouchEvent -->" + TouchEventUtil.getTouchAction(event.getAction()));
+        Log.d("eventTest", "ViewGroup | onTouchEvent -->" + TouchEventUtil.getTouchAction(event.getAction()));
         return super.onTouchEvent(event);
     }
 }

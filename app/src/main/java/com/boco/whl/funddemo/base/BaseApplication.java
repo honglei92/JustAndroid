@@ -15,25 +15,39 @@ import com.boco.whl.funddemo.utils.net.NetBroadcastReceiver;
 import com.boco.whl.funddemo.utils.net.NetUtil;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 import com.tencent.bugly.crashreport.CrashReport;
 
 /**
  * 基类baseApplication  代表应用程序
+ *
+ * @author Administrator
  */
 public class BaseApplication extends Application implements NetBroadcastReceiver.NetEvent {
     private Context context = this;
     public static NetBroadcastReceiver.NetEvent event;
     public static String VALUE = "hoglei92";
+    private RefWatcher refWatcher;
     /**
      * 网络类型
      */
     private int netMobile;
 
+    public static RefWatcher getRefWatcher(Context context) {
+        BaseApplication application = (BaseApplication) context.getApplicationContext();
+        return application.refWatcher;
+    }
 
     @Override
     public void onCreate() {
         SDKInitializer.initialize(getApplicationContext());
         super.onCreate();
+        //内存泄露检测
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        refWatcher = LeakCanary.install(this);
         Logger.addLogAdapter(new AndroidLogAdapter());
         Utils.init(context);
         CrashReport.initCrashReport(context, "29ca5eaac5", false);

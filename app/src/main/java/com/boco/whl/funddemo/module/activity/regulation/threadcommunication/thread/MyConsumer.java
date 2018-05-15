@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.jaaava.threadcommunication.thread;
+package com.boco.whl.funddemo.module.activity.regulation.threadcommunication.thread;
 
 import com.boco.whl.funddemo.utils.LogUtil;
 
