@@ -29,14 +29,14 @@
         <com.boco.whl.funddemo.widgets.MyRadioButton
             android:id="@+id/radio1"
             style="@style/categoryradiobutton"
-            android:text="首页"
+            android:text="三方库"
             myradio:drawableSize="26dp"
             myradio:drawableTop="@drawable/category_image_selector" />
 
         <com.boco.whl.funddemo.widgets.MyRadioButton
             android:id="@+id/radio2"
             style="@style/categoryradiobutton"
-            android:text="原理"
+            android:text="机制"
             myradio:drawableSize="26dp"
             myradio:drawableTop="@drawable/category_image_selector" />
 
