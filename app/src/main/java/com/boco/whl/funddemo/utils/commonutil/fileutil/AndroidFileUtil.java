@@ -1,9 +1,9 @@
 package com.boco.whl.funddemo.utils.commonutil.fileutil;
 
-import java.io.File;
-
 import android.content.Intent;
 import android.net.Uri;
+
+import java.io.File;
 
 
 //Android 文件打开方式 

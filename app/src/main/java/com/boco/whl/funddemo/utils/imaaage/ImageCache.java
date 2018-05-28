@@ -8,11 +8,15 @@ import android.util.LruCache;
  * desc:  图片缓存
  * createTime: 2017/8/26 0026
  * updateTime: 2017/8/26 0026
+ *
+ * @author Administrator
  */
 
 public class ImageCache {
-    //图片缓存
-    LruCache<String, Bitmap> mImageCache;
+    /**
+     * 图片缓存
+     */
+    private LruCache<String, Bitmap> mImageCache;
 
     public ImageCache() {
         initImageCache();

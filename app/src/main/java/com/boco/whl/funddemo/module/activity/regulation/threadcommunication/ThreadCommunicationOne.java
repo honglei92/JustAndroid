@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -94,6 +95,9 @@ public class ThreadCommunicationOne extends Activity {
         setContentView(R.layout.activity_threadcommunicationone);
         ButterKnife.bind(this);
         wayOne();
+        Log.d("honglei-process", android.os.Process.myPid() + "");
+        Log.d("honglei-process-thread", Thread.currentThread().getName() +
+                Thread.currentThread().getId());
     }
 
     /**

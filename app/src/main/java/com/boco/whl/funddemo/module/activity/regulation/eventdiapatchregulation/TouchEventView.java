@@ -5,8 +5,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 
-import com.blankj.utilcode.util.LogUtils;
-
 /**
  * <pre>
  *  author : honglei92

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.boco.whl.funddemo.module.activity.blog.mi.view.MiSportConnectView
+    <com.boco.whl.funddemo.module.activity.selfview.mi.view.MiSportConnectView
         android:id="@+id/misportview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

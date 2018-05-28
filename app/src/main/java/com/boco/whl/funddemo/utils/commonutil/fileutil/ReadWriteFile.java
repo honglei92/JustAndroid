@@ -1,5 +1,7 @@
 package com.boco.whl.funddemo.utils.commonutil.fileutil;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -15,8 +17,6 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
-
-import android.util.Log;
 
 /**
  * 

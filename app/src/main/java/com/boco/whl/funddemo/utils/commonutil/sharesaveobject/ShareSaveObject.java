@@ -1,12 +1,12 @@
 package com.boco.whl.funddemo.utils.commonutil.sharesaveobject;
 
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
-import android.annotation.SuppressLint;
-import android.content.SharedPreferences;
 
 /**
  * 保存的对象必须序列号

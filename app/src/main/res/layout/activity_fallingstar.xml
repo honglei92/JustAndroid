@@ -11,7 +11,7 @@
         android:layout_margin="@dimen/fab_margin"
         android:text="流星雨" />
 
-    <com.boco.whl.funddemo.module.activity.blog.fallingstar.view.FallingStarView
+    <com.boco.whl.funddemo.module.activity.selfview.fallingstar.view.FallingStarView
         android:id="@+id/fallingView"
         android:layout_width="match_parent"
         android:layout_height="200dp" />

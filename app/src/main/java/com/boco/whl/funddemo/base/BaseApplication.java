@@ -2,13 +2,11 @@ package com.boco.whl.funddemo.base;
 
 import android.app.Activity;
 import android.app.Application;
-import android.content.ComponentCallbacks;
 import android.content.ComponentCallbacks2;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
-import com.baidu.mapapi.SDKInitializer;
 import com.blankj.utilcode.util.Utils;
 import com.boco.whl.funddemo.utils.ToastUtil;
 import com.boco.whl.funddemo.utils.net.NetBroadcastReceiver;
@@ -41,7 +39,7 @@ public class BaseApplication extends Application implements NetBroadcastReceiver
 
     @Override
     public void onCreate() {
-        SDKInitializer.initialize(getApplicationContext());
+//        SDKInitializer.initialize(getApplicationContext());
         super.onCreate();
         //内存泄露检测
         if (LeakCanary.isInAnalyzerProcess(this)) {

@@ -1,13 +1,11 @@
 package com.boco.whl.funddemo.module.activity.regulation.eventdiapatchregulation;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.blankj.utilcode.util.LogUtils;
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.base.BaseActivity;
 
