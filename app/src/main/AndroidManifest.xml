@@ -39,6 +39,7 @@
 
     <!-- 通知栏 -->
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".base.BaseApplication"
@@ -157,7 +158,7 @@
             android:name="JPUSH_APPKEY"
             android:value="4bfe2a909d77c0f707eb1e2d" /> <!-- </>值来自开发者平台取得的AppKey -->
         <activity
-            android:name=".module.activity.SplashActivity"
+            android:name=".module.activity.my.SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -193,15 +194,14 @@
         <activity android:name=".module.activity.annndroid.rxjava.RxjavaTestActivity" />
         <activity android:name=".module.activity.annndroid.eventbus.EventBusTestActivity" />
         <activity android:name=".module.activity.annndroid.glide.GlideTestActivity" />
-        <activity android:name=".module.activity.GuideViewActivity" />
-        <activity android:name=".module.activity.SearchActivity" />
-        <activity android:name=".module.activity.AdvertizeActivity" />
-        <activity android:name=".module.activity.annndroid.fusionchart.FusionChartTestActivity" />
-        <activity android:name=".module.activity.blog.henbanse.HenCode1" />
-        <activity android:name=".module.activity.blog.sunxibei.RotateRectActivity" />
-        <activity android:name=".module.activity.blog.mi.MiSportActivity" />
-        <activity android:name=".module.activity.blog.thumbup.ThumbUpActivity" />
-        <activity android:name=".module.activity.blog.fallingstar.FallingStarActivity" />
+        <activity android:name=".module.activity.my.GuideViewActivity" />
+        <activity android:name=".module.activity.my.SearchActivity" />
+        <activity android:name=".module.activity.my.AdvertizeActivity" />
+        <activity android:name=".module.activity.selfview.henbanse.HenCode1" />
+        <activity android:name=".module.activity.selfview.sunxibei.RotateRectActivity" />
+        <activity android:name=".module.activity.selfview.mi.MiSportActivity" />
+        <activity android:name=".module.activity.selfview.thumbup.ThumbUpActivity" />
+        <activity android:name=".module.activity.selfview.fallingstar.FallingStarActivity" />
         <activity
             android:name=".module.main.IndexActivity"
             android:launchMode="singleTask" />
@@ -220,10 +220,18 @@
 
         <activity android:name=".module.activity.component.PinnedSectionActivity" />
         <activity android:name=".module.activity.component.watermark.WaterMarkActivity" />
+        <activity android:name=".module.activity.thirdlib.ffmpeg.PlayActivity" />
+        <activity android:name=".module.activity.thirdlib.ffmpeg.HelloJni" />
+        <activity android:name=".module.activity.thirdlib.rxjava.RxjavaTestActivity" />
         <activity
-            android:name=".module.activity.blog.didi.DiDiActivity"
+            android:name=".module.activity.regulation.ipc.IPCActivity"
+            android:process=".ipc" />
+        <activity android:name=".module.activity.regulation.lru.PhotoWallActivity" />
+        <activity
+            android:name=".module.activity.selfview.didi.DiDiActivity"
             android:label="@string/title_activity_di_di"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".module.activity.regulation.threadpool.ThreadPoolTestActivity" />
     </application>
 
 </manifest>

@@ -16,6 +16,7 @@ import com.blankj.utilcode.util.LogUtils;
  *  createtime : 2017/6/21 0021 9:28
  *  updatetime : 2017/6/21 0021 9:28
  * </pre>
+ *
  * @author Administrator
  */
 public class TouchEventViewGroup extends LinearLayout {
@@ -36,7 +37,10 @@ public class TouchEventViewGroup extends LinearLayout {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         Log.d("eventTest", "ViewGroup | onInterceptTouchEvent -->" + TouchEventUtil.getTouchAction(ev.getAction()));
-        return super.onInterceptTouchEvent(ev);
+        //默认不拦截
+        //return super.onInterceptTouchEvent(ev);
+        //拦截事件
+        return true;
     }
 
     @Override

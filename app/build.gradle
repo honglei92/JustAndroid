@@ -7,12 +7,16 @@ android {
      */
     defaultConfig {
         applicationId "com.boco.whl.funddemo"
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
     }
+
     /**
      * 二、自定义签名配置
      */
@@ -85,8 +89,10 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
+            jniLibs.srcDirs = ['src/main/libs']
             resources.srcDirs = ['src']
             assets.srcDirs = ['src/main/assets']
+            jni.srcDirs = []
         }
     }
 }

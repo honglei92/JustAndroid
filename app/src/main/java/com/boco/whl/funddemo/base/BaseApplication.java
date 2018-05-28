@@ -41,7 +41,7 @@ public class BaseApplication extends Application implements NetBroadcastReceiver
 
     @Override
     public void onCreate() {
-        SDKInitializer.initialize(getApplicationContext());
+//        SDKInitializer.initialize(getApplicationContext());
         super.onCreate();
         //内存泄露检测
         if (LeakCanary.isInAnalyzerProcess(this)) {
