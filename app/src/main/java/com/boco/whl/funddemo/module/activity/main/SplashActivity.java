@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.my;
+package com.boco.whl.funddemo.module.activity.main;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,9 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.module.main.IndexActivity;
+import com.boco.whl.funddemo.module.activity.my.AdvertizeActivity;
 import com.boco.whl.funddemo.utils.IntentUT;
 import com.bumptech.glide.Glide;
+
+import java.lang.ref.WeakReference;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,21 +33,29 @@ public class SplashActivity extends Activity {
     TextView skipTv;
     boolean isSkip = false;
     int count = 3;
-    private Handler mMainHandler = new Handler() {
+
+    private static class WhlHandler extends Handler {
+        WeakReference<Activity> mActivityReference;
+
+        WhlHandler(Activity activity) {
+            mActivityReference = new WeakReference<>(activity);
+        }
+
         @Override
         public void handleMessage(Message msg) {
-            if (!isSkip) {
+            final SplashActivity splashActivity = (SplashActivity) mActivityReference.get();
+            if (!splashActivity.isSkip) {
                 final Handler handler = new Handler();
                 Runnable runnable = new Runnable() {
                     @Override
                     public void run() {
-                        Glide.with(SplashActivity.this).load(R.drawable.advertising).into(splashIv);
-                        skipTv.setText("跳过  " + count--);
-                        skipTv.setVisibility(View.VISIBLE);
-                        if (count > 0) {
+                        Glide.with(splashActivity).load(R.drawable.advertising).into(splashActivity.splashIv);
+                        splashActivity.skipTv.setText("跳过  " + splashActivity.count--);
+                        splashActivity.skipTv.setVisibility(View.VISIBLE);
+                        if (splashActivity.count > 0) {
                             handler.postDelayed(this, 1000);
                         } else {
-                            IntentUT.getInstance().openActivity(SplashActivity.this, IndexActivity.class, true);
+                            IntentUT.getInstance().openActivity(splashActivity, IndexActivity.class, true);
 
                         }
                     }
@@ -53,7 +63,9 @@ public class SplashActivity extends Activity {
                 handler.postDelayed(runnable, 1000);
             }
         }
-    };
+    }
+
+    private Handler mMainHandler = new WhlHandler(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

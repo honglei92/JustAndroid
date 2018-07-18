@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.boco.whl.funddemo.module.activity.my.SplashActivity">
+    tools:context="com.boco.whl.funddemo.module.activity.main.SplashActivity">
 
     <ImageView
         android:id="@+id/splash_iv"

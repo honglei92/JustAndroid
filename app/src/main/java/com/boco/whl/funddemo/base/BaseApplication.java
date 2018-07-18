@@ -46,6 +46,7 @@ public class BaseApplication extends Application implements NetBroadcastReceiver
         super.onCreate();
         //初始化context
         context = this;
+        VALUE = "WANGHONGLEI";
         //LeakCanary内存泄露检测
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return;
@@ -57,14 +58,17 @@ public class BaseApplication extends Application implements NetBroadcastReceiver
         //bugly异常上报
         CrashReport.initCrashReport(context, "29ca5eaac5", false);
 
+        //网络变化监听
         event = this;
-        //网络监听
         inspectNet();
-
-        VALUE = "wanghonglei";
         //初始化handler
         handler = new Handler();
+        //注册组件和生命周期监听
+        registerCallBack();
 
+    }
+
+    private void registerCallBack() {
         registerComponentCallbacks(new ComponentCallbacks2() {
             @Override
             public void onTrimMemory(int level) {

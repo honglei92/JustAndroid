@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.module.main.IndexActivity;
+import com.boco.whl.funddemo.module.activity.main.IndexActivity;
 import com.boco.whl.funddemo.utils.IntentUT;
 import com.boco.whl.funddemo.utils.NetworkUT;
 import com.boco.whl.funddemo.utils.PrintfUT;

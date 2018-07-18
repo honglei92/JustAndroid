@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.main.fragment;
+package com.boco.whl.funddemo.module.fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -105,9 +105,9 @@ public class MyFragment extends Fragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.update_ll:
-//                TinkerInstaller.onReceiveUpgradePatch(getActivity().getApplicationContext(),
-//                        Environment.getExternalStorageDirectory().getAbsolutePath()
-//                                + "/patch_signed_7zip.apk");
+              /*  TinkerInstaller.onReceiveUpgradePatch(getActivity().getApplicationContext(),
+                        Environment.getExternalStorageDirectory().getAbsolutePath()
+                                + "/patch_signed_7zip.apk");*/
                 break;
             case R.id.help_ll:
                 IntentUT.getInstance().openActivity(getActivity(), GuideViewActivity.class, false);

@@ -19,5 +19,5 @@
     <color name="colorDirtyWhite">#f6f9f6</color>
     <color name="colorForgiven">#4bbb74</color>
     <color name="under_line">#EBEBEB</color>
-    <color name="page_my_item">#EBEBEB</color>
+    <color name="page_my_item">#333333</color>
 </resources>

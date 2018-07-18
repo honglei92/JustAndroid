@@ -4,8 +4,7 @@ package com.boco.whl.funddemo.data;
 import com.boco.whl.funddemo.data.api.Api;
 import com.boco.whl.funddemo.data.api.ApiService;
 import com.boco.whl.funddemo.data.api.UploadService;
-
-import java.util.List;
+import com.boco.whl.funddemo.entity.ApiBean;
 
 import io.reactivex.Observable;
 
@@ -49,18 +48,6 @@ public class DataManager {
         return mApiService.getForgetPass(user_tel, password,code)
 
                 .compose(RxUtils.<ApiBean>io_main());
-    }
-//
-    public Observable<LoginBean> getLogin(String user_tel, String password, String province, String city) {
-        return mApiService.getLogin(user_tel, password,province,city)
-                .compose(RxUtils.<LoginBean>handleResult())
-                .compose(RxUtils.<LoginBean>io_main());
-    }
-
-
-    public Observable<List<HomeBannerBean>> getHomeBanner(boolean isRefresh) {
-        return mCacheRepository.getHomeBanner("home_banner", isRefresh)
-                .compose(RxUtils.<List<HomeBannerBean>>io_main());
     }
 
 }

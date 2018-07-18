@@ -31,6 +31,6 @@ public class NetBroadcastReceiver extends BroadcastReceiver {
 
     // 自定义接口
     public interface NetEvent {
-        public void onNetChange(int netMobile);
+        void onNetChange(int netMobile);
     }
 }

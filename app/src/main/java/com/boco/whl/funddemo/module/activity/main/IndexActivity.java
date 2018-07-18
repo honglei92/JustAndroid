@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.main;
+package com.boco.whl.funddemo.module.activity.main;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,11 +14,11 @@ import android.widget.Toast;
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.base.BaseActivity;
 import com.boco.whl.funddemo.base.BaseApplication;
-import com.boco.whl.funddemo.module.activity.main.fragment.MainFragment;
-import com.boco.whl.funddemo.module.main.fragment.BlogFragment;
-import com.boco.whl.funddemo.module.main.fragment.ComponentFragment;
-import com.boco.whl.funddemo.module.main.fragment.MyFragment;
-import com.boco.whl.funddemo.module.main.fragment.SoftWareFragment;
+import com.boco.whl.funddemo.module.fragment.BlogFragment;
+import com.boco.whl.funddemo.module.fragment.ComponentFragment;
+import com.boco.whl.funddemo.module.fragment.MainFragment;
+import com.boco.whl.funddemo.module.fragment.MyFragment;
+import com.boco.whl.funddemo.module.fragment.SoftWareFragment;
 import com.boco.whl.funddemo.utils.PermissionsUT;
 import com.boco.whl.funddemo.utils.StringUtil;
 import com.boco.whl.funddemo.widgets.MyRadioButton;
@@ -26,7 +26,9 @@ import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.jpush.android.api.JPushInterface;
+
+import static cn.jpush.android.api.JPushInterface.init;
+import static cn.jpush.android.api.JPushInterface.setDebugMode;
 
 /**
  * 首页activity
@@ -63,9 +65,9 @@ public class IndexActivity extends BaseActivity implements MainFragment.OnFragme
         setContentView(R.layout.activity_index);
         ButterKnife.bind(this);
         // 设置开启日志,发布时请关闭日志
-        JPushInterface.setDebugMode(true);
+        setDebugMode(true);
         // 初始化 JPush
-        JPushInterface.init(this);
+        init(this);
         PermissionsUT.getInstance().checkPermissions(this, true);
         initView();
         Logger.i("onCreate: " + StringUtil.getNull(BaseApplication.VALUE));

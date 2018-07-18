@@ -16,8 +16,8 @@ import com.blankj.utilcode.util.LogUtils;
  *  updatetime : 2017/6/20 0020 15:30
  * </pre>
  */
-public class MyBroadCastReciever extends BroadcastReceiver {
-    public static String tag = "MyBroadCastReciever";
+public class MyBroadCastReceiver extends BroadcastReceiver {
+    public static String tag = "MyBroadCastReceiver";
     private static int m = 1;
 
     @Override

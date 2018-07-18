@@ -158,18 +158,10 @@
             android:value="developer-default" />
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="4bfe2a909d77c0f707eb1e2d" /> <!-- </>值来自开发者平台取得的AppKey -->
-        <activity
-            android:name=".module.activity.my.SplashActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:value="4bfe2a909d77c0f707eb1e2d" />
+        <!-- </>值来自开发者平台取得的AppKey -->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".module.activity.annndroid.baidumap.LocationActivity" />
-
+        <!--service-->
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
@@ -180,7 +172,20 @@
                 <action android:name="com.baidu.location.service_v2.3" />
             </intent-filter>
         </service>
+        <!--activity-->
+        <activity
+            android:name=".module.activity.main.SplashActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".module.activity.main.IndexActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".module.activity.annndroid.baidumap.LocationActivity" />
         <activity android:name=".module.activity.annndroid.rxjava.RxGDActivity" />
         <activity android:name=".module.activity.annndroid.mvp.view.UserActivity" />
         <activity android:name=".module.activity.annndroid.mvpV2.CustomerActivity" />
@@ -202,22 +207,6 @@
         <activity android:name=".module.activity.selfview.mi.MiSportActivity" />
         <activity android:name=".module.activity.selfview.thumbup.ThumbUpActivity" />
         <activity android:name=".module.activity.selfview.fallingstar.FallingStarActivity" />
-        <activity
-            android:name=".module.main.IndexActivity"
-            android:launchMode="singleTask" />
-
-        <receiver android:name=".module.activity.regulation.threadcommunication.broadcast.MyBroadCastReciever">
-            <intent-filter>
-                <action android:name="action.communication" />
-            </intent-filter>
-        </receiver>
-        <!-- 网络变化 -->
-        <receiver android:name=".utils.net.NetBroadcastReceiver">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-
         <activity android:name=".module.activity.component.PinnedSectionActivity" />
         <activity android:name=".module.activity.component.watermark.WaterMarkActivity" />
         <activity android:name=".module.activity.thirdlib.ffmpeg.PlayActivity" />
@@ -232,6 +221,17 @@
             android:label="@string/title_activity_di_di"
             android:theme="@style/AppTheme" />
         <activity android:name=".module.activity.regulation.threadpool.ThreadPoolTestActivity" />
+        <!--receiver-->
+        <receiver android:name=".module.activity.regulation.threadcommunication.broadcast.MyBroadCastReceiver">
+            <intent-filter>
+                <action android:name="action.communication" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".utils.net.NetBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

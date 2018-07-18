@@ -37,7 +37,6 @@ ext{
             "rxcache":'com.github.VictorAlbertos.RxCache:runtime:1.8.0-2.x',
             "rxcache-gson":'com.github.VictorAlbertos.Jolyglot:gson:0.0.3',
             "rxbus":'com.hwangjr.rxbus:rxbus:2.0.0-beta',
-            //"rxbus":'com.hwangjr.rxbus:rxbus:1.0.5',
             "rxpermission":'com.tbruyelle.rxpermissions2:rxpermissions:0.9.1@aar',
             "gson":'com.google.code.gson:gson:2.8.0',
             "fastjson":'com.alibaba:fastjson:1.1.54.android',

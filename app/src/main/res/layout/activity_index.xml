@@ -29,7 +29,7 @@
         <com.boco.whl.funddemo.widgets.MyRadioButton
             android:id="@+id/radio1"
             style="@style/categoryradiobutton"
-            android:text="三方库"
+            android:text="首页"
             myradio:drawableSize="26dp"
             myradio:drawableTop="@drawable/category_image_selector" />
 
@@ -38,28 +38,28 @@
             style="@style/categoryradiobutton"
             android:text="机制"
             myradio:drawableSize="26dp"
-            myradio:drawableTop="@drawable/category_image_selector" />
+            myradio:drawableTop="@drawable/category_image_selector2" />
 
         <com.boco.whl.funddemo.widgets.MyRadioButton
             android:id="@+id/radio3"
             style="@style/categoryradiobutton"
             android:text="组件"
             myradio:drawableSize="26dp"
-            myradio:drawableTop="@drawable/category_image_selector" />
+            myradio:drawableTop="@drawable/category_image_selector3" />
 
         <com.boco.whl.funddemo.widgets.MyRadioButton
             android:id="@+id/radio4"
             style="@style/categoryradiobutton"
             android:text="View"
             myradio:drawableSize="26dp"
-            myradio:drawableTop="@drawable/category_image_selector" />
+            myradio:drawableTop="@drawable/category_image_selector5" />
 
         <com.boco.whl.funddemo.widgets.MyRadioButton
             android:id="@+id/radio5"
             style="@style/categoryradiobutton"
             android:text="我的"
             myradio:drawableSize="26dp"
-            myradio:drawableTop="@drawable/category_image_selector" />
+            myradio:drawableTop="@drawable/category_image_selector4" />
     </RadioGroup>
 
 </RelativeLayout>

@@ -53,12 +53,8 @@ public class GuideViewActivity extends BaseActivity {
 
     private void initoper() {
         // 进入按钮
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                finish();
-            }
-        });
+        textView.setOnClickListener(v ->
+                finish());
     }
 
     private void initview() {

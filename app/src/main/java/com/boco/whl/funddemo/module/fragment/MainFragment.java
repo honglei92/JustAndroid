@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.main.fragment;
+package com.boco.whl.funddemo.module.fragment;
 
 import android.content.Context;
 import android.content.Intent;
