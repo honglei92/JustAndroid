@@ -103,10 +103,8 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-//    api project(path: ':android-table-lib')
-    api "com.google.guava:guava:$rootProject.guavaVersion"
-    api 'com.jakewharton:butterknife:8.4.0'
-    api 'org.greenrobot:eventbus:3.0.0'
+
+    //网络相关
     api 'com.squareup.retrofit2:retrofit:2.2.0'
     api 'com.squareup.retrofit2:retrofit-converters:2.2.0'
     api 'com.squareup.retrofit2:retrofit-adapters:2.2.0'
@@ -114,25 +112,38 @@ dependencies {
     api 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
     api 'io.reactivex.rxjava2:rxjava:2.1.0'
     api 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    api 'com.google.code.gson:gson:2.8.0'
+    api 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+    // DBFlow数据库
+    api 'com.github.Raizlabs.DBFlow:dbflow-core:4.0.4'
+    api 'com.github.Raizlabs.DBFlow:dbflow:4.0.4'
+    api 'com.github.Raizlabs.DBFlow:dbflow-rx2:4.0.4'
+    //图片相关
     api 'com.github.bumptech.glide:glide:3.7.0'
     api 'com.contrarywind:Android-PickerView:3.2.4'
+    //布局相关
     api 'com.android.support.constraint:constraint-layout:1.1.2'
     api 'com.android.support:appcompat-v7:27.1.1'
     api 'com.android.support:recyclerview-v7:27.1.1'
     api 'com.android.support:design:27.1.1'
-    api 'com.blankj:utilcode:1.7.1'
     api 'com.github.sun-sky:Marquee:1.0.0'
     api 'de.halfbit:pinned-section-listview:1.0.0'
+    //工具相关
+    api 'org.greenrobot:eventbus:3.0.0'
+    api 'com.google.code.gson:gson:2.8.0'
+    api 'com.blankj:utilcode:1.7.1'
     api 'com.alibaba:fastjson:1.2.47'
     api 'com.orhanobut:logger:2.1.1'
+    api "com.google.guava:guava:$rootProject.guavaVersion"
+    api 'com.jakewharton:butterknife:8.4.0'
+    api 'com.android.support:multidex:1.0.3'
+    //日志相关
 //    api 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     debugApi 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
-    api 'com.android.support:multidex:1.0.3'
 
     testImplementation 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    annotationProcessor 'com.github.Raizlabs.DBFlow:dbflow-processor:4.0.4'
 }
 // 获取当前系统时间
 static def releaseTime() {

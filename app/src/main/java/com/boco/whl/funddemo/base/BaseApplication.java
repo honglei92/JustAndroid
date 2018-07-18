@@ -6,6 +6,7 @@ import android.content.ComponentCallbacks2;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.blankj.utilcode.util.Utils;
 import com.boco.whl.funddemo.utils.ToastUtil;
@@ -23,10 +24,12 @@ import com.tencent.bugly.crashreport.CrashReport;
  * @author Administrator
  */
 public class BaseApplication extends Application implements NetBroadcastReceiver.NetEvent {
-    private Context context = this;
+    private static Context context;
     public static NetBroadcastReceiver.NetEvent event;
-    public static String VALUE = "hoglei92";
+    public static String VALUE = "honglei92";
+    private static int netResponseTime;
     private RefWatcher refWatcher;
+    private static Handler handler;
     /**
      * 网络类型
      */
@@ -41,17 +44,27 @@ public class BaseApplication extends Application implements NetBroadcastReceiver
     public void onCreate() {
 //        SDKInitializer.initialize(getApplicationContext());
         super.onCreate();
-        //内存泄露检测
+        //初始化context
+        context = this;
+        //LeakCanary内存泄露检测
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return;
         }
         refWatcher = LeakCanary.install(this);
+        //日志工具
         Logger.addLogAdapter(new AndroidLogAdapter());
         Utils.init(context);
+        //bugly异常上报
         CrashReport.initCrashReport(context, "29ca5eaac5", false);
+
         event = this;
+        //网络监听
         inspectNet();
+
         VALUE = "wanghonglei";
+        //初始化handler
+        handler = new Handler();
+
         registerComponentCallbacks(new ComponentCallbacks2() {
             @Override
             public void onTrimMemory(int level) {
@@ -139,5 +152,17 @@ public class BaseApplication extends Application implements NetBroadcastReceiver
     public void onTerminate() {
         super.onTerminate();
         Logger.d("结束了！！！");
+    }
+
+    public static Handler getHandler() {
+        return handler;
+    }
+
+    public static Context getContext() {
+        return context;
+    }
+
+    public static void setNetResponseTime(int time) {
+        netResponseTime = time;
     }
 }

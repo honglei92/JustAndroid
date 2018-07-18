@@ -6,7 +6,7 @@ import android.widget.ImageView;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.base.BaseActivity;
-import com.boco.whl.funddemo.utils.imaaage.ImageLoader;
+import com.boco.whl.funddemo.utils.image.ImageLoader;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

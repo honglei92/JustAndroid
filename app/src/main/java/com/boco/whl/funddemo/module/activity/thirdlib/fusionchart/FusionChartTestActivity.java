@@ -6,16 +6,17 @@ import android.view.View;
 import android.webkit.WebView;
 
 import com.boco.whl.funddemo.R;
-import com.boco.whl.lib.fusioncharts.bean.Category;
-import com.boco.whl.lib.fusioncharts.bean.ChartData;
-import com.boco.whl.lib.fusioncharts.bean.SerieData;
-import com.boco.whl.lib.fusioncharts.creator.FusionChartsConfig;
-import com.boco.whl.lib.fusioncharts.creator.FusionChartsCreator;
-import com.boco.whl.lib.fusioncharts.creator.FusionChartsType;
-import com.boco.whl.lib.fusioncharts.creator.FusionchartAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import fusioncharts.bean.Category;
+import fusioncharts.bean.ChartData;
+import fusioncharts.bean.SerieData;
+import fusioncharts.creator.FusionChartsConfig;
+import fusioncharts.creator.FusionChartsCreator;
+import fusioncharts.creator.FusionChartsType;
+import fusioncharts.creator.FusionchartAdapter;
 
 
 /**

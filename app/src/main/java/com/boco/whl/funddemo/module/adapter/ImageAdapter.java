@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.utils.imaaage.ImageLoader;
+import com.boco.whl.funddemo.utils.image.ImageLoader;
 import com.boco.whl.funddemo.widgets.SquareImageView;
 
 import java.util.ArrayList;
