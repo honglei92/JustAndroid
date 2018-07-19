@@ -27,8 +27,12 @@ public class EventTransmitActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_eventtransmitmechanism);
         ButterKnife.bind(this);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_eventtransmitmechanism;
     }
 
     @OnClick({R.id.tv_view, R.id.event_viewgroup})

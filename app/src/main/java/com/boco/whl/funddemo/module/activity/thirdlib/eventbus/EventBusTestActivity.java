@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.annndroid.eventbus;
+package com.boco.whl.funddemo.module.activity.thirdlib.eventbus;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxImageActivity;
+import com.boco.whl.funddemo.module.activity.thirdlib.rxjava.RxImageActivity;
 import com.boco.whl.funddemo.sdk.eventbus.MessageEvent;
 import com.boco.whl.funddemo.sdk.eventbus.ShowImageEvent;
 

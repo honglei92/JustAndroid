@@ -13,16 +13,13 @@ import android.widget.Toast;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.base.BaseActivity;
-import com.boco.whl.funddemo.base.BaseApplication;
-import com.boco.whl.funddemo.module.fragment.BlogFragment;
+import com.boco.whl.funddemo.module.fragment.CustomerViewFragment;
 import com.boco.whl.funddemo.module.fragment.ComponentFragment;
 import com.boco.whl.funddemo.module.fragment.MainFragment;
 import com.boco.whl.funddemo.module.fragment.MyFragment;
-import com.boco.whl.funddemo.module.fragment.SoftWareFragment;
+import com.boco.whl.funddemo.module.fragment.RegulationFragment;
 import com.boco.whl.funddemo.utils.PermissionsUT;
-import com.boco.whl.funddemo.utils.StringUtil;
 import com.boco.whl.funddemo.widgets.MyRadioButton;
-import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,9 +34,9 @@ import static cn.jpush.android.api.JPushInterface.setDebugMode;
  */
 public class IndexActivity extends BaseActivity implements MainFragment.OnFragmentInteractionListener
         , MyFragment.OnFragmentInteractionListener
-        , SoftWareFragment.OnFragmentInteractionListener
+        , RegulationFragment.OnFragmentInteractionListener
         , ComponentFragment.OnFragmentInteractionListener
-        , BlogFragment.OnFragmentInteractionListener {
+        , CustomerViewFragment.OnFragmentInteractionListener {
 
     @BindView(R.id.contentfragment)
     FrameLayout contentfragment;
@@ -70,10 +67,14 @@ public class IndexActivity extends BaseActivity implements MainFragment.OnFragme
         init(this);
         PermissionsUT.getInstance().checkPermissions(this, true);
         initView();
-        Logger.i("onCreate: " + StringUtil.getNull(BaseApplication.VALUE));
         Log.d("honglei-process", android.os.Process.myPid() + "");
         Log.d("honglei-process-thread", Thread.currentThread().getName()
                 + Thread.currentThread().getId());
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_index;
     }
 
     private void initView() {
@@ -104,7 +105,7 @@ public class IndexActivity extends BaseActivity implements MainFragment.OnFragme
                     radio4.setSelected(false);
                     radio5.setSelected(false);
                     FragmentTransaction transaction2 = manager.beginTransaction();
-                    SoftWareFragment fragment2 = new SoftWareFragment();
+                    RegulationFragment fragment2 = new RegulationFragment();
                     transaction2.replace(R.id.contentfragment, fragment2);
                     transaction2.commit();
                     break;
@@ -126,7 +127,7 @@ public class IndexActivity extends BaseActivity implements MainFragment.OnFragme
                     radio4.setSelected(true);
                     radio5.setSelected(false);
                     FragmentTransaction transaction4 = manager.beginTransaction();
-                    BlogFragment fragment4 = new BlogFragment();
+                    CustomerViewFragment fragment4 = new CustomerViewFragment();
                     transaction4.replace(R.id.contentfragment, fragment4);
                     transaction4.commit();
                     break;

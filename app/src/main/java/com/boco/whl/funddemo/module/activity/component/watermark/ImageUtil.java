@@ -11,7 +11,7 @@ import android.graphics.Rect;
  * 图片工具类
  *
  * @author 水寒
- *         欢迎访问水寒的个人博客：http://www.sunhome.org.cn
+ * 欢迎访问水寒的个人博客：http://www.sunhome.org.cn
  */
 public class ImageUtil {
 

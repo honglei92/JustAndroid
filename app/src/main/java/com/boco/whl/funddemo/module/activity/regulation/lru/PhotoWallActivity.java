@@ -28,7 +28,7 @@ public class PhotoWallActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_photo_wall);
+
         ButterKnife.bind(this);
         Log.d("honglei-process", Process.myPid() + "");
         Log.d("honglei-process-thread", Thread.currentThread().getName() +
@@ -51,5 +51,10 @@ public class PhotoWallActivity extends BaseActivity {
 
             }
         });
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_photo_wall;
     }
 }

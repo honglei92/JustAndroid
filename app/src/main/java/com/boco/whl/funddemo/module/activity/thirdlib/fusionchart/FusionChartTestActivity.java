@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.annndroid.fusionchart;
+package com.boco.whl.funddemo.module.activity.thirdlib.fusionchart;
 
 import android.app.Activity;
 import android.os.Bundle;

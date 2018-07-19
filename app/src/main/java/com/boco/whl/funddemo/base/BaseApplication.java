@@ -88,37 +88,37 @@ public class BaseApplication extends Application implements NetBroadcastReceiver
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-                Logger.d("onActivityCreated: " + activity.getLocalClassName());
+//                Logger.d("onActivityCreated: " + activity.getLocalClassName());
             }
 
             @Override
             public void onActivityStarted(Activity activity) {
-                Logger.d("onActivityStarted: " + activity.getLocalClassName());
+//                Logger.d("onActivityStarted: " + activity.getLocalClassName());
             }
 
             @Override
             public void onActivityResumed(Activity activity) {
-                Logger.d("onActivityResumed: " + activity.getLocalClassName());
+//                Logger.d("onActivityResumed: " + activity.getLocalClassName());
             }
 
             @Override
             public void onActivityPaused(Activity activity) {
-                Logger.d("onActivityPaused: " + activity.getLocalClassName());
+//                Logger.d("onActivityPaused: " + activity.getLocalClassName());
             }
 
             @Override
             public void onActivityStopped(Activity activity) {
-                Logger.d("onActivityStopped: " + activity.getLocalClassName());
+//                Logger.d("onActivityStopped: " + activity.getLocalClassName());
             }
 
             @Override
             public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-                Logger.d("onActivitySaveInstanceState: " + activity.getLocalClassName());
+//                Logger.d("onActivitySaveInstanceState: " + activity.getLocalClassName());
             }
 
             @Override
             public void onActivityDestroyed(Activity activity) {
-                Logger.d("onActivityDestroyed: " + activity.getLocalClassName());
+//                Logger.d("onActivityDestroyed: " + activity.getLocalClassName());
             }
         });
     }

@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.annndroid.glide;
+package com.boco.whl.funddemo.module.activity.thirdlib.glide;
 
 import android.app.Activity;
 import android.os.Bundle;

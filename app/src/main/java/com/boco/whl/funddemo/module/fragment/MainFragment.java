@@ -21,25 +21,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.module.activity.annndroid.LoadImageActivity;
-import com.boco.whl.funddemo.module.activity.annndroid.MarqueeActivity;
-import com.boco.whl.funddemo.module.activity.annndroid.baidumap.LocationActivity;
-import com.boco.whl.funddemo.module.activity.annndroid.eventbus.EventBusTestActivity;
-import com.boco.whl.funddemo.module.activity.annndroid.fusionchart.FusionChartTestActivity;
-import com.boco.whl.funddemo.module.activity.annndroid.glide.GlideTestActivity;
-import com.boco.whl.funddemo.module.activity.annndroid.listview.ListTest;
-import com.boco.whl.funddemo.module.activity.annndroid.mvp.view.UserActivity;
-import com.boco.whl.funddemo.module.activity.annndroid.mvpV2.CustomerActivity;
-import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxGDActivity;
-import com.boco.whl.funddemo.module.activity.annndroid.rxjava.RxImageActivity;
 import com.boco.whl.funddemo.module.activity.my.SearchActivity;
+import com.boco.whl.funddemo.module.activity.thirdlib.LoadImageActivity;
+import com.boco.whl.funddemo.module.activity.thirdlib.MarqueeActivity;
+import com.boco.whl.funddemo.module.activity.thirdlib.baidumap.LocationActivity;
+import com.boco.whl.funddemo.module.activity.thirdlib.eventbus.EventBusTestActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.ffmpeg.HelloJni;
 import com.boco.whl.funddemo.module.activity.thirdlib.ffmpeg.PlayActivity;
+import com.boco.whl.funddemo.module.activity.thirdlib.fusionchart.FusionChartTestActivity;
+import com.boco.whl.funddemo.module.activity.thirdlib.glide.GlideTestActivity;
+import com.boco.whl.funddemo.module.activity.thirdlib.listview.ListTest;
+import com.boco.whl.funddemo.module.activity.thirdlib.mvp.view.UserActivity;
+import com.boco.whl.funddemo.module.activity.thirdlib.mvpV2.CustomerActivity;
+import com.boco.whl.funddemo.module.activity.thirdlib.rxjava.RxGDActivity;
+import com.boco.whl.funddemo.module.activity.thirdlib.rxjava.RxImageActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.rxjava.RxjavaTestActivity;
 import com.boco.whl.funddemo.module.adapter.CategoryItemAdapter;
 import com.boco.whl.funddemo.utils.IntentUT;
-import com.boco.whl.funddemo.widgets.ObserableScrollView;
-import com.orhanobut.logger.Logger;
+import com.boco.whl.funddemo.widgets.ObservableScrollView;
 import com.sunsky.marqueeview.MarqueeView;
 
 import java.util.ArrayList;
@@ -70,7 +69,7 @@ public class MainFragment extends Fragment {
     @BindView(R.id.tipRL)
     RelativeLayout tipRL;
     @BindView(R.id.mainScrollView)
-    ObserableScrollView mainScrollView;
+    ObservableScrollView mainScrollView;
     @BindView(R.id.upView)
     MarqueeView upView;
     @BindView(R.id.tipLL)
@@ -123,11 +122,15 @@ public class MainFragment extends Fragment {
         return view;
     }
 
+    /**
+     * 头条布局
+     */
     private void initMarquee() {
         List<String> data = new ArrayList<>();
-        data.add("中美贸易：中国采取强硬立场的历史原因");
-        data.add("输球却获4大好消息，勇士开始绝地反击");
-        data.add("大城市掀强热大战，最需要人才的农村怎么办");
+        data.add("美团卓拙百词斩1614  技责精，github精");
+        data.add("基础精,文档精，深步精，源码精，步骤精");
+        data.add("实践精,log精，翻墙精，博客精，新敏精");
+
 
         mMarqueeViews.clear();//记得加这句话，不然可能会产生重影现象
         for (int i = 0; i < data.size(); i = i + 2) {
@@ -183,10 +186,13 @@ public class MainFragment extends Fragment {
     private void initScrollScale() {
         metrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        ViewGroup.LayoutParams lp = guideIv.getLayoutParams();
+        lp.width = metrics.widthPixels;
+        lp.height = metrics.widthPixels * 237 / 421;
+        guideIv.setLayoutParams(lp);
         mainScrollView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                ViewGroup.LayoutParams lp = (ViewGroup.LayoutParams) guideIv.getLayoutParams();
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_UP:
                         mScaling = false;
@@ -233,9 +239,9 @@ public class MainFragment extends Fragment {
                     guideIv.getViewTreeObserver().removeOnGlobalLayoutListener(this::onGlobalLayout);
                     int imageHeight = guideIv.getHeight();
                     //增加上滑显示操作
-                    mainScrollView.setScrollViewListener(new ObserableScrollView.ScrollViewListener() {
+                    mainScrollView.setScrollViewListener(new ObservableScrollView.ScrollViewListener() {
                         @Override
-                        public void onScrollChanged(ObserableScrollView obserableScrollView, int x, int y, int oldX, int oldY) {
+                        public void onScrollChanged(ObservableScrollView observableScrollView, int x, int y, int oldX, int oldY) {
                             if (y <= 0) {
                                 tipLL.setAlpha(0);
                             } else if (y < imageHeight) {
@@ -263,7 +269,6 @@ public class MainFragment extends Fragment {
                 , "updating", "updating", "updating", "updating", "updating", "updating", "updating"
                 , "updating", "updating", "updating", "updating", "updating", "updating", "updating"
         };
-        Logger.d(titles);
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener(new AdapterView.OnItemClickListener() {

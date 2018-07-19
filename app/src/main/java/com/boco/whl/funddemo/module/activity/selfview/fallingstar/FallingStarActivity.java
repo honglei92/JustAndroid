@@ -40,9 +40,14 @@ public class FallingStarActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fallingstar);
+
         ButterKnife.bind(this);
         initAnimation();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_fallingstar;
     }
 
     private void initAnimation() {

@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.annndroid.retrofit;
+package com.boco.whl.funddemo.module.activity.thirdlib.retrofit;
 
 import java.io.IOException;
 

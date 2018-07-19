@@ -30,9 +30,14 @@ public class RotateRectActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rotate_rect);
+
         ButterKnife.bind(this);
         initAnimation();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_rotate_rect;
     }
 
     private void initAnimation() {

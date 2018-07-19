@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.module.activity.component.PinnedSectionActivity;
 import com.boco.whl.funddemo.module.activity.component.ScrollActivity;
+import com.boco.whl.funddemo.module.activity.component.service.ServiceActivity;
 import com.boco.whl.funddemo.module.activity.component.watermark.WaterMarkActivity;
 import com.boco.whl.funddemo.module.adapter.CategoryItemAdapter;
 
@@ -43,6 +44,7 @@ public class ComponentFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    Intent intent;
 
     public ComponentFragment() {
     }
@@ -71,34 +73,46 @@ public class ComponentFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_common, container, false);
         unbinder = ButterKnife.bind(this, view);
-        initCatgory();
+        initCategory();
         return view;
     }
 
-    private void initCatgory() {
-        String[] titles = {"Pinned Section", "SlideTable", "WaterMark", "ScrollBy", "jsBridge", "window"
-                , "recycleView"};
+    private void initCategory() {
+        String[] titles = {"Activity", "Service", "BroadcastReceiver",
+                "ContentProvider", "jsBridge", "waterMark", "recycleView", "scrollView", "ScrollView"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener((adapterView, view, i, l) -> {
             switch (i) {
                 case 0:
-                    Intent intent1 = new Intent(getActivity(), PinnedSectionActivity.class);
-                    startActivity(intent1);
+                    intent = new Intent(getActivity(), PinnedSectionActivity.class);
                     break;
                 case 1:
+                    intent = new Intent(getActivity(), ServiceActivity.class);
                     break;
                 case 2:
-                    Intent intent3 = new Intent(getActivity(), WaterMarkActivity.class);
-                    startActivity(intent3);
+                    intent = new Intent(getActivity(), PinnedSectionActivity.class);
                     break;
                 case 3:
-                    Intent intent4 = new Intent(getActivity(), ScrollActivity.class);
-                    startActivity(intent4);
+                    intent = new Intent(getActivity(), PinnedSectionActivity.class);
                     break;
+                case 4:
+                    intent = new Intent(getActivity(), PinnedSectionActivity.class);
+                    break;
+                case 5:
+                    intent = new Intent(getActivity(), WaterMarkActivity.class);
+                    break;
+                case 6:
+                    intent = new Intent(getActivity(), PinnedSectionActivity.class);
+                    break;
+                case 7:
+                    intent = new Intent(getActivity(), ScrollActivity.class);
+                    break;
+
                 default:
                     break;
             }
+            startActivity(intent);
         });
     }
 

@@ -1,9 +1,9 @@
-package com.boco.whl.funddemo.module.activity.annndroid.mvp.presenter;
+package com.boco.whl.funddemo.module.activity.thirdlib.mvp.presenter;
 
-import com.boco.whl.funddemo.module.activity.annndroid.mvp.model.IUserModel;
-import com.boco.whl.funddemo.module.activity.annndroid.mvp.model.UserBean;
-import com.boco.whl.funddemo.module.activity.annndroid.mvp.model.UserModel;
 import com.boco.whl.funddemo.module.activity.annndroid.mvp.view.IUserView;
+import com.boco.whl.funddemo.module.activity.thirdlib.mvp.model.IUserModel;
+import com.boco.whl.funddemo.module.activity.thirdlib.mvp.model.UserBean;
+import com.boco.whl.funddemo.module.activity.thirdlib.mvp.model.UserModel;
 
 /**
  * <pre>

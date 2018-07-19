@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.annndroid;
+package com.boco.whl.funddemo.module.activity.thirdlib;
 
 import android.app.Activity;
 import android.os.Bundle;

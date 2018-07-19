@@ -1,8 +1,9 @@
-package com.boco.whl.funddemo.module.activity.annndroid.mvpV2;
+package com.boco.whl.funddemo.module.activity.thirdlib.mvpV2;
 
-import com.boco.whl.funddemo.module.activity.annndroid.mvp.model.IUserModel;
-import com.boco.whl.funddemo.module.activity.annndroid.mvp.model.UserBean;
-import com.boco.whl.funddemo.module.activity.annndroid.mvp.model.UserModel;
+
+import com.boco.whl.funddemo.module.activity.thirdlib.mvp.model.IUserModel;
+import com.boco.whl.funddemo.module.activity.thirdlib.mvp.model.UserBean;
+import com.boco.whl.funddemo.module.activity.thirdlib.mvp.model.UserModel;
 
 /**
  * <pre>

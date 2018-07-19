@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#33666666">
 
-    <com.boco.whl.funddemo.widgets.ObserableScrollView
+    <com.boco.whl.funddemo.widgets.ObservableScrollView
         android:id="@+id/mainScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -41,10 +41,9 @@
                     android:id="@+id/upView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:padding="10dp"
                     app:animDuration="1000"
-                    app:interval="3000"
+                    app:interval="5000"
                     app:isSetAlphaAnim="true" />
 
                 <com.boco.whl.funddemo.widgets.MyGridView
@@ -61,7 +60,7 @@
                     android:verticalSpacing="10dp" />
             </LinearLayout>
         </LinearLayout>
-    </com.boco.whl.funddemo.widgets.ObserableScrollView>
+    </com.boco.whl.funddemo.widgets.ObservableScrollView>
 
     <RelativeLayout
         android:layout_width="match_parent"

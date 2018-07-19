@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.annndroid.mvp.view;
+package com.boco.whl.funddemo.module.activity.thirdlib.mvp.view;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,13 +8,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.module.activity.annndroid.mvp.presenter.UserPresenter;
+import com.boco.whl.funddemo.module.activity.thirdlib.mvp.presenter.UserPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class UserActivity extends Activity implements IUserView {
+public class UserActivity extends Activity implements com.boco.whl.funddemo.module.activity.annndroid.mvp.view.IUserView {
 
     @BindView(R.id.edit_id)
     EditText editId;

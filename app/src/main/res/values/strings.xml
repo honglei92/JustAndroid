@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">1213</string>
+    <string name="app_name">1614</string>
     <string name="title_activity_show_image">ShowImageActivity</string>
     <string name="title_activity_glide_test">GlideTestActivity</string>
     <string name="title_activity_rxjava_test">RxjavaTestActivity</string>

@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.annndroid.mvp.model;
+package com.boco.whl.funddemo.module.activity.thirdlib.mvp.model;
 
 /**
  * <pre>

@@ -44,11 +44,15 @@ public class GuideViewActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guide_view);
         initview();
         initoper();
         addView();
 
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_guide_view;
     }
 
     private void initoper() {

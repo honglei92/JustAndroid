@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.annndroid.imagecompress;
+package com.boco.whl.funddemo.module.activity.thirdlib.imagecompress;
 
 import android.app.Activity;
 import android.graphics.Bitmap;

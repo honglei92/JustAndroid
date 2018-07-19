@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.annndroid;
+package com.boco.whl.funddemo.module.activity.thirdlib;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,9 +26,13 @@ public class LoadImageActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_load_image);
         ButterKnife.bind(this);
         initView();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_load_image;
     }
 
     private void initView() {

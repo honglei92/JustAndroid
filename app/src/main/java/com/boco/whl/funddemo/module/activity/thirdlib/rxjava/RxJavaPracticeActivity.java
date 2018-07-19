@@ -15,4 +15,9 @@ public class RxJavaPracticeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
     }
 
+    @Override
+    protected int getLayoutId() {
+        return 0;
+    }
+
 }

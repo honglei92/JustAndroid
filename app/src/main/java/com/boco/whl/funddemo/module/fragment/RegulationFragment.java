@@ -34,7 +34,7 @@ import butterknife.Unbinder;
  *
  * @author Administrator
  */
-public class SoftWareFragment extends Fragment {
+public class RegulationFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     @BindView(R.id.queryimage)
@@ -52,11 +52,11 @@ public class SoftWareFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public SoftWareFragment() {
+    public RegulationFragment() {
     }
 
-    public static SoftWareFragment newInstance(String param1, String param2) {
-        SoftWareFragment fragment = new SoftWareFragment();
+    public static RegulationFragment newInstance(String param1, String param2) {
+        RegulationFragment fragment = new RegulationFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -79,11 +79,11 @@ public class SoftWareFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_common, container, false);
         unbinder = ButterKnife.bind(this, view);
-        initCatgory();
+        initCategory();
         return view;
     }
 
-    private void initCatgory() {
+    private void initCategory() {
         String[] titles = {"线程间通信", "事件传递机制", "eventBus", "LRU缓存", "Handler机制", "Bitmap", "sqlLite"
                 , "绘制嵌套滑动", "IPC Binder", "线程池"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);

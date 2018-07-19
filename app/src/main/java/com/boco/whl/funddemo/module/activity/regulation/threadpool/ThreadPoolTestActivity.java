@@ -51,8 +51,13 @@ public class ThreadPoolTestActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_di_di);
+
         doTest();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_di_di;
     }
 
     private void doTest() {

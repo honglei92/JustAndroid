@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.annndroid.rxjava;
+package com.boco.whl.funddemo.module.activity.thirdlib.rxjava;
 
 import android.app.Activity;
 import android.app.ProgressDialog;

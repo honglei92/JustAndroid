@@ -172,6 +172,7 @@
                 <action android:name="com.baidu.location.service_v2.3" />
             </intent-filter>
         </service>
+        <service android:name=".module.activity.component.service.TestService" />
         <!--activity-->
         <activity
             android:name=".module.activity.main.SplashActivity"
@@ -185,42 +186,48 @@
         <activity
             android:name=".module.activity.main.IndexActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".module.activity.annndroid.baidumap.LocationActivity" />
-        <activity android:name=".module.activity.annndroid.rxjava.RxGDActivity" />
-        <activity android:name=".module.activity.annndroid.mvp.view.UserActivity" />
-        <activity android:name=".module.activity.annndroid.mvpV2.CustomerActivity" />
-        <activity android:name=".module.activity.annndroid.listview.ListTest" />
-        <activity android:name=".module.activity.annndroid.imagecompress.ImageCompressActivity" />
+        <activity android:name=".module.activity.thirdlib.baidumap.LocationActivity" />
+        <activity android:name=".module.activity.thirdlib.rxjava.RxGDActivity" />
+        <activity android:name=".module.activity.thirdlib.mvp.view.UserActivity" />
+        <activity android:name=".module.activity.thirdlib.mvpV2.CustomerActivity" />
+        <activity android:name=".module.activity.thirdlib.listview.ListTest" />
+        <activity android:name=".module.activity.thirdlib.imagecompress.ImageCompressActivity" />
+        <activity android:name=".module.activity.thirdlib.MarqueeActivity" />
+        <activity android:name=".module.activity.thirdlib.LoadImageActivity" />
+        <activity android:name=".module.activity.thirdlib.rxjava.RxImageActivity" />
+        <activity android:name=".module.activity.thirdlib.eventbus.EventBusTestActivity" />
+        <activity android:name=".module.activity.thirdlib.glide.GlideTestActivity" />
+        <activity android:name=".module.activity.thirdlib.ffmpeg.PlayActivity" />
+        <activity android:name=".module.activity.thirdlib.ffmpeg.HelloJni" />
+        <activity android:name=".module.activity.thirdlib.rxjava.RxjavaTestActivity" />
+
         <activity android:name=".module.activity.regulation.threadcommunication.ThreadCommunicationOne" />
         <activity android:name=".module.activity.regulation.eventdiapatchregulation.EventTransmitActivity" />
-        <activity android:name=".module.activity.annndroid.MarqueeActivity" />
+        <activity android:name=".module.activity.regulation.threadpool.ThreadPoolTestActivity" />
+        <activity android:name=".module.activity.regulation.lru.PhotoWallActivity" />
+        <activity
+            android:name=".module.activity.regulation.ipc.IPCActivity"
+            android:process=".ipc" />
+
         <activity android:name=".module.activity.component.ScrollActivity" />
-        <activity android:name=".module.activity.annndroid.LoadImageActivity" />
-        <activity android:name=".module.activity.annndroid.rxjava.RxImageActivity" />
-        <activity android:name=".module.activity.annndroid.eventbus.EventBusTestActivity" />
-        <activity android:name=".module.activity.annndroid.glide.GlideTestActivity" />
+        <activity android:name=".module.activity.component.PinnedSectionActivity" />
+        <activity android:name=".module.activity.component.watermark.WaterMarkActivity" />
+        <activity android:name=".module.activity.component.service.ServiceActivity" />
+
         <activity android:name=".module.activity.my.GuideViewActivity" />
         <activity android:name=".module.activity.my.SearchActivity" />
         <activity android:name=".module.activity.my.AdvertizeActivity" />
+
         <activity android:name=".module.activity.selfview.henbanse.HenCode1" />
         <activity android:name=".module.activity.selfview.sunxibei.RotateRectActivity" />
         <activity android:name=".module.activity.selfview.mi.MiSportActivity" />
         <activity android:name=".module.activity.selfview.thumbup.ThumbUpActivity" />
         <activity android:name=".module.activity.selfview.fallingstar.FallingStarActivity" />
-        <activity android:name=".module.activity.component.PinnedSectionActivity" />
-        <activity android:name=".module.activity.component.watermark.WaterMarkActivity" />
-        <activity android:name=".module.activity.thirdlib.ffmpeg.PlayActivity" />
-        <activity android:name=".module.activity.thirdlib.ffmpeg.HelloJni" />
-        <activity android:name=".module.activity.thirdlib.rxjava.RxjavaTestActivity" />
-        <activity
-            android:name=".module.activity.regulation.ipc.IPCActivity"
-            android:process=".ipc" />
-        <activity android:name=".module.activity.regulation.lru.PhotoWallActivity" />
         <activity
             android:name=".module.activity.selfview.didi.DiDiActivity"
             android:label="@string/title_activity_di_di"
             android:theme="@style/AppTheme" />
-        <activity android:name=".module.activity.regulation.threadpool.ThreadPoolTestActivity" />
+
         <!--receiver-->
         <receiver android:name=".module.activity.regulation.threadcommunication.broadcast.MyBroadCastReceiver">
             <intent-filter>

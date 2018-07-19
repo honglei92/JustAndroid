@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.annndroid.mvpV2;
+package com.boco.whl.funddemo.module.activity.thirdlib.mvpV2;
 
 import com.boco.whl.funddemo.module.activity.annndroid.mvpV2.base.BasePresenter;
 import com.boco.whl.funddemo.module.activity.annndroid.mvpV2.base.BaseView;

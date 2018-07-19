@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import com.boco.whl.funddemo.base.BaseApplication;
 
 /**
+ * 通知接收器
  * author: wanghonglei@boco.com.cn
  * desc:
  * createTime: 2017/8/26 0026
@@ -20,7 +21,6 @@ public class NetBroadcastReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        // TODO Auto-generated method stub
         // 如果相等的话就说明网络状态发生了变化
         if (intent.getAction().equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
             int netWorkState = NetUtil.getNetWorkState(context);

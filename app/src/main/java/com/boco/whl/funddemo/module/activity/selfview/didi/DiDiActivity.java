@@ -79,7 +79,7 @@ public class DiDiActivity extends BaseActivity implements TestManager.OnDataArri
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_di_di);
+
         ButterKnife.bind(this);
         //leakcanary
         mContext = this;
@@ -94,6 +94,11 @@ public class DiDiActivity extends BaseActivity implements TestManager.OnDataArri
         initInfoAnimation();
         initValueAnimation();
         musicAnimation();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_di_di;
     }
 
     /**

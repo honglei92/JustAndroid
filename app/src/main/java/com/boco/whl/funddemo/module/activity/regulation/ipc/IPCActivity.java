@@ -35,11 +35,15 @@ public class IPCActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inter_process_communicatinon);
         ButterKnife.bind(this);
         Log.d("honglei-process", Process.myPid() + "");
         Log.d("honglei-process-thread", Thread.currentThread().getName() +
                 Thread.currentThread().getId());
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_inter_process_communicatinon;
     }
 
     @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6})

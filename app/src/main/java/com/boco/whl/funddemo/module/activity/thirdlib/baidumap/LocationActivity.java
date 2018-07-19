@@ -1,4 +1,4 @@
-package com.boco.whl.funddemo.module.activity.annndroid.baidumap;
+package com.boco.whl.funddemo.module.activity.thirdlib.baidumap;
 
 import android.app.Activity;
 import android.os.Bundle;
