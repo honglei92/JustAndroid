@@ -1,6 +1,6 @@
 package com.boco.whl.funddemo.data.api;
 
-import com.boco.whl.funddemo.base.BaseApplication;
+import com.boco.whl.funddemo.base.BaseTinkerApplication;
 import com.boco.whl.funddemo.utils.LogUtil;
 
 import java.io.IOException;
@@ -29,7 +29,7 @@ public class LoggingInterceptor implements Interceptor {
 
         long t2 = System.nanoTime();//收到响应的时间
         int time = (int) ((t2 - t1) / 1e6d);
-        BaseApplication.setNetResponseTime(time);
+        BaseTinkerApplication.setNetResponseTime(time);
 
         //这里不能直接使用response.body().string()的方式输出日志
         //因为response.body().string()之后，response中的流会被关闭，程序会报错，我们需要创建出一

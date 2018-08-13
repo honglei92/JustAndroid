@@ -49,13 +49,17 @@ public class EventTransmitActivity extends BaseActivity {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.d("eventTest", "Activity | dispatchTouchEvent -->" + TouchEventUtil.getTouchAction(ev.getAction()));
+        Log.d("eventTest", "\n\nActivity | dispatchTouchEvent -->" + TouchEventUtil.getTouchAction(ev.getAction()));
         return super.dispatchTouchEvent(ev);
+//        return true;
+//        return false;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.d("eventTest", "Activity | onTouchEvent -->" + TouchEventUtil.getTouchAction(event.getAction()));
+        Log.d("eventTest", "\n\nActivity | onTouchEvent -->" + TouchEventUtil.getTouchAction(event.getAction()));
         return super.onTouchEvent(event);
+//        return true;
+//        return false;
     }
 }

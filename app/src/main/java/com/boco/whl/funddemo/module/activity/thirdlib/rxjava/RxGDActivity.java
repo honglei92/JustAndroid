@@ -11,9 +11,9 @@ import com.boco.bmdp.towerwalkmanage.service.ITowerwalkmanageService;
 import com.boco.transnms.server.bo.base.ServiceUtils;
 import com.boco.transnms.server.bo.base.SeviceException;
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.utils.NetworkUT;
 import com.boco.whl.funddemo.utils.PrintfUT;
 import com.boco.whl.funddemo.utils.ToastUtil;
+import com.boco.whl.funddemo.utils.net.NetworkUT;
 
 import java.lang.reflect.UndeclaredThrowableException;
 

@@ -3,22 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".module.activity.selfview.didi.DiDiActivity">
+    tools:context=".module.activity.customerview.didi.DiDiActivity">
 
-    <com.boco.whl.funddemo.module.activity.selfview.didi.view.DiDiView
+    <com.boco.whl.funddemo.module.activity.customerview.didi.view.DiDiView
         android:id="@+id/didiView"
         android:layout_width="60px"
         android:layout_height="156px"
         android:layout_centerInParent="true" />
 
-    <com.boco.whl.funddemo.module.activity.selfview.didi.view.DestinationView
+    <com.boco.whl.funddemo.module.activity.customerview.didi.view.DestinationView
         android:id="@+id/destinationView"
         android:layout_width="100px"
         android:layout_height="100px"
         android:layout_below="@id/didiView"
         android:layout_centerHorizontal="true" />
 
-    <com.boco.whl.funddemo.module.activity.selfview.didi.view.MayiView
+    <com.boco.whl.funddemo.module.activity.customerview.didi.view.MayiView
         android:id="@+id/mayiView"
         android:layout_width="120px"
         android:layout_height="300px"
@@ -26,7 +26,7 @@
         android:layout_marginRight="5dp"
         android:layout_toLeftOf="@id/didiView" />
 
-    <com.boco.whl.funddemo.module.activity.selfview.didi.view.ProgressView
+    <com.boco.whl.funddemo.module.activity.customerview.didi.view.ProgressView
         android:id="@+id/progressView"
         android:layout_width="70px"
         android:layout_height="70px"
@@ -34,7 +34,7 @@
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/didiView" />
 
-    <com.boco.whl.funddemo.module.activity.selfview.didi.view.InfoWindowView
+    <com.boco.whl.funddemo.module.activity.customerview.didi.view.InfoWindowView
         android:id="@+id/infoWindowView"
         android:layout_width="190px"
         android:layout_height="75px"
@@ -42,7 +42,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp" />
 
-    <com.boco.whl.funddemo.module.activity.selfview.didi.view.MusicView
+    <com.boco.whl.funddemo.module.activity.customerview.didi.view.MusicView
         android:id="@+id/musicView"
         android:layout_width="70px"
         android:layout_height="60px"
@@ -50,7 +50,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp" />
 
-    <com.boco.whl.funddemo.module.activity.selfview.didi.view.ValueView
+    <com.boco.whl.funddemo.module.activity.customerview.didi.view.ValueView
         android:id="@+id/valueView"
         android:layout_width="50px"
         android:layout_height="50px"

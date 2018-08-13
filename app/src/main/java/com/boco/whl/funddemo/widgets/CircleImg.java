@@ -1,6 +1,7 @@
 package com.boco.whl.funddemo.widgets;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -23,6 +24,7 @@ import com.boco.whl.funddemo.R;
 /**
  * 圆形图片
  */
+@SuppressLint("AppCompatCustomView")
 public class CircleImg extends ImageView {
 
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;

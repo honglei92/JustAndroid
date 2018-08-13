@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/tipRL"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/editext_bg"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <ImageView
+            android:id="@+id/queryimage"
+            android:layout_width="22dp"
+            android:layout_height="24dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="4dp"
+            android:src="@drawable/query" />
+
+        <EditText
+            android:id="@+id/search_text"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/queryimage"
+            android:background="@null"
+            android:hint="搜索运动团 商品 商户 活动"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+
+    <com.androidkun.xtablayout.XTabLayout
+        android:id="@+id/mTabCom"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        app:xTabDividerWidthWidthText="true"
+        app:xTabIndicatorColor="@color/colorPrimary"
+        app:xTabSelectedTextColor="@color/colorPrimary" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mViewPagerCom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -51,13 +51,18 @@ public class ThreadPoolTestActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        //ANR test
+        /*try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
         doTest();
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_di_di;
+        return R.layout.activity_none;
     }
 
     private void doTest() {

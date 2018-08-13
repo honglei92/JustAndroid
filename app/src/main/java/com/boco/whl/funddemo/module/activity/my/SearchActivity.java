@@ -14,8 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.utils.NetworkUT;
 import com.boco.whl.funddemo.utils.PrintfUT;
+import com.boco.whl.funddemo.utils.net.NetworkUT;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

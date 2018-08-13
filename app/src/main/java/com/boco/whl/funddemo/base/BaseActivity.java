@@ -28,8 +28,8 @@ import com.boco.whl.funddemo.R;
 
 @SuppressLint("Registered")
 public abstract class BaseActivity extends AppCompatActivity {
-    private Context context = this;
-    private Activity activity = this;
+    public Context context = this;
+    public Activity activity = this;
 
     @TargetApi(Build.VERSION_CODES.M)
     @Override
@@ -44,8 +44,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
             decorView.setSystemUiVisibility(option);
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            setContentView(getLayoutId());
         }
+        setContentView(getLayoutId());
     }
 
     protected abstract int getLayoutId();

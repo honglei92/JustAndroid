@@ -30,13 +30,17 @@ public class TouchEventView extends android.support.v7.widget.AppCompatTextView 
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.d("eventTest", "View | dispatchTouchEvent -->" + TouchEventUtil.getTouchAction(ev.getAction()));
+        Log.d("eventTest", "\n\nView | dispatchTouchEvent -->" + TouchEventUtil.getTouchAction(ev.getAction()));
         return super.dispatchTouchEvent(ev);
+//        return true;
+//        return false;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.d("eventTest", "View | onTouchEvent -->" + TouchEventUtil.getTouchAction(event.getAction()));
+        Log.d("eventTest", "\n\nView | onTouchEvent -->" + TouchEventUtil.getTouchAction(event.getAction()));
         return super.onTouchEvent(event);
+//        return true;
+//        return false;
     }
 }

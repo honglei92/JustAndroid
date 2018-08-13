@@ -11,14 +11,14 @@
         android:layout_gravity="center_horizontal"
         android:text="hencode1" />
 
-    <com.boco.whl.funddemo.module.activity.selfview.henbanse.CustomView1
+    <com.boco.whl.funddemo.module.activity.customerview.henbanse.CustomView1
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         app:Radius="40dp" />
 
-    <com.boco.whl.funddemo.module.activity.selfview.henbanse.CustomView2
+    <com.boco.whl.funddemo.module.activity.customerview.henbanse.CustomView2
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:layout_gravity="center"

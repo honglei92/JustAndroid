@@ -10,11 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.boco.whl.funddemo.R;
+import com.boco.whl.funddemo.module.activity.regulation.HandlerActivity;
 import com.boco.whl.funddemo.module.activity.regulation.eventdiapatchregulation.EventTransmitActivity;
 import com.boco.whl.funddemo.module.activity.regulation.ipc.IPCActivity;
 import com.boco.whl.funddemo.module.activity.regulation.lru.PhotoWallActivity;
@@ -22,6 +22,7 @@ import com.boco.whl.funddemo.module.activity.regulation.threadcommunication.Thre
 import com.boco.whl.funddemo.module.activity.regulation.threadpool.ThreadPoolTestActivity;
 import com.boco.whl.funddemo.module.adapter.CategoryItemAdapter;
 import com.boco.whl.funddemo.sdk.eventbus.MessageEvent;
+import com.boco.whl.funddemo.widgets.MyGridView;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -44,13 +45,14 @@ public class RegulationFragment extends Fragment {
     @BindView(R.id.tipRL)
     RelativeLayout tipRL;
     @BindView(R.id.category)
-    GridView category;
+    MyGridView category;
     Unbinder unbinder;
 
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    Intent intent;
 
     public RegulationFragment() {
     }
@@ -77,7 +79,7 @@ public class RegulationFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_common, container, false);
+        View view = inflater.inflate(R.layout.fragment_regulation, container, false);
         unbinder = ButterKnife.bind(this, view);
         initCategory();
         return view;
@@ -85,7 +87,7 @@ public class RegulationFragment extends Fragment {
 
     private void initCategory() {
         String[] titles = {"线程间通信", "事件传递机制", "eventBus", "LRU缓存", "Handler机制", "Bitmap", "sqlLite"
-                , "绘制嵌套滑动", "IPC Binder", "线程池"};
+                , "绘制嵌套滑动", "IPC Binder", "线程池", "ANR"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
         category.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -93,31 +95,33 @@ public class RegulationFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
                     case 0:
-                        Intent intent1 = new Intent(getActivity(), ThreadCommunicationOne.class);
-                        startActivity(intent1);
+                        intent = new Intent(getActivity(), ThreadCommunicationOne.class);
                         break;
                     case 1:
-                        Intent intent2 = new Intent(getActivity(), EventTransmitActivity.class);
-                        startActivity(intent2);
+                        intent = new Intent(getActivity(), EventTransmitActivity.class);
                         break;
                     case 2:
                         EventBus.getDefault().post(new MessageEvent("afs win"));
                         break;
                     case 3:
-                        Intent intent4 = new Intent(getActivity(), PhotoWallActivity.class);
-                        startActivity(intent4);
+                        intent = new Intent(getActivity(), PhotoWallActivity.class);
+                        break;
+                    case 4:
+                        intent = new Intent(getActivity(), HandlerActivity.class);
                         break;
                     case 8:
-                        Intent intent9 = new Intent(getActivity(), IPCActivity.class);
-                        startActivity(intent9);
+                        intent = new Intent(getActivity(), IPCActivity.class);
                         break;
                     case 9:
-                        Intent intent10 = new Intent(getActivity(), ThreadPoolTestActivity.class);
-                        startActivity(intent10);
+                        intent = new Intent(getActivity(), ThreadPoolTestActivity.class);
+                        break;
+                    case 10:
+                        intent = new Intent(getActivity(), ThreadPoolTestActivity.class);
                         break;
                     default:
                         break;
                 }
+                startActivity(intent);
             }
         });
     }

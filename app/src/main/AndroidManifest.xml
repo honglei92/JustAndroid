@@ -34,7 +34,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission
         android:name="android.permission.READ_LOGS"
         tools:ignore="ProtectedPermissions" />
@@ -42,6 +41,9 @@
     <!-- 通知栏 -->
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 添加操作联系人的权限 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
     <application
         android:name=".base.BaseApplication"
@@ -116,7 +118,8 @@
             android:name="cn.jpush.android.service.PushReceiver"
             android:enabled="true">
             <intent-filter android:priority="1000">
-                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" /> <!-- Required  显示通知栏 -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+                <!-- Required  显示通知栏 -->
                 <category android:name="com.boco.whl.rxjavademo" />
             </intent-filter>
             <intent-filter>
@@ -160,6 +163,16 @@
             android:name="JPUSH_APPKEY"
             android:value="4bfe2a909d77c0f707eb1e2d" />
         <!-- </>值来自开发者平台取得的AppKey -->
+        <!--bugly配置-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
 
         <!--service-->
         <service
@@ -175,7 +188,13 @@
         <service android:name=".module.activity.component.service.TestService" />
         <!--activity-->
         <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <activity
             android:name=".module.activity.main.SplashActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale|screenLayout|mcc|mnc"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -186,6 +205,7 @@
         <activity
             android:name=".module.activity.main.IndexActivity"
             android:launchMode="singleTask" />
+        <!--thirdlib-->
         <activity android:name=".module.activity.thirdlib.baidumap.LocationActivity" />
         <activity android:name=".module.activity.thirdlib.rxjava.RxGDActivity" />
         <activity android:name=".module.activity.thirdlib.mvp.view.UserActivity" />
@@ -200,31 +220,35 @@
         <activity android:name=".module.activity.thirdlib.ffmpeg.PlayActivity" />
         <activity android:name=".module.activity.thirdlib.ffmpeg.HelloJni" />
         <activity android:name=".module.activity.thirdlib.rxjava.RxjavaTestActivity" />
-
+        <activity android:name=".module.activity.thirdlib.retrofit.DownloadApkActivity" />
+        <!--regulation-->
         <activity android:name=".module.activity.regulation.threadcommunication.ThreadCommunicationOne" />
         <activity android:name=".module.activity.regulation.eventdiapatchregulation.EventTransmitActivity" />
         <activity android:name=".module.activity.regulation.threadpool.ThreadPoolTestActivity" />
         <activity android:name=".module.activity.regulation.lru.PhotoWallActivity" />
+        <activity android:name=".module.activity.regulation.HandlerActivity" />
         <activity
             android:name=".module.activity.regulation.ipc.IPCActivity"
             android:process=".ipc" />
-
+        <!--component-->
         <activity android:name=".module.activity.component.ScrollActivity" />
         <activity android:name=".module.activity.component.PinnedSectionActivity" />
         <activity android:name=".module.activity.component.watermark.WaterMarkActivity" />
         <activity android:name=".module.activity.component.service.ServiceActivity" />
+        <activity android:name=".module.activity.component.EasyCommonActivity" />
 
         <activity android:name=".module.activity.my.GuideViewActivity" />
         <activity android:name=".module.activity.my.SearchActivity" />
         <activity android:name=".module.activity.my.AdvertizeActivity" />
-
-        <activity android:name=".module.activity.selfview.henbanse.HenCode1" />
-        <activity android:name=".module.activity.selfview.sunxibei.RotateRectActivity" />
-        <activity android:name=".module.activity.selfview.mi.MiSportActivity" />
-        <activity android:name=".module.activity.selfview.thumbup.ThumbUpActivity" />
-        <activity android:name=".module.activity.selfview.fallingstar.FallingStarActivity" />
+        <!--customerview-->
+        <activity android:name=".module.activity.customerview.henbanse.HenCode1" />
+        <activity android:name=".module.activity.customerview.sunxibei.RotateRectActivity" />
+        <activity android:name=".module.activity.customerview.mi.MiSportActivity" />
+        <activity android:name=".module.activity.customerview.thumbup.ThumbUpActivity" />
+        <activity android:name=".module.activity.customerview.fallingstar.FallingStarActivity" />
+        <activity android:name=".module.activity.customerview.LottieActivity" />
         <activity
-            android:name=".module.activity.selfview.didi.DiDiActivity"
+            android:name=".module.activity.customerview.didi.DiDiActivity"
             android:label="@string/title_activity_di_di"
             android:theme="@style/AppTheme" />
 

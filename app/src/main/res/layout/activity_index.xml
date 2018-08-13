@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.boco.whl.funddemo.module.main.IndexActivity">
 
-    <FrameLayout
-        android:id="@+id/contentfragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_above="@+id/radiogroup"
-        android:background="#C8C8C8" />
-
     <RadioGroup
         android:id="@+id/radiogroup"
         android:layout_width="match_parent"
@@ -38,14 +26,14 @@
             style="@style/categoryradiobutton"
             android:text="机制"
             myradio:drawableSize="26dp"
-            myradio:drawableTop="@drawable/category_image_selector2" />
+            myradio:drawableTop="@drawable/category_image_selector3" />
 
         <com.boco.whl.funddemo.widgets.MyRadioButton
             android:id="@+id/radio3"
             style="@style/categoryradiobutton"
             android:text="组件"
             myradio:drawableSize="26dp"
-            myradio:drawableTop="@drawable/category_image_selector3" />
+            myradio:drawableTop="@drawable/category_image_selector2" />
 
         <com.boco.whl.funddemo.widgets.MyRadioButton
             android:id="@+id/radio4"
@@ -61,5 +49,20 @@
             myradio:drawableSize="26dp"
             myradio:drawableTop="@drawable/category_image_selector4" />
     </RadioGroup>
+
+
+    <View
+        android:id="@+id/separatorLine"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_above="@+id/radiogroup"
+        android:background="#C8C8C8" />
+
+    <FrameLayout
+        android:id="@+id/contentfragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@id/separatorLine"
+        android:layout_alignParentTop="true" />
 
 </RelativeLayout>

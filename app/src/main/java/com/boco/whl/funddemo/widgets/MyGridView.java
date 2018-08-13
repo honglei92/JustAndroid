@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.widget.GridView;
 
 /**
+ * 禁止滚动
  * Created by honglei92 on 2017/5/5 0005.
  */
 

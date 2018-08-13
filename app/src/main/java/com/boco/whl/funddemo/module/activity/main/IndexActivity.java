@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.base.BaseActivity;
-import com.boco.whl.funddemo.module.fragment.CustomerViewFragment;
 import com.boco.whl.funddemo.module.fragment.ComponentFragment;
+import com.boco.whl.funddemo.module.fragment.CustomerViewFragment;
 import com.boco.whl.funddemo.module.fragment.MainFragment;
 import com.boco.whl.funddemo.module.fragment.MyFragment;
 import com.boco.whl.funddemo.module.fragment.RegulationFragment;
@@ -161,7 +161,9 @@ public class IndexActivity extends BaseActivity implements MainFragment.OnFragme
                 mExitTime = System.currentTimeMillis();
             } else {
                 //小于2000则退出程序
-                toast.cancel();
+                if (toast != null) {
+                    toast.cancel();
+                }
                 System.exit(0);
             }
             return true;

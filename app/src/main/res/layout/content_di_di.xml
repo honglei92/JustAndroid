@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".module.activity.selfview.didi.DiDiActivity"
+    tools:context=".module.activity.customerview.didi.DiDiActivity"
     tools:showIn="@layout/activity_di_di">
 
 

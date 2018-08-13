@@ -1,33 +1,24 @@
 package com.boco.whl.funddemo.module.activity.main;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.airbnb.lottie.LottieComposition;
-import com.alibaba.fastjson.JSONException;
-import com.alibaba.fastjson.JSONObject;
 import com.boco.whl.funddemo.R;
+import com.boco.whl.funddemo.config.Constant;
 import com.boco.whl.funddemo.module.activity.my.AdvertizeActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.retrofit.RetrofitTest;
-import com.boco.whl.funddemo.module.activity.thirdlib.rxjava.RxImageActivity;
 import com.boco.whl.funddemo.utils.IntentUT;
-import com.bumptech.glide.Glide;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.ref.WeakReference;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,8 +31,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-
-import static com.boco.whl.funddemo.R.drawable.splash;
 
 
 /**
@@ -102,6 +91,7 @@ public class SplashActivity extends Activity {
     }
 
     private void initView() {
+        Log.d("fozu", Constant.master);
         initAnimation();
         //背景图
 //        Glide.with(this).load(splash).into(splashIv);

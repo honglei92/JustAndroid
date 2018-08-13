@@ -8,15 +8,15 @@
     <com.boco.whl.funddemo.module.activity.regulation.eventdiapatchregulation.TouchEventViewGroup
         android:id="@+id/event_viewgroup"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_margin="20dp"
+        android:layout_height="300dp"
+        android:layout_margin="50dp"
         android:background="#00ff00">
 
         <com.boco.whl.funddemo.module.activity.regulation.eventdiapatchregulation.TouchEventView
             android:id="@+id/tv_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="30dp"
+            android:layout_margin="80dp"
             android:background="#0000ff"
             android:gravity="center"
             android:text="view" />

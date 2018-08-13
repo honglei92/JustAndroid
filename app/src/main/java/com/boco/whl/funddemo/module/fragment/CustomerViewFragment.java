@@ -4,61 +4,43 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import com.airbnb.lottie.LottieAnimationView;
+import com.androidkun.xtablayout.XTabLayout;
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.module.activity.main.SplashActivity;
-import com.boco.whl.funddemo.module.activity.selfview.didi.DiDiActivity;
-import com.boco.whl.funddemo.module.activity.selfview.fallingstar.FallingStarActivity;
-import com.boco.whl.funddemo.module.activity.selfview.henbanse.HenCode1;
-import com.boco.whl.funddemo.module.activity.selfview.mi.MiSportActivity;
-import com.boco.whl.funddemo.module.activity.selfview.sunxibei.RotateRectActivity;
-import com.boco.whl.funddemo.module.activity.selfview.thumbup.ThumbUpActivity;
-import com.boco.whl.funddemo.module.activity.thirdlib.retrofit.RetrofitTest;
-import com.boco.whl.funddemo.module.adapter.CategoryItemAdapter;
-
-import java.io.IOException;
+import com.boco.whl.funddemo.module.fragment.customerview.HotFragment;
+import com.boco.whl.funddemo.module.fragment.customerview.ViewFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 /**
- * 博客实验  hencoder自定义view
+ * 自定义view和开源控件
  *
  * @author Administrator
  */
 public class CustomerViewFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    @BindView(R.id.category)
-    GridView category;
     Unbinder unbinder;
-    @BindView(R.id.mLottieAnimationView)
-    LottieAnimationView mLottieAnimationView;
+
+    @BindView(R.id.mTab)
+    XTabLayout mTab;
+    @BindView(R.id.mViewPager)
+    ViewPager mViewPager;
 
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private Intent intent;
 
     public CustomerViewFragment() {
     }
@@ -87,84 +69,62 @@ public class CustomerViewFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_customerview, container, false);
         unbinder = ButterKnife.bind(this, view);
-        initCategory();
-        initLottie();
+        initTabLayout();
         return view;
     }
 
-    private void initLottie() {
-        Observable.create(new ObservableOnSubscribe<String>() {
+
+    private void initTabLayout() {
+        String[] titles = {"View", "热门", "关注", "小视频"};
+        mViewPager.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
             @Override
-            public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Exception {
-                String mJson = null;
-                try {
-                    mJson = RetrofitTest.getJson("https://raw.githubusercontent.com/18380438200/LottieAnim/master/app/src/main/assets/", "likeanim.json");
-                } catch (IOException e) {
-                    e.printStackTrace();
+            public Fragment getItem(int position) {
+                switch (position) {
+                    case 0:
+                        return ViewFragment.newInstance("", "");
+                    case 1:
+                        return HotFragment.newInstance("", "");
+                    case 2:
+                        return ViewFragment.newInstance("", "");
+                    case 3:
+                        return ViewFragment.newInstance("", "");
+                    default:
+                        break;
                 }
-                emitter.onNext(mJson);
-                emitter.onComplete();
+                return null;
             }
-        }).subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
 
-                    @Override
-                    public void onError(Throwable e) {
-                        Toast.makeText(getActivity(), "LOAD ERROR!", Toast.LENGTH_SHORT).show();
-                    }
+            @Override
+            public int getCount() {
+                return titles.length;
+            }
 
-                    @Override
-                    public void onComplete() {
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(String result) {
-                        if (result != null && mLottieAnimationView != null) {
-                            mLottieAnimationView.setAnimationFromJson(result);
-                        }
-                    }
-                });
-    }
-
-    private void initCategory() {
-        String[] titles = {"HenCode1", "rotateRect", "miSport", "thumbUp"
-                , "fallingStar", "didi"};
-        CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
-        category.setAdapter(adapter);
-        category.setOnItemClickListener((AdapterView<?> adapterView, View view, int i, long l) -> {
-            switch (i) {
-                case 0:
-                    Intent intent1 = new Intent(getActivity(), HenCode1.class);
-                    startActivity(intent1);
-                    break;
-                case 1:
-                    Intent intent2 = new Intent(getActivity(), RotateRectActivity.class);
-                    startActivity(intent2);
-                    break;
-                case 2:
-                    Intent intent3 = new Intent(getActivity(), MiSportActivity.class);
-                    startActivity(intent3);
-                    break;
-                case 3:
-                    Intent intent4 = new Intent(getActivity(), ThumbUpActivity.class);
-                    startActivity(intent4);
-                    break;
-                case 4:
-                    FallingStarActivity.doIntent(getActivity(), false);
-                    break;
-                case 5:
-                    DiDiActivity.doIntent(getActivity(), false);
-                    break;
-                default:
-                    break;
+            @Nullable
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return titles[position];
             }
         });
+        mTab.setupWithViewPager(mViewPager);
+        mTab.addOnTabSelectedListener(new XTabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(XTabLayout.Tab tab) {
+                mViewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(XTabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(XTabLayout.Tab tab) {
+
+            }
+        });
+//        mViewPager.setOffscreenPageLimit(titles.length);
+
+
     }
 
     public void onButtonPressed(Uri uri) {

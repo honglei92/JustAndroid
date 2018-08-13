@@ -13,6 +13,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * glide使用实践
+ */
 public class GlideTestActivity extends Activity {
 
     @BindView(R.id.imageView)
@@ -33,7 +36,8 @@ public class GlideTestActivity extends Activity {
     public void onViewClicked() {
         String url = "http://p1.pstatp.com/large/166200019850062839d3";
         Glide.with(this).load(R.drawable.group9).placeholder(R.drawable.replace).into(imageView2);
-        Glide.with(this).load(url).placeholder(R.drawable.replace).error(R.drawable.loaderror).diskCacheStrategy(DiskCacheStrategy.NONE).into(imageView);
+        Glide.with(this).load(url).placeholder(R.drawable.replace).error(R.drawable.loaderror)
+                .diskCacheStrategy(DiskCacheStrategy.NONE).into(imageView);
     }
 }
 

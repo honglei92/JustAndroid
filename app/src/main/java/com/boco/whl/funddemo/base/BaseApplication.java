@@ -141,6 +141,7 @@ public class BaseApplication extends Application implements NetBroadcastReceiver
 
     @Override
     public void onNetChange(int netMobile) {
+        //测试ANR
         String netCondition = "";
         if (netMobile == 1) {
             netCondition = "当前WIFI已连接";

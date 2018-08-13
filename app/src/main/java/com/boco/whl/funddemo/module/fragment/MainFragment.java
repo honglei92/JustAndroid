@@ -33,6 +33,7 @@ import com.boco.whl.funddemo.module.activity.thirdlib.glide.GlideTestActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.listview.ListTest;
 import com.boco.whl.funddemo.module.activity.thirdlib.mvp.view.UserActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.mvpV2.CustomerActivity;
+import com.boco.whl.funddemo.module.activity.thirdlib.retrofit.DownloadApkActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.rxjava.RxGDActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.rxjava.RxImageActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.rxjava.RxjavaTestActivity;
@@ -263,11 +264,11 @@ public class MainFragment extends Fragment {
     private void initCategory() {
         String[] titles = {"Glide", "RxJava", "EventBus", "RxImage", "RxOperator", "Retrofit", "OkHttp"
                 , "Baidu", "Map", "FusionChart", "MVP1", "MVP2", "kotlin", "listview",
-                "imgCompress", "marquee", "loadImage"
-                , "JNI", "FFMPEG", "updating", "updating", "updating", "updating", "updating"
-                , "updating", "updating", "updating", "updating", "updating", "updating", "updating"
-                , "updating", "updating", "updating", "updating", "updating", "updating", "updating"
-                , "updating", "updating", "updating", "updating", "updating", "updating", "updating"
+                "imgCompress", "marquee", "loadImage", "JNI", "FFMPEG", "RetrofitDownload", "updating",
+                "updating", "updating", "updating", "updating", "updating", "updating", "updating",
+                "updating", "updating", "updating", "updating", "updating", "updating", "updating",
+                "updating", "updating", "updating", "updating", "updating", "updating", "updating",
+                "updating", "updating", "updating"
         };
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
@@ -329,6 +330,9 @@ public class MainFragment extends Fragment {
                         break;
                     case 18:
                         intent = new Intent(getActivity(), PlayActivity.class);
+                        break;
+                    case 19:
+                        intent = new Intent(getActivity(), DownloadApkActivity.class);
                         break;
                     default:
                         break;

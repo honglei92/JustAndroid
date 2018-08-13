@@ -4,28 +4,29 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.androidkun.xtablayout.XTabLayout;
 import com.boco.whl.funddemo.R;
-import com.boco.whl.funddemo.module.activity.component.PinnedSectionActivity;
-import com.boco.whl.funddemo.module.activity.component.ScrollActivity;
-import com.boco.whl.funddemo.module.activity.component.service.ServiceActivity;
-import com.boco.whl.funddemo.module.activity.component.watermark.WaterMarkActivity;
-import com.boco.whl.funddemo.module.adapter.CategoryItemAdapter;
+import com.boco.whl.funddemo.module.fragment.component.TrainingFragment;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * 基本组件的使用
+ * 安卓基本组件的使用
  */
 public class ComponentFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
@@ -36,15 +37,18 @@ public class ComponentFragment extends Fragment {
     EditText searchText;
     @BindView(R.id.tipRL)
     RelativeLayout tipRL;
-    @BindView(R.id.category)
-    GridView category;
     Unbinder unbinder;
+    @BindView(R.id.mTabCom)
+    XTabLayout mTabCom;
+    @BindView(R.id.mViewPagerCom)
+    ViewPager mViewPagerCom;
 
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
     Intent intent;
+    private BaseQuickAdapter<String, BaseViewHolder> adapter;
 
     public ComponentFragment() {
     }
@@ -71,55 +75,65 @@ public class ComponentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_common, container, false);
+        View view = inflater.inflate(R.layout.fragment_component, container, false);
         unbinder = ButterKnife.bind(this, view);
-        initCategory();
+        initTabLayout();
         return view;
     }
 
-    private void initCategory() {
-        String[] titles = {"Activity", "Service", "BroadcastReceiver",
-                "ContentProvider", "jsBridge", "waterMark", "recycleView", "scrollView", "ScrollView"};
-        CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
-        category.setAdapter(adapter);
-        category.setOnItemClickListener((adapterView, view, i, l) -> {
-            switch (i) {
-                case 0:
-                    intent = new Intent(getActivity(), PinnedSectionActivity.class);
-                    break;
-                case 1:
-                    intent = new Intent(getActivity(), ServiceActivity.class);
-                    break;
-                case 2:
-                    intent = new Intent(getActivity(), PinnedSectionActivity.class);
-                    break;
-                case 3:
-                    intent = new Intent(getActivity(), PinnedSectionActivity.class);
-                    break;
-                case 4:
-                    intent = new Intent(getActivity(), PinnedSectionActivity.class);
-                    break;
-                case 5:
-                    intent = new Intent(getActivity(), WaterMarkActivity.class);
-                    break;
-                case 6:
-                    intent = new Intent(getActivity(), PinnedSectionActivity.class);
-                    break;
-                case 7:
-                    intent = new Intent(getActivity(), ScrollActivity.class);
-                    break;
-
-                default:
-                    break;
+    private void initTabLayout() {
+        String[] titles = {"组件", "训练", "跑步", "健走", "骑行"};
+        mViewPagerCom.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                switch (position) {
+                    case 0:
+                        return TrainingFragment.newInstance("", "");
+                    case 1:
+                        return TrainingFragment.newInstance("", "");
+                    case 2:
+                        return TrainingFragment.newInstance("", "");
+                    case 3:
+                        return TrainingFragment.newInstance("", "");
+                    case 4:
+                        return TrainingFragment.newInstance("", "");
+                    default:
+                        break;
+                }
+                return null;
             }
-            startActivity(intent);
-        });
-    }
 
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+            @Override
+            public int getCount() {
+                return titles.length;
+            }
+
+            @Nullable
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return titles[position];
+            }
+        });
+        mTabCom.setupWithViewPager(mViewPagerCom);
+        mTabCom.addOnTabSelectedListener(new XTabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(XTabLayout.Tab tab) {
+                mViewPagerCom.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(XTabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(XTabLayout.Tab tab) {
+
+            }
+        });
+//        mViewPager.setOffscreenPageLimit(titles.length);
+
+
     }
 
     @Override

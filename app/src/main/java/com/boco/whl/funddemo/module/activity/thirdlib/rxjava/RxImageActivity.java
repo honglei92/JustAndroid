@@ -17,8 +17,8 @@ import android.widget.Toast;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.sdk.eventbus.MessageEvent;
-import com.boco.whl.funddemo.utils.NetworkUT;
 import com.boco.whl.funddemo.utils.PrintfUT;
+import com.boco.whl.funddemo.utils.net.NetworkUT;
 
 import org.greenrobot.eventbus.EventBus;
 

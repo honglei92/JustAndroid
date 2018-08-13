@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.boco.whl.funddemo.module.activity.selfview.sunxibei.view.MapView
+    <com.boco.whl.funddemo.module.activity.customerview.sunxibei.view.MapView
         android:id="@+id/my_animation_view"
         android:layout_width="200dp"
         android:layout_height="200dp"

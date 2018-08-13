@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.boco.whl.funddemo.base.BaseApplication;
+import com.boco.whl.funddemo.base.BaseTinkerApplication;
 
 
 /**
@@ -21,12 +21,12 @@ public class UIUtils {
 
     //提供获取上下环境方法
     public static Context getContext() {
-        return BaseApplication.getContext();
+        return BaseTinkerApplication.getContext();
     }
 
     //Handler
     public static Handler getHandler() {
-        return BaseApplication.getHandler();
+        return BaseTinkerApplication.getHandler();
     }
 
     public static void showToastShort(int resId) {

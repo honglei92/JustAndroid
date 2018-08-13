@@ -55,7 +55,7 @@ public class CategoryItemAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.title.setText(titles[i]);
-        viewHolder.image.setImageResource(R.drawable.app);
+        viewHolder.image.setImageResource(R.drawable.icon_tec_point);
         return convertView;
     }
 

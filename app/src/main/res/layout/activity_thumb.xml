@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.boco.whl.funddemo.module.activity.selfview.thumbup.view.ThumbUpView
+    <com.boco.whl.funddemo.module.activity.customerview.thumbup.view.ThumbUpView
         android:id="@+id/thumbUpView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
