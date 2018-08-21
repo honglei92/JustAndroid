@@ -236,6 +236,7 @@
         <activity android:name=".module.activity.component.watermark.WaterMarkActivity" />
         <activity android:name=".module.activity.component.service.ServiceActivity" />
         <activity android:name=".module.activity.component.EasyCommonActivity" />
+        <activity android:name=".module.activity.component.jetpack.databinding.DataBindingTest" />
 
         <activity android:name=".module.activity.my.GuideViewActivity" />
         <activity android:name=".module.activity.my.SearchActivity" />

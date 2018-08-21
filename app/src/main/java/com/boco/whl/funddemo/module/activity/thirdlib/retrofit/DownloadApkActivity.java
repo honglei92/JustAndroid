@@ -10,7 +10,10 @@ import android.widget.ProgressBar;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.base.BaseActivity;
+import com.boco.whl.funddemo.config.Constant;
 import com.boco.whl.funddemo.utils.download.DownloadApi;
+
+import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,7 +21,14 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+import okhttp3.Cache;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 /**
  * author:     wanghonglei@boco.com.cn
@@ -31,6 +41,7 @@ import io.reactivex.disposables.Disposable;
 
 public class DownloadApkActivity extends BaseActivity {
     private MyHandler handler = new MyHandler();
+    private static String TAOBAO_URL = "https://tcc.taobao.com/cc/json/";
 
     @BindView(R.id.mProgressBar)
     ProgressBar mProgressBar;
@@ -41,6 +52,12 @@ public class DownloadApkActivity extends BaseActivity {
         ButterKnife.bind(this);
         mProgressBar.setVisibility(View.VISIBLE);
         mProgressBar.setMax(100);
+//        downloadapk();
+        interceptorTest();
+
+    }
+
+    private void downloadapk() {
         Observable.create(new ObservableOnSubscribe<Integer>() {
 
             @Override
@@ -69,6 +86,67 @@ public class DownloadApkActivity extends BaseActivity {
 
             }
         });
+    }
+
+    /**
+     * 拦截器测试
+     */
+    private void interceptorTest() {
+        //初始化拦截器
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+            @Override
+            public void log(String message) {
+                System.out.println("Retrofit Log" + message);
+            }
+        });
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        //配置OKHttp
+        File direction = new File(Constant.ROOT);
+        if (!direction.exists()) {
+            direction.mkdir();
+        }
+        Cache cache = new Cache(direction, 1024 * 1024);
+        OkHttpClient client = new OkHttpClient.Builder()
+                .cache(cache)
+                .addInterceptor(loggingInterceptor)
+                .addInterceptor(new HeaderInterceptor())
+                .addInterceptor(new CacheInterceptor(context))
+                .build();
+        //配置retrofit
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(TAOBAO_URL)
+                .client(client)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(StringConverterFactory.create())
+                .build();
+        //声明接口
+        RetrofitTest.TaobaoService taobaoService = retrofit.create(RetrofitTest.TaobaoService.class);
+        taobaoService.getPhoneInfo("13982268713")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        System.out.println("onSubscribe");
+                    }
+
+                    @Override
+                    public void onNext(String result) {
+//                        System.out.println("onNext:\n" + result);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        System.out.println("onError:" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        System.out.println("onComplete");
+                    }
+                });
+
+
     }
 
     @Override

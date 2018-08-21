@@ -45,7 +45,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             decorView.setSystemUiVisibility(option);
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
-        setContentView(getLayoutId());
+        if (getLayoutId() != 0)
+            setContentView(getLayoutId());
     }
 
     protected abstract int getLayoutId();

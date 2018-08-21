@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 
 import com.androidkun.xtablayout.XTabLayout;
 import com.boco.whl.funddemo.R;
+import com.boco.whl.funddemo.module.fragment.component.JetpackFragment;
 import com.boco.whl.funddemo.module.fragment.component.TrainingFragment;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -82,7 +83,7 @@ public class ComponentFragment extends Fragment {
     }
 
     private void initTabLayout() {
-        String[] titles = {"组件", "训练", "跑步", "健走", "骑行"};
+        String[] titles = {"组件", "Jetpack", "跑步", "健走", "骑行"};
         mViewPagerCom.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -90,7 +91,7 @@ public class ComponentFragment extends Fragment {
                     case 0:
                         return TrainingFragment.newInstance("", "");
                     case 1:
-                        return TrainingFragment.newInstance("", "");
+                        return JetpackFragment.newInstance("", "");
                     case 2:
                         return TrainingFragment.newInstance("", "");
                     case 3:

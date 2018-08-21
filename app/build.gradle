@@ -54,18 +54,18 @@ android {
             minifyEnabled false
             signingConfig signingConfigs.debug
         }
-       /* applicationVariants.all { variant ->
-            variant.outputs.all { output ->
-                if (variant.buildType.name != "debug") {
-                    outputFileName = "FUND_DEMO_V" +
-                            variant.versionName + "_" +
-                            releaseTime() + "_" +
-                            variant.buildType.name + "_" +
-                            variant.signingConfig.name +
-                            ".apk"
-                }
-            }
-        }*/
+        /* applicationVariants.all { variant ->
+             variant.outputs.all { output ->
+                 if (variant.buildType.name != "debug") {
+                     outputFileName = "FUND_DEMO_V" +
+                             variant.versionName + "_" +
+                             releaseTime() + "_" +
+                             variant.buildType.name + "_" +
+                             variant.signingConfig.name +
+                             ".apk"
+                 }
+             }
+         }*/
     }
     /**
      * 四、自定义产品偏好配置，可以定义多个偏好产品,多渠道打包（示例配置）
@@ -119,6 +119,9 @@ android {
         // Or, if you prefer, you can continue to check for errors in release builds,
         // but continue the build even when errors are found:
         abortOnError false
+    }
+    dataBinding {
+        enabled true
     }
 }
 /**
