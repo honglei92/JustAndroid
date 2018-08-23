@@ -12,6 +12,7 @@ import com.boco.whl.funddemo.base.BaseActivity;
 import com.boco.whl.funddemo.config.Constant;
 import com.boco.whl.funddemo.databinding.ActivityEasyCommomDatabindingBinding;
 import com.boco.whl.funddemo.entity.Plants;
+import com.boco.whl.funddemo.module.activity.component.jetpack.lifecycle.LifeCycleObserverTest;
 
 /**
  * data binding 12345实践
@@ -23,9 +24,11 @@ public class DataBindingTest extends BaseActivity {
     private Handler handler = new Handler();
     String url = "https://wx4.sinaimg.cn/mw1024/6b6562f4gy1fo4mo6z7h2j20qo0zkwi1.jpg";
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(new LifeCycleObserverTest());
         ActivityEasyCommomDatabindingBinding binding =
                 DataBindingUtil.setContentView(this, R.layout.activity_easy_commom_databinding);
 

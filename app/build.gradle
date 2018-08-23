@@ -134,6 +134,13 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //Jetpack相关
+    def nav_version = '1.0.0-alpha05'
+    api "android.arch.navigation:navigation-fragment:$nav_version"
+    api "android.arch.navigation:navigation-ui:$nav_version"
+    api "android.arch.paging:runtime:1.0.1"
+    api "android.arch.lifecycle:extensions:1.1.1"
+
     //网络相关
     api 'com.facebook.stetho:stetho-okhttp3:1.5.0'
     api 'com.squareup.retrofit2:retrofit:2.3.0'
@@ -142,9 +149,10 @@ dependencies {
     api 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
     api 'com.squareup.retrofit2:converter-gson:2.3.0'
     api 'com.squareup.okhttp3:logging-interceptor:3.4.2'
-    api 'io.reactivex.rxjava2:rxjava:2.1.0'
+    api 'io.reactivex.rxjava2:rxjava:2.1.6'
     api 'io.reactivex.rxjava2:rxandroid:2.0.1'
     api 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+    api 'io.reactivex.rxjava2:rxkotlin:2.2.0'
     // DBFlow数据库
     api 'com.github.Raizlabs.DBFlow:dbflow-core:4.0.4'
     api 'com.github.Raizlabs.DBFlow:dbflow:4.0.4'
@@ -165,7 +173,7 @@ dependencies {
     api 'cn.bingoogolapple:bga-banner:2.2.4@aar'
     //工具相关
     api 'org.greenrobot:eventbus:3.0.0'
-    api 'com.google.code.gson:gson:2.8.0'
+    api 'com.google.code.gson:gson:2.8.2'
     api 'com.blankj:utilcode:1.7.1'
     api 'com.alibaba:fastjson:1.2.47'
     api 'com.orhanobut:logger:2.1.1'

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@+id/mainPage1Fragment">
+    <fragment
+        android:id="@+id/mainPage1Fragment"
+        android:name="com.boco.whl.funddemo.module.activity.component.jetpack.navigation.fragment.MainPage1Fragment"
+        android:label="fragment_mainpage1"
+        tools:layout="@layout/fragment_mainpage1">
+        <action
+            android:id="@+id/action_mainPage1Fragment_to_mainPage2Fragment"
+            app:destination="@id/mainPage2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainPage2Fragment"
+        android:name="com.boco.whl.funddemo.module.activity.component.jetpack.navigation.fragment.MainPage2Fragment"
+        android:label="fragment_mainpage1"
+        tools:layout="@layout/fragment_mainpage1">
+        <action
+            android:id="@+id/action_mainPage2Fragment_to_mainPage3Fragment"
+            app:destination="@id/mainPage3Fragment" />
+        <action
+            android:id="@+id/action_mainPage2Fragment_to_mainPage1Fragment"
+            app:destination="@id/mainPage1Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainPage3Fragment"
+        android:name="com.boco.whl.funddemo.module.activity.component.jetpack.navigation.fragment.MainPage3Fragment"
+        android:label="fragment_mainpage3"
+        tools:layout="@layout/fragment_mainpage3" >
+        <action
+            android:id="@+id/action_mainPage3Fragment_to_mainPage2Fragment2"
+            app:destination="@id/mainPage2Fragment" />
+    </fragment>
+</navigation>

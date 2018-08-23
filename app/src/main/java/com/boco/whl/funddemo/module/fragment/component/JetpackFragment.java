@@ -12,10 +12,9 @@ import android.view.ViewGroup;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.module.activity.component.EasyCommonActivity;
-import com.boco.whl.funddemo.module.activity.component.PinnedSectionActivity;
 import com.boco.whl.funddemo.module.activity.component.ScrollActivity;
 import com.boco.whl.funddemo.module.activity.component.jetpack.databinding.DataBindingTest;
-import com.boco.whl.funddemo.module.activity.component.service.ServiceActivity;
+import com.boco.whl.funddemo.module.activity.component.jetpack.navigation.NavigationTestActivity;
 import com.boco.whl.funddemo.module.adapter.SpacesItemDecoration;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -76,7 +75,7 @@ public class JetpackFragment extends Fragment {
 
     private void initCategory() {
         String[] titles = {"DataBinding", "LifeCycles", "LiveData", "Navigation",
-                "jsBridge", "recycleView", "ScrollView"};
+                "Paging", "Room", "ViewModel", "WorkManager"};
         List<String> list = Arrays.asList(titles);
         //设置adapter
         adapter = new BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_category_item, list) {
@@ -92,18 +91,24 @@ public class JetpackFragment extends Fragment {
                                 intent = new Intent(getActivity(), DataBindingTest.class);
                                 break;
                             case 1:
-                                intent = new Intent(getActivity(), ServiceActivity.class);
+                                intent = new Intent(getActivity(), DataBindingTest.class);
                                 break;
                             case 2:
-                                intent = new Intent(getActivity(), PinnedSectionActivity.class);
+                                intent = new Intent(getActivity(), DataBindingTest.class);
                                 break;
                             case 3:
-                                intent = new Intent(getActivity(), EasyCommonActivity.class);
+                                intent = new Intent(getActivity(), NavigationTestActivity.class);
                                 break;
                             case 4:
                                 intent = new Intent(getActivity(), EasyCommonActivity.class);
                                 break;
+                            case 5:
+                                intent = new Intent(getActivity(), ScrollActivity.class);
+                                break;
                             case 6:
+                                intent = new Intent(getActivity(), ScrollActivity.class);
+                                break;
+                            case 7:
                                 intent = new Intent(getActivity(), ScrollActivity.class);
                                 break;
                             default:
