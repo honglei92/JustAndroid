@@ -90,39 +90,36 @@ public class RegulationFragment extends Fragment {
                 , "绘制嵌套滑动", "IPC Binder", "线程池", "ANR"};
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
-        category.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i) {
-                    case 0:
-                        intent = new Intent(getActivity(), ThreadCommunicationOne.class);
-                        break;
-                    case 1:
-                        intent = new Intent(getActivity(), EventTransmitActivity.class);
-                        break;
-                    case 2:
-                        EventBus.getDefault().post(new MessageEvent("afs win"));
-                        break;
-                    case 3:
-                        intent = new Intent(getActivity(), PhotoWallActivity.class);
-                        break;
-                    case 4:
-                        intent = new Intent(getActivity(), HandlerActivity.class);
-                        break;
-                    case 8:
-                        intent = new Intent(getActivity(), IPCActivity.class);
-                        break;
-                    case 9:
-                        intent = new Intent(getActivity(), ThreadPoolTestActivity.class);
-                        break;
-                    case 10:
-                        intent = new Intent(getActivity(), ThreadPoolTestActivity.class);
-                        break;
-                    default:
-                        break;
-                }
-                startActivity(intent);
+        category.setOnItemClickListener((adapterView, view, i, l) -> {
+            switch (i) {
+                case 0:
+                    intent = new Intent(getActivity(), ThreadCommunicationOne.class);
+                    break;
+                case 1:
+                    intent = new Intent(getActivity(), EventTransmitActivity.class);
+                    break;
+                case 2:
+                    EventBus.getDefault().post(new MessageEvent("afs win"));
+                    break;
+                case 3:
+                    intent = new Intent(getActivity(), PhotoWallActivity.class);
+                    break;
+                case 4:
+                    intent = new Intent(getActivity(), HandlerActivity.class);
+                    break;
+                case 8:
+                    intent = new Intent(getActivity(), IPCActivity.class);
+                    break;
+                case 9:
+                    intent = new Intent(getActivity(), ThreadPoolTestActivity.class);
+                    break;
+                case 10:
+                    intent = new Intent(getActivity(), ThreadPoolTestActivity.class);
+                    break;
+                default:
+                    break;
             }
+            startActivity(intent);
         });
     }
 

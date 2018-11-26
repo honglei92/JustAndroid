@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    buildToolsVersion '28.0.3'
     /**
      * 一、默认产品偏好配置
      */
@@ -16,7 +16,7 @@ android {
         versionName "1.1"
         multiDexEnabled true
         ndk {
-            abiFilters 'armeabi-v7a'
+//            abiFilters 'armeabi-v7a'
         }
     }
 

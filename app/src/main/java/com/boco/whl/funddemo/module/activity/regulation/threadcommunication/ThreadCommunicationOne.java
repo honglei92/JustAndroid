@@ -60,7 +60,7 @@ public class ThreadCommunicationOne extends Activity {
     private Context context = ThreadCommunicationOne.this;
     private static BlockingQueue<Runnable> mPoolWorkQueue = new LinkedBlockingDeque<>(128);
     private static ThreadFactory mThreadFactory = new ThreadFactory() {
-        public final AtomicInteger mCount = new AtomicInteger(1);
+        final AtomicInteger mCount = new AtomicInteger(1);
 
         @Override
         public Thread newThread(@NonNull Runnable r) {
@@ -144,12 +144,7 @@ public class ThreadCommunicationOne extends Activity {
         THREAD_POOL_EXECUTOR.execute(
                 () -> {
                     final String KEY = "oppo";
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            ToastUtils.showShort("我来自子线程RunOnUIThread" + KEY);
-                        }
-                    });
+                    runOnUiThread(() -> ToastUtils.showShort("我来自子线程RunOnUIThread" + KEY));
                 });
     }
 
@@ -161,20 +156,14 @@ public class ThreadCommunicationOne extends Activity {
                 () -> {
                     LogUtil.d("post0  " + Thread.currentThread().getName());
 
-                    new Handler(context.getMainLooper()).postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            btn5.setText("postDelayed");
-                            btn5.setVisibility(View.VISIBLE);
-                            LogUtil.d("post1  " + Thread.currentThread().getName());
-                            new Handler().postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    LogUtil.d("post2  " + Thread.currentThread().getName());
-                                    ToastUtil.showToast(context, "3秒后我出现了");
-                                }
-                            }, 2000);
-                        }
+                    new Handler(context.getMainLooper()).postDelayed(() -> {
+                        btn5.setText("postDelayed");
+                        btn5.setVisibility(View.VISIBLE);
+                        LogUtil.d("post1  " + Thread.currentThread().getName());
+                        new Handler().postDelayed(() -> {
+                            LogUtil.d("post2  " + Thread.currentThread().getName());
+                            ToastUtil.showToast(context, "3秒后我出现了");
+                        }, 2000);
                     }, 1000);
                 });
     }
@@ -233,9 +222,23 @@ public class ThreadCommunicationOne extends Activity {
                 waySeven();
                 break;
             case R.id.btn8:
+                eight();
                 break;
             default:
                 break;
+        }
+    }
+
+    private void eight() {
+        HandlerUtil mHandlerUtil = new HandlerUtil();
+
+        for (int i = 0; i < 100; i++) {
+            try {
+                Thread.sleep(200);
+                mHandlerUtil.addTask(i);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
