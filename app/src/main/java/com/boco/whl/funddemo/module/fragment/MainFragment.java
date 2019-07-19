@@ -34,7 +34,6 @@ import com.boco.whl.funddemo.module.activity.thirdlib.listview.ListTest;
 import com.boco.whl.funddemo.module.activity.thirdlib.mvp.view.UserActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.mvpV2.CustomerActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.retrofit.DownloadApkActivity;
-import com.boco.whl.funddemo.module.activity.thirdlib.rxjava.RxGDActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.rxjava.RxImageActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.rxjava.RxjavaTestActivity;
 import com.boco.whl.funddemo.module.adapter.CategoryItemAdapter;
@@ -281,7 +280,7 @@ public class MainFragment extends Fragment {
                         break;
                     case 1:
                         //rxjava 广东接口
-                        intent = new Intent(getActivity(), RxGDActivity.class);
+                        intent = new Intent(getActivity(), EventBusTestActivity.class);
                         break;
                     case 2:
                         intent = new Intent(getActivity(), EventBusTestActivity.class);

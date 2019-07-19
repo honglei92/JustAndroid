@@ -207,7 +207,6 @@
             android:launchMode="singleTask" />
         <!--thirdlib-->
         <activity android:name=".module.activity.thirdlib.baidumap.LocationActivity" />
-        <activity android:name=".module.activity.thirdlib.rxjava.RxGDActivity" />
         <activity android:name=".module.activity.thirdlib.mvp.view.UserActivity" />
         <activity android:name=".module.activity.thirdlib.mvpV2.CustomerActivity" />
         <activity android:name=".module.activity.thirdlib.listview.ListTest" />

@@ -16,7 +16,7 @@ android {
         versionName "1.1"
         multiDexEnabled true
         ndk {
-//            abiFilters 'armeabi-v7a'
+            abiFilters 'armeabi',"armeabi-v7a", "x86"
         }
     }
 
@@ -72,13 +72,16 @@ android {
      */
     ext.apiHost = [
             testUrl: '\"http://api-gateway.apitest.hyxtyun.com:8082/\"']
-    flavorDimensions 'env'
+   /* flavorDimensions 'env'
     productFlavors {
         xiaomi {
             versionCode 2
             versionName '1.1'
             buildConfigField "String", "HOST_URL", "$apiHost.testUrl"
             dimension 'env'
+            ndk {
+                abiFilters 'armeabi',"armeabi-v7a", "x86"
+            }
         }
 
         yyb {
@@ -86,8 +89,11 @@ android {
             versionName '1.1'
             buildConfigField "String", "HOST_URL", "$apiHost.testUrl"
             dimension 'env'
+            ndk {
+                abiFilters 'armeabi',"armeabi-v7a", "x86"
+            }
         }
-    }
+    }*/
 
     /**
      * 五、DEX文件构建属性配置（加快构建速度）
