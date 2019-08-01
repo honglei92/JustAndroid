@@ -107,8 +107,8 @@ android {
      * 六、将一个apk拆分成多个相关配置（拆分依据：屏幕密度、系统架构）
      */
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 
     sourceSets {

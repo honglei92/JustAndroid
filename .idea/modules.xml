@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidFundDemo.iml" filepath="$PROJECT_DIR$/AndroidFundDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/JustAndroid.iml" filepath="$PROJECT_DIR$/.idea/JustAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-table-lib/android-table-lib.iml" filepath="$PROJECT_DIR$/android-table-lib/android-table-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />

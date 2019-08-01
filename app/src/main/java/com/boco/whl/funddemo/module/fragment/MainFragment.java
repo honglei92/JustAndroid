@@ -190,44 +190,40 @@ public class MainFragment extends Fragment {
         lp.width = metrics.widthPixels;
         lp.height = metrics.widthPixels * 237 / 421;
         guideIv.setLayoutParams(lp);
-        mainScrollView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_UP:
-                        mScaling = false;
-                        lp.width = metrics.widthPixels;
-                        lp.height = metrics.widthPixels * 237 / 421;
-                        guideIv.setLayoutParams(lp);
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        int upY = v.getScrollY();
-                        float touchY = event.getY();
-                        if (!mScaling) {
-                            if (upY == 0) {
-                                initTouchY = event.getY();
-                            } else {
-                                break;
-                            }
-                        }
-                        float deltaY = touchY - initTouchY;
-                        if (deltaY < 0) {
+        mainScrollView.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_UP:
+                    mScaling = false;
+                    lp.width = metrics.widthPixels;
+                    lp.height = metrics.widthPixels * 237 / 421;
+                    guideIv.setLayoutParams(lp);
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    int upY = v.getScrollY();
+                    float touchY = event.getY();
+                    if (!mScaling) {
+                        if (upY == 0) {
+                            initTouchY = event.getY();
+                        } else {
                             break;
                         }
-
-                        //缩放代码
-                        mScaling = true;
-                        lp.width = (int) (metrics.widthPixels + deltaY * 0.45);
-                        lp.height = (int) ((metrics.widthPixels + deltaY * 0.45) * 237 / 421);
-                        guideIv.setLayoutParams(lp);
-
-                        return true;
-                    default:
+                    }
+                    float deltaY = touchY - initTouchY;
+                    if (deltaY < 0) {
                         break;
-                }
-                return false;
-            }
+                    }
 
+                    //缩放代码
+                    mScaling = true;
+                    lp.width = (int) (metrics.widthPixels + deltaY * 0.45);
+                    lp.height = (int) ((metrics.widthPixels + deltaY * 0.45) * 237 / 421);
+                    guideIv.setLayoutParams(lp);
+
+                    return true;
+                default:
+                    break;
+            }
+            return false;
         });
 
         ViewTreeObserver observer = guideIv.getViewTreeObserver();
@@ -264,81 +260,75 @@ public class MainFragment extends Fragment {
         String[] titles = {"Glide", "RxJava", "EventBus", "RxImage", "RxOperator", "Retrofit", "OkHttp"
                 , "Baidu", "Map", "FusionChart", "MVP1", "MVP2", "kotlin", "listview",
                 "imgCompress", "marquee", "loadImage", "JNI", "FFMPEG", "RetrofitDownload", "updating",
-                "updating", "updating", "updating", "updating", "updating", "updating", "updating",
-                "updating", "updating", "updating", "updating", "updating", "updating", "updating",
-                "updating", "updating", "updating", "updating", "updating", "updating", "updating",
-                "updating", "updating", "updating"
+                "updating"
         };
         CategoryItemAdapter adapter = new CategoryItemAdapter(getActivity(), titles);
         category.setAdapter(adapter);
-        category.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i) {
-                    case 0:
-                        intent = new Intent(getActivity(), GlideTestActivity.class);
-                        break;
-                    case 1:
-                        //rxjava 广东接口
-                        intent = new Intent(getActivity(), EventBusTestActivity.class);
-                        break;
-                    case 2:
-                        intent = new Intent(getActivity(), EventBusTestActivity.class);
-                        break;
-                    case 3:
-                        //rxjava 图片测试
-                        intent = new Intent(getActivity(), RxImageActivity.class);
-                        break;
-                    case 4:
-                        intent = new Intent(getActivity(), RxjavaTestActivity.class);
-                        break;
-                    case 5:
-                        intent = new Intent(getActivity(), RxjavaTestActivity.class);
-                        break;
-                    case 7:
-                        intent = new Intent(getActivity(), SearchActivity.class);
-                        break;
-                    case 8:
-                        intent = new Intent(getActivity(), LocationActivity.class);
-                        break;
-                    case 9:
-                        intent = new Intent(getActivity(), FusionChartTestActivity.class);
-                        break;
-                    case 10:
-                        intent = new Intent(getActivity(), UserActivity.class);
-                        break;
-                    case 11:
-                        intent = new Intent(getActivity(), CustomerActivity.class);
-                        break;
-                    case 12:
-                        break;
-                    case 13:
-                        intent = new Intent(getActivity(), ListTest.class);
-                        break;
-                    case 14:
-                        intent = new Intent(getActivity(), PlayActivity.class);
-                        break;
-                    case 15:
-                        intent = new Intent(getActivity(), MarqueeActivity.class);
-                        break;
-                    case 16:
-                        intent = new Intent(getActivity(), LoadImageActivity.class);
-                        break;
-                    case 17:
-                        intent = new Intent(getActivity(), HelloJni.class);
-                        break;
-                    case 18:
-                        intent = new Intent(getActivity(), PlayActivity.class);
-                        break;
-                    case 19:
-                        intent = new Intent(getActivity(), DownloadApkActivity.class);
-                        break;
-                    default:
-                        break;
-                }
-                if (intent != null) {
-                    startActivity(intent);
-                }
+        category.setOnItemClickListener((adapterView, view, i, l) -> {
+            switch (i) {
+                case 0:
+                    intent = new Intent(getActivity(), GlideTestActivity.class);
+                    break;
+                case 1:
+                    //rxjava 广东接口
+                    intent = new Intent(getActivity(), EventBusTestActivity.class);
+                    break;
+                case 2:
+                    intent = new Intent(getActivity(), EventBusTestActivity.class);
+                    break;
+                case 3:
+                    //rxjava 图片测试
+                    intent = new Intent(getActivity(), RxImageActivity.class);
+                    break;
+                case 4:
+                    intent = new Intent(getActivity(), RxjavaTestActivity.class);
+                    break;
+                case 5:
+                    intent = new Intent(getActivity(), RxjavaTestActivity.class);
+                    break;
+                case 7:
+                    intent = new Intent(getActivity(), SearchActivity.class);
+                    break;
+                case 8:
+                    intent = new Intent(getActivity(), LocationActivity.class);
+                    break;
+                case 9:
+                    intent = new Intent(getActivity(), FusionChartTestActivity.class);
+                    break;
+                case 10:
+                    intent = new Intent(getActivity(), UserActivity.class);
+                    break;
+                case 11:
+                    intent = new Intent(getActivity(), CustomerActivity.class);
+                    break;
+                case 12:
+                    break;
+                case 13:
+                    intent = new Intent(getActivity(), ListTest.class);
+                    break;
+                case 14:
+                    intent = new Intent(getActivity(), PlayActivity.class);
+                    break;
+                case 15:
+                    intent = new Intent(getActivity(), MarqueeActivity.class);
+                    break;
+                case 16:
+                    intent = new Intent(getActivity(), LoadImageActivity.class);
+                    break;
+                case 17:
+                    intent = new Intent(getActivity(), HelloJni.class);
+                    break;
+                case 18:
+                    intent = new Intent(getActivity(), PlayActivity.class);
+                    break;
+                case 19:
+                    intent = new Intent(getActivity(), DownloadApkActivity.class);
+                    break;
+                default:
+                    break;
+            }
+            if (intent != null) {
+                startActivity(intent);
             }
         });
     }
