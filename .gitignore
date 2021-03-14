@@ -8,3 +8,4 @@
 /captures
 .externalNativeBuild
 src/main/java/com/boco/whl/rxjavademo/retrofit/
+.idea

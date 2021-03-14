@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 //apply from: 'tinker-support.gradle'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 29
     buildToolsVersion '28.0.3'
     /**
      * 一、默认产品偏好配置
@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId "com.boco.whl.funddemo"
         minSdkVersion 19
-        targetSdkVersion 27
+        targetSdkVersion 29
         versionCode 2
         versionName "1.1"
         multiDexEnabled true

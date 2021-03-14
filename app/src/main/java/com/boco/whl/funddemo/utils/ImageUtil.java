@@ -96,7 +96,7 @@ public class ImageUtil {
 				paint.setTextSize(30f);
 				if (null != canvas) {
 					StaticLayout layout = new StaticLayout(remark, paint, (width-100), Alignment.ALIGN_NORMAL, 1.0F, 0.0F, true);
-					canvas.save(Canvas.ALL_SAVE_FLAG);
+					canvas.save();
 					canvas.translate(5, 5);
 					layout.draw(canvas);
 					canvas.restore();
