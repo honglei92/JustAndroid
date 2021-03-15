@@ -11,7 +11,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -24,7 +23,6 @@ import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.module.activity.my.SearchActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.LoadImageActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.MarqueeActivity;
-import com.boco.whl.funddemo.module.activity.thirdlib.baidumap.LocationActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.eventbus.EventBusTestActivity;
 import com.boco.whl.funddemo.module.activity.thirdlib.ffmpeg.HelloJni;
 import com.boco.whl.funddemo.module.activity.thirdlib.ffmpeg.PlayActivity;
@@ -290,7 +288,7 @@ public class MainFragment extends Fragment {
                     intent = new Intent(getActivity(), SearchActivity.class);
                     break;
                 case 8:
-                    intent = new Intent(getActivity(), LocationActivity.class);
+                    intent = new Intent(getActivity(), SearchActivity.class);
                     break;
                 case 9:
                     intent = new Intent(getActivity(), FusionChartTestActivity.class);
