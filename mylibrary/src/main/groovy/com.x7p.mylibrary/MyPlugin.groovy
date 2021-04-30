@@ -1,4 +1,4 @@
-package  com.hc.plugin
+package com.x7p.mylibrary
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
