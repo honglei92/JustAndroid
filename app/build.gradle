@@ -195,6 +195,11 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     annotationProcessor 'com.github.Raizlabs.DBFlow:dbflow-processor:4.0.4'
+    // ASM 相关依赖
+    implementation 'org.ow2.asm:asm:7.1'
+    implementation 'org.ow2.asm:asm-commons:7.1'
+
+
 }
 repositories {
     mavenCentral()

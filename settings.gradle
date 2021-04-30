@@ -1,2 +1,4 @@
+include ':mylibrary'
+include ':BuildSrc'
 include ':app', ':android-table-lib'
 

@@ -4,6 +4,9 @@ import com.boco.whl.funddemo.utils.StringUtil;
 
 import org.junit.Test;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -20,5 +23,10 @@ public class StringUtilTest {
         String result = "尼古拉斯凯...";
         System.out.print("转换的结果是:" + StringUtil.overToEllipsis(name, 6));
         assertEquals(result, StringUtil.overToEllipsis(name, 6));
+    }
+
+    @Test
+    public void list() {
+        List<String> list = new LinkedList<String>();
     }
 }

@@ -6,10 +6,12 @@ buildscript {
         jcenter()
         mavenCentral()
         google()
+        maven { url "https://jitpack.io" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
 //        classpath "com.tencent.bugly:tinker-support:1.1.2"
     }
 }
