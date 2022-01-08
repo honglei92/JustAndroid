@@ -1,14 +1,14 @@
 package com.boco.whl.funddemo.widgets;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 
 /**
  * @author honglei92
  * @createTime 2018/5/17 0017
  */
-public class SquareImageView extends android.support.v7.widget.AppCompatImageView {
+public class SquareImageView extends androidx.appcompat.widget.AppCompatImageView {
     public SquareImageView(Context context) {
         super(context);
     }

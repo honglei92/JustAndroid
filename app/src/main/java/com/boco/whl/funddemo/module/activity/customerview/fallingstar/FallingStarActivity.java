@@ -7,7 +7,7 @@ import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.Button;
 
 import com.boco.whl.funddemo.R;

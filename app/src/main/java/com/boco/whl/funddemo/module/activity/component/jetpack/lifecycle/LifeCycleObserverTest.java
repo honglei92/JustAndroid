@@ -1,9 +1,9 @@
 package com.boco.whl.funddemo.module.activity.component.jetpack.lifecycle;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleObserver;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import android.util.Log;
 
 import com.boco.whl.funddemo.config.Constant;

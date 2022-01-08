@@ -15,7 +15,7 @@ import android.view.MotionEvent;
  * </pre>
  * @author Administrator
  */
-public class TouchEventView extends android.support.v7.widget.AppCompatTextView {
+public class TouchEventView extends androidx.appcompat.widget.AppCompatTextView {
     public TouchEventView(Context context) {
         super(context);
     }

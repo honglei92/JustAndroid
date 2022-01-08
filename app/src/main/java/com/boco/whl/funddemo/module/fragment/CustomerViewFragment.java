@@ -4,15 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.androidkun.xtablayout.XTabLayout;
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.module.fragment.customerview.HotFragment;
 import com.boco.whl.funddemo.module.fragment.customerview.ViewFragment;
@@ -31,8 +30,6 @@ public class CustomerViewFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     Unbinder unbinder;
 
-    @BindView(R.id.mTab)
-    XTabLayout mTab;
     @BindView(R.id.mViewPager)
     ViewPager mViewPager;
 
@@ -103,23 +100,6 @@ public class CustomerViewFragment extends Fragment {
             @Override
             public CharSequence getPageTitle(int position) {
                 return titles[position];
-            }
-        });
-        mTab.setupWithViewPager(mViewPager);
-        mTab.addOnTabSelectedListener(new XTabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(XTabLayout.Tab tab) {
-                mViewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(XTabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(XTabLayout.Tab tab) {
-
             }
         });
 //        mViewPager.setOffscreenPageLimit(titles.length);

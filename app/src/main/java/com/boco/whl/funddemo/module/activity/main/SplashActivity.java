@@ -38,14 +38,10 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class SplashActivity extends Activity {
 
-    @BindView(R.id.splash_iv)
-    ImageView splashIv;
-    @BindView(R.id.skip_tv)
-    TextView skipTv;
     boolean isSkip = false;
     int count = 3;
-    @BindView(R.id.mLottieAnimationView)
     LottieAnimationView mLottieAnimationView;
+    TextView skipTv;
 
     private static class WhlHandler extends Handler {
         WeakReference<Activity> mActivityReference;
@@ -95,6 +91,8 @@ public class SplashActivity extends Activity {
         initAnimation();
         //背景图
 //        Glide.with(this).load(splash).into(splashIv);
+        skipTv = findViewById(R.id.skip_tv);
+        mLottieAnimationView = findViewById(R.id.mLottieAnimationView);
     }
 
     /**

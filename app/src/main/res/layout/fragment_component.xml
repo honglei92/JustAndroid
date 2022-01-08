@@ -39,19 +39,12 @@
     </RelativeLayout>
 
 
-    <com.androidkun.xtablayout.XTabLayout
-        android:id="@+id/mTabCom"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        app:xTabDividerWidthWidthText="true"
-        app:xTabIndicatorColor="@color/colorPrimary"
-        app:xTabSelectedTextColor="@color/colorPrimary" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp" />
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/mViewPagerCom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -1,11 +1,12 @@
 package com.boco.whl.funddemo.entity;
 
-import android.databinding.BaseObservable;
-import android.databinding.BindingAdapter;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.BindingAdapter;
+import androidx.databinding.library.baseAdapters.BR;
+
 import android.text.TextUtils;
 import android.widget.ImageView;
 
-import com.android.databinding.library.baseAdapters.BR;
 import com.boco.whl.funddemo.utils.image.ImageLoader;
 
 

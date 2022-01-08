@@ -5,7 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.multidex.MultiDex;
+import androidx.multidex.MultiDex;
 
 import com.boco.whl.funddemo.config.Constant;
 import com.tencent.bugly.Bugly;

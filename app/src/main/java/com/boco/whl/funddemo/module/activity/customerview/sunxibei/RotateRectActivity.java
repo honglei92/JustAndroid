@@ -6,7 +6,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.base.BaseActivity;

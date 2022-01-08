@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.widget.RadioButton;
 
 import com.boco.whl.funddemo.R;
 
@@ -12,7 +11,7 @@ import com.boco.whl.funddemo.R;
 /**
  * honglei92
  */
-public class MyRadioButton extends RadioButton {
+public class MyRadioButton extends androidx.appcompat.widget.AppCompatRadioButton {
 
     private int mDrawableSize;// xml文件中设置的大小
 

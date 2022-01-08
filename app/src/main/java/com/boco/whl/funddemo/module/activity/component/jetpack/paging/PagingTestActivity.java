@@ -1,7 +1,7 @@
 package com.boco.whl.funddemo.module.activity.component.jetpack.paging;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.boco.whl.funddemo.R;
 import com.boco.whl.funddemo.base.BaseActivity;

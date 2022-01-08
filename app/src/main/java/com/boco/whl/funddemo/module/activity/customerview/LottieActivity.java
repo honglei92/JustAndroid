@@ -1,7 +1,7 @@
 package com.boco.whl.funddemo.module.activity.customerview;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
